@@ -143,7 +143,7 @@ img {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('https://assets.artworkarchive.com/image/upload/c_limit,w_1920/v1/user_111754/Wave_200x210_2018_copia_njihtr.jpg?v=2');
+  background-image: url('https://assets.artworkarchive.com/image/upload/v1/user_111754/Wave_200x210_2018_copia_njihtr.jpg');
   background-size: cover;
   background-position: center;
   z-index: 1;
