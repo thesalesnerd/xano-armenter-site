@@ -1,0 +1,942 @@
+[
+  {
+    "title": "About the future",
+    "year": "2018",
+    "medium": "Acrylic on canvas",
+    "dimensions": "46 x 38 cm",
+    "subject": null,
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/16._2018_About_The_Future_-_46x38_-_acrilic_sobre_tela_a1mkub.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/about-the-future",
+    "price": "$1,500"
+  },
+  {
+    "title": "Taula de treball 2",
+    "year": "2018",
+    "medium": "Acrylic on canvas",
+    "dimensions": "55 x 65 cm",
+    "subject": "Still Life",
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/17._2018_Taula_de_treball_2_-_50x65_-_acrilic_sobre_tela_nffshk.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/taula-de-treball-2"
+  },
+  {
+    "title": "Ultramar 1",
+    "year": "2018",
+    "medium": "Acrylic on canvas",
+    "dimensions": "166 x 128 cm",
+    "subject": "Marine",
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/Seascape_1_165x128_Tela_2018_yi43mp.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/ultramar-1"
+  },
+  {
+    "title": "Ultramar 2 / Underwater 2",
+    "year": "2018",
+    "medium": "Acrylic on canvas",
+    "dimensions": "166 x 128 cm",
+    "subject": "Marine",
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/Seascape_3_165x128_Tela_2018_vrsh0t.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/ultramar-2-underwater-2"
+  },
+  {
+    "title": "Ultramar 3",
+    "year": "2018",
+    "medium": "Acrylic on canvas",
+    "dimensions": "166 x 128 cm",
+    "subject": "Marine",
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/Seascape_2_165x128_Tela_2018_jvjjnm.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/ultramar-3"
+  },
+  {
+    "title": "Ultramar 4 / Underwater 4",
+    "year": "2018",
+    "medium": "Acrylic on canvas",
+    "dimensions": "166 x 128 cm",
+    "subject": "Marine",
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/Seascape_4_165x128_Tela_2018_xffzkp.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/ultramar-4-underwater-4"
+  },
+  {
+    "title": "Wave",
+    "year": "2018",
+    "medium": "Acrylic on canvas",
+    "dimensions": "162 x 180 cm",
+    "subject": "Landscape",
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/Wave_200x210_2018_copia_njihtr.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/wave-xano-armenter",
+    "price": "$5,000"
+  },
+  {
+    "title": "A un poema de Rossend Bonas (serie de 4 piezas)",
+    "year": "~2017",
+    "medium": "Acrylic on paper",
+    "dimensions": "38 x 50 cm",
+    "subject": null,
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3240_tfycf5.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/a-un-poema-de-rossend-bonas-serie-de-4-piezas"
+  },
+  {
+    "title": "Jo pintor",
+    "year": "~2017",
+    "medium": "Acrylic on canvas",
+    "dimensions": "50 x 65 cm",
+    "subject": null,
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3246_dftskd.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/jo-pintor"
+  },
+  {
+    "title": "Pampagulles",
+    "year": "~2017",
+    "medium": "Acrylic on canvas",
+    "dimensions": "107 x 91 cm",
+    "subject": null,
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3237_twunzg.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/pampagulles"
+  },
+  {
+    "title": "Street walkby",
+    "year": "~2017",
+    "medium": "Oil on aluminium",
+    "dimensions": "42 x 59 cm",
+    "subject": "Urban",
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3277_hdjrya.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/street-walkby"
+  },
+  {
+    "title": "La cova dels colors (Retina 2)",
+    "year": "~2016",
+    "medium": "Acrylic on canvas",
+    "dimensions": "150 x 150 cm",
+    "subject": "Abstract",
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/2016_La_Cova_dels_Colors_Retina_2_-_150x150_tela_rtuq9u.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/la-cova-dels-colors-retina-2"
+  },
+  {
+    "title": "Agora",
+    "year": "2015",
+    "medium": "Acrylic on canvas",
+    "dimensions": "54 x 65 cm",
+    "subject": null,
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3286_uubbfl.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/agora-xano-armenter"
+  },
+  {
+    "title": "Carrer ple de gent",
+    "year": "2015",
+    "medium": null,
+    "dimensions": "65 x 54 cm",
+    "subject": "Urban",
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3290_x5lgij.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/carrer-ple-de-gent"
+  },
+  {
+    "title": "Chanel sources",
+    "year": "2015",
+    "medium": "Acrylic on canvas",
+    "dimensions": "46 x 38 cm",
+    "subject": "Still Life",
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3293_pvh8sr.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/chanel-sources"
+  },
+  {
+    "title": "En el aire",
+    "year": "2015",
+    "medium": "Acrylic on canvas",
+    "dimensions": "54 x 65 cm",
+    "subject": null,
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3288_d2fjuq.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/en-el-aire-xano-armenter"
+  },
+  {
+    "title": "Seres invisibles",
+    "year": "2015",
+    "medium": "Acrylic on canvas",
+    "dimensions": "54 x 66 cm",
+    "subject": null,
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3284_gpkr6a.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/seres-invisibles"
+  },
+  {
+    "title": "La riqueza / Content is waiting",
+    "year": "2014",
+    "medium": "Acrylic on canvas",
+    "dimensions": "38 x 46 cm",
+    "subject": null,
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3296_rqb8yb.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/la-riqueza-content-is-waiting"
+  },
+  {
+    "title": "Public and private",
+    "year": "2014",
+    "medium": "Oil on aluminium",
+    "dimensions": "50 x 66 cm",
+    "subject": "Urban",
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3280_dpgk5x.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/public-and-private"
+  },
+  {
+    "title": "Sense parets",
+    "year": "2014",
+    "medium": "Acrylic on canvas",
+    "dimensions": "80 x 80 cm",
+    "subject": null,
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/2014_Sense_Parets_-_80x80_tela_fqbnz2.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/sense-parets"
+  },
+  {
+    "title": "Beach",
+    "year": "2013",
+    "medium": "iPad print",
+    "dimensions": null,
+    "subject": "Landscape",
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3302_m5cvwx.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/beach-xano-armenter"
+  },
+  {
+    "title": "Break More Walls",
+    "year": "2013",
+    "medium": "Acrylic on canvas",
+    "dimensions": "150 x 150 cm",
+    "subject": "Abstract",
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3209_swvsye.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/break-more-walls"
+  },
+  {
+    "title": "City 1 and City 2",
+    "year": "2012",
+    "medium": "Acrylic on canvas",
+    "dimensions": "56 x 84 cm",
+    "subject": "Urban",
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3264_x11vip.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/city-1-and-city-2"
+  },
+  {
+    "title": "Drops 1",
+    "year": "2012",
+    "medium": "Oil on canvas",
+    "dimensions": "46 x 38 cm",
+    "subject": "Abstract",
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3268_i2gqda.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/drops-1"
+  },
+  {
+    "title": "Not nothing",
+    "year": "2012",
+    "medium": "Oil on canvas",
+    "dimensions": "65 x 54 cm",
+    "subject": null,
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3270_ioafty.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/not-nothing-xano-armenter"
+  },
+  {
+    "title": "Broken walls 2",
+    "year": "2011",
+    "medium": "Acrylic on canvas",
+    "dimensions": "150 x 150 cm",
+    "subject": "Abstract",
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/2011_Broken-Walls_2_150x150_tela_qij1n7.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/broken-walls-2"
+  },
+  {
+    "title": "Celebration",
+    "year": "2011",
+    "medium": "Oil on canvas",
+    "dimensions": "54 x 65 cm",
+    "subject": null,
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3271_nyklhc.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/celebration-xano-armenter"
+  },
+  {
+    "title": "Close up unit",
+    "year": "2011",
+    "medium": "Acrylic on canvas",
+    "dimensions": "30 x 30 cm",
+    "subject": "Abstract",
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3299_snyqv1.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/close-up-unit"
+  },
+  {
+    "title": "Exoplaneta",
+    "year": "2011",
+    "medium": "Acrylic on canvas",
+    "dimensions": "30 x 90 cm",
+    "subject": "Abstract",
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3214_r9ohwb.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/exoplaneta"
+  },
+  {
+    "title": "Explorer",
+    "year": "2011",
+    "medium": "Acrylic on canvas",
+    "dimensions": "46 x 38 cm",
+    "subject": null,
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/10._2011_Explorer_-_46x38_-_acrilic_sobre_tela_dhcoys.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/explorer-xano-armenter"
+  },
+  {
+    "title": "Burning Room",
+    "year": "2009",
+    "medium": "Acrylic on canvas",
+    "dimensions": "54 x 65 cm",
+    "subject": "Still Life",
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3253_xatwxg.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/burning-room"
+  },
+  {
+    "title": "Finestra oberta",
+    "year": "2008",
+    "medium": "Acrylic on canvas",
+    "dimensions": "60 x 73 cm",
+    "subject": "Still Life",
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3254_nv5kro.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/finestra-oberta"
+  },
+  {
+    "title": "Lo viejo y lo nuevo",
+    "year": "2008",
+    "medium": "Acrylic on canvas",
+    "dimensions": "8 x 60 cm",
+    "subject": null,
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3256_ykkr3l.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/lo-viejo-y-lo-nuevo"
+  },
+  {
+    "title": "Pintar la natura",
+    "year": "2005",
+    "medium": "Acrylic on canvas",
+    "dimensions": "54 x 65 cm",
+    "subject": "Landscape",
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/pintar-la-natura"
+  },
+  {
+    "title": "Abstraccio de paisatge",
+    "year": "2004",
+    "medium": "Acrylic on canvas",
+    "dimensions": "54 x 65 cm",
+    "subject": "Abstract",
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3194_xdkdab.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/abstraccio-de-paisatge"
+  },
+  {
+    "title": "Abstraccio de paisatge 2",
+    "year": "2004",
+    "medium": "Oil on canvas",
+    "dimensions": "54 x 65 cm",
+    "subject": "Abstract",
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3196_zr89ty.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/abstraccio-de-paisatge-2"
+  },
+  {
+    "title": "Caterina",
+    "year": "2004",
+    "medium": "Acrylic on canvas",
+    "dimensions": "65 x 54 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/caterina-xano-armenter"
+  },
+  {
+    "title": "Pintar la natura 2",
+    "year": "2004",
+    "medium": "Acrylic on canvas",
+    "dimensions": "65 x 54 cm",
+    "subject": "Landscape",
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/pintar-la-natura-2"
+  },
+  {
+    "title": "Tornar al origen",
+    "year": "2004",
+    "medium": "Acrilico sobre telaL",
+    "dimensions": "108 x 92 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/tornar-al-origen"
+  },
+  {
+    "title": "Dark hour",
+    "year": "2002",
+    "medium": "Acrylic on canvas",
+    "dimensions": "38 x 46 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/dark-hour"
+  },
+  {
+    "title": "Les Ferreres",
+    "year": "2002",
+    "medium": "Oil on canvas",
+    "dimensions": "50 x 65 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/les-ferreres"
+  },
+  {
+    "title": "Luz blanca / White Light",
+    "year": "2002",
+    "medium": "Acrylic on canvas",
+    "dimensions": "50 x 65 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/luz-blanca-white-ligth"
+  },
+  {
+    "title": "Studio formula",
+    "year": "2002",
+    "medium": "Acrylic on canvas",
+    "dimensions": "60 x 60 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/studio-formula"
+  },
+  {
+    "title": "Ciutat oberta",
+    "year": "2001",
+    "medium": "Acrylic on canvas",
+    "dimensions": "50 x 65 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/ciutat-oberta"
+  },
+  {
+    "title": "Red table with yellow bird",
+    "year": "~2001",
+    "medium": "Acrylic on canvas",
+    "dimensions": "114 x 146 cm",
+    "subject": "Still Life",
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/red-table-with-yellow-bird"
+  },
+  {
+    "title": "Studio corner",
+    "year": "1997",
+    "medium": "Acrylic on canvas",
+    "dimensions": "65 x 68 cm",
+    "subject": "Still Life",
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/studio-corner-xano-armenter"
+  },
+  {
+    "title": "La mente tambien juega (Opening)",
+    "year": "1996",
+    "medium": "Acrylic on canvas",
+    "dimensions": "92 x 81 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/la-mente-tambien-juega-opening"
+  },
+  {
+    "title": "Lets Dance",
+    "year": "~1994",
+    "medium": "Acrylic on paper",
+    "dimensions": "35 x 62 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/lets-dance-xano-armenter"
+  },
+  {
+    "title": "The club",
+    "year": "1993",
+    "medium": "Acrylic on canvas",
+    "dimensions": "178 x 122 cm",
+    "subject": "Urban",
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/the-club-xano-armenter"
+  },
+  {
+    "title": "The New Baby",
+    "year": "~1992",
+    "medium": "Oil on canvas",
+    "dimensions": "100 x 81 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/the-new-baby-xano-armenter",
+    "price": "$30,000"
+  },
+  {
+    "title": "Continium",
+    "year": "1991",
+    "medium": "Acrylic on canvas",
+    "dimensions": "81 x 65 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/continium"
+  },
+  {
+    "title": "Graffiti Town",
+    "year": "1991",
+    "medium": "Acrylic on canvas",
+    "dimensions": null,
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/graffiti-town-xano-armenter",
+    "price": "$16,000"
+  },
+  {
+    "title": "Hot pipes",
+    "year": "1991",
+    "medium": "Acrylic on canvas",
+    "dimensions": "100 x 81 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/hot-pipes"
+  },
+  {
+    "title": "Ingeni I",
+    "year": "1991",
+    "medium": "Acrylic on canvas",
+    "dimensions": "130 x 180 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/ingeni-i"
+  },
+  {
+    "title": "Ingeni II",
+    "year": "1991",
+    "medium": "Acrylic on canvas",
+    "dimensions": "180 x 130 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/ingeni-ii",
+    "price": "$16,000"
+  },
+  {
+    "title": "Ingeni III",
+    "year": "1991",
+    "medium": "Acrylic on canvas",
+    "dimensions": "180 x 130 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/ingeni-iii",
+    "price": "$12,000"
+  },
+  {
+    "title": "Ingeni petit",
+    "year": "1991",
+    "medium": "Acrylic on paper",
+    "dimensions": "40 x 33 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/ingeni-petit"
+  },
+  {
+    "title": "Jerry's Lab",
+    "year": "1991",
+    "medium": "Acrylic on canvas",
+    "dimensions": "100 x 81 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/jerry-s-lab"
+  },
+  {
+    "title": "La Reserva",
+    "year": "1991",
+    "medium": "Acrylic on paper",
+    "dimensions": null,
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/la-reserva",
+    "price": "$14,000"
+  },
+  {
+    "title": "Laberint",
+    "year": "1991",
+    "medium": "Acrylic on canvas",
+    "dimensions": "200 x 225 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/laberint"
+  },
+  {
+    "title": "Laboratori",
+    "year": "1991",
+    "medium": "Acrylic on canvas",
+    "dimensions": "93 x 103 cm",
+    "subject": null,
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3156_naxe9c.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/laboratori"
+  },
+  {
+    "title": "Loop",
+    "year": "1991",
+    "medium": "Acrylic on canvas",
+    "dimensions": "38 x 46 cm",
+    "subject": null,
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3118_yrzm94.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/loop-xano-armenter"
+  },
+  {
+    "title": "Mecanic",
+    "year": "1991",
+    "medium": "Acrylic on canvas",
+    "dimensions": "130 x 97 cm",
+    "subject": null,
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3155_xnb3bz.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/mecanic"
+  },
+  {
+    "title": "Monotipo",
+    "year": "1991",
+    "medium": "Ink On Paper",
+    "dimensions": "68 x 48 cm",
+    "subject": "Still Life",
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3224_dlbwwr.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/monotipo-xano-armenter"
+  },
+  {
+    "title": "Red Pipe",
+    "year": "1991",
+    "medium": "Acrylic on canvas",
+    "dimensions": "38 x 46 cm",
+    "subject": "Still Life",
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3272_kbuy1k.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/red-pipe-xano-armenter"
+  },
+  {
+    "title": "Secret formula",
+    "year": "~1991",
+    "medium": "Acrylic on canvas",
+    "dimensions": "100 x 81 cm",
+    "subject": "Still Life",
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3153_vlgfsy.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/secret-formula"
+  },
+  {
+    "title": "Sota No",
+    "year": "~1991",
+    "medium": null,
+    "dimensions": "99 x 128 cm",
+    "subject": null,
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3165_2_xd2ks9.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/sota-no"
+  },
+  {
+    "title": "The Fool (Retrat)",
+    "year": "1991",
+    "medium": "Acrylic on canvas",
+    "dimensions": "96 x 138 cm",
+    "subject": null,
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3140_jhaldl.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/the-fool-retrat",
+    "price": "$16,000"
+  },
+  {
+    "title": "La Siesta",
+    "year": "1990",
+    "medium": "Oil on canvas",
+    "dimensions": null,
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/la-siesta-xano-armenter"
+  },
+  {
+    "title": "Painting mix",
+    "year": "1990",
+    "medium": "Oil on canvas",
+    "dimensions": "100 x 80 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/painting-mix"
+  },
+  {
+    "title": "Paisatge pintat",
+    "year": "1990",
+    "medium": "Oil on canvas",
+    "dimensions": "8 x 100 cm",
+    "subject": "Landscape",
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/paisatge-pintat"
+  },
+  {
+    "title": "The Truck Driver",
+    "year": "~1990",
+    "medium": "Acrylic on canvas",
+    "dimensions": null,
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/the-truck-driver",
+    "price": "$18,000"
+  },
+  {
+    "title": "Dos figuras",
+    "year": "~1989",
+    "medium": "Acrylic on paper",
+    "dimensions": "93 x 66 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/dos-figuras-xano-armenter"
+  },
+  {
+    "title": "House",
+    "year": "1989",
+    "medium": "Acrylic on paper",
+    "dimensions": "66 x 93 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/house-xano-armenter"
+  },
+  {
+    "title": "No Se Conocen",
+    "year": "~1989",
+    "medium": "Acrylic on paper",
+    "dimensions": "114 x 146 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/no-se-conocen",
+    "price": "$25,000"
+  },
+  {
+    "title": "Big Move",
+    "year": "~1986",
+    "medium": "Oil on canvas",
+    "dimensions": "146 x 114 cm",
+    "subject": null,
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3163_cb8bpa.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/big-move"
+  },
+  {
+    "title": "Interesting (Red & black)",
+    "year": "1986",
+    "medium": "Oil on canvas",
+    "dimensions": "168 x 123 cm",
+    "subject": null,
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3114_ddyzey.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/interesting-red-black"
+  },
+  {
+    "title": "La Visita",
+    "year": "~1986",
+    "medium": "Oil on canvas",
+    "dimensions": "100 x 81 cm",
+    "subject": null,
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3127_kqzddg.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/la-visita-xano-armenter",
+    "price": "$30,000"
+  },
+  {
+    "title": "Sink",
+    "year": "1986",
+    "medium": "Oil on canvas",
+    "dimensions": "130 x 122 cm",
+    "subject": null,
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3105_ciqgve.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/sink-xano-armenter"
+  },
+  {
+    "title": "The breakfast",
+    "year": "1986",
+    "medium": "Oil on canvas",
+    "dimensions": "134 x 160 cm",
+    "subject": null,
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3095_kesyu7.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/the-breakfast"
+  },
+  {
+    "title": "Dirty dishes",
+    "year": "1984",
+    "medium": "Oil on canvas",
+    "dimensions": "100 x 136 cm",
+    "subject": null,
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3109_v1sn5l.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/dirty-dishes-xano-armenter"
+  },
+  {
+    "title": "El Bostezo",
+    "year": "~1984",
+    "medium": "Oil on canvas",
+    "dimensions": "92 x 74 cm",
+    "subject": null,
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3160_jpiu96.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/el-bostezo",
+    "price": "$10,000"
+  },
+  {
+    "title": "Wallpaper city",
+    "year": "~1984",
+    "medium": "Acrylic on paper",
+    "dimensions": "25 x 46 cm",
+    "subject": "Urban",
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3204_2_rhhoeb.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/wallpaper-city"
+  },
+  {
+    "title": "Estudi de estudi",
+    "year": "1980",
+    "medium": "Oil on canvas",
+    "dimensions": "146 x 114 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/estudi-de-estudi"
+  },
+  {
+    "title": "Candy fallout",
+    "year": "1979",
+    "medium": "Oil on canvas",
+    "dimensions": "146 x 114 cm",
+    "subject": null,
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3162_gyzjwz.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/candy-fallout"
+  },
+  {
+    "title": "Desnudo",
+    "year": "1979",
+    "medium": "Oil on canvas",
+    "dimensions": "81 x 100 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/desnudo-xano-armenter"
+  },
+  {
+    "title": "Doce y diez",
+    "year": "1979",
+    "medium": "Oil on canvas",
+    "dimensions": "81 x 100 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/doce-y-diez"
+  },
+  {
+    "title": "Plantas",
+    "year": "1979",
+    "medium": "Oil on canvas",
+    "dimensions": "100 x 72 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/plantas-xano-armenter"
+  },
+  {
+    "title": "Taula de treball",
+    "year": "1979",
+    "medium": "Oil on canvas",
+    "dimensions": "81 x 81 cm",
+    "subject": "Still Life",
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/taula-de-treball"
+  },
+  {
+    "title": "Bodegon Amb Marge",
+    "year": "~1978",
+    "medium": "Oil on canvas",
+    "dimensions": null,
+    "subject": "Still Life",
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/bodegon-amb-marge"
+  },
+  {
+    "title": "Martini lady",
+    "year": "~1978",
+    "medium": "Oil on canvas",
+    "dimensions": "100 x 81 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/martini-lady-xano-armenter"
+  },
+  {
+    "title": "Playa Negra",
+    "year": "~1978",
+    "medium": "Oil on canvas",
+    "dimensions": "114 x 146 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/playa-negra",
+    "price": "$20,000"
+  },
+  {
+    "title": "Dirty dishes",
+    "year": null,
+    "medium": "Oil on canvas",
+    "dimensions": "100 x 136 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter"
+  },
+  {
+    "title": "Estudi de estudi",
+    "year": null,
+    "medium": "Oil on canvas",
+    "dimensions": "146 x 114 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter"
+  },
+  {
+    "title": "Hot pipes",
+    "year": null,
+    "medium": "Acrylic on canvas",
+    "dimensions": "100 x 81 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter"
+  },
+  {
+    "title": "Ingeni petit",
+    "year": null,
+    "medium": "Acrylic on paper",
+    "dimensions": "40 x 33 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter"
+  },
+  {
+    "title": "Las abuelas",
+    "year": null,
+    "medium": "Oil on canvas",
+    "dimensions": null,
+    "subject": null,
+    "image": "https://assets.artworkarchive.com/image/upload/c_limit,w_1200/v1/user_111754/IMG_3200_bdnwwp.jpg?v=2",
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/las-abuelas"
+  },
+  {
+    "title": "Luz blanca /White Ligth",
+    "year": null,
+    "medium": "Acrylic on canvas",
+    "dimensions": "50 x 65 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter"
+  },
+  {
+    "title": "Monotipo",
+    "year": null,
+    "medium": "Ink On Paper",
+    "dimensions": "68 x 48 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter"
+  },
+  {
+    "title": "Multiples realitats",
+    "year": null,
+    "medium": "Acrylic on canvas",
+    "dimensions": "60 x 60 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/multiples-realitats"
+  },
+  {
+    "title": "Pineda de Olle Pinell",
+    "year": null,
+    "medium": null,
+    "dimensions": null,
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter/artwork/pineda-de-olle-pinell"
+  },
+  {
+    "title": "Sense parets",
+    "year": null,
+    "medium": "Acrylic on canvas",
+    "dimensions": "80 x 80 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter"
+  },
+  {
+    "title": "Seres invisibles",
+    "year": null,
+    "medium": "Acrylic on canvas",
+    "dimensions": "54 x 66 cm",
+    "subject": null,
+    "image": null,
+    "aa_url": "https://www.artworkarchive.com/profile/xano-armenter"
+  }
+]

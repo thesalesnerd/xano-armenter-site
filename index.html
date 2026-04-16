@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xano Armenter — Artist</title>
+  <meta name="description" content="Xano Armenter — Catalán artist navigating between chaos and structure, spontaneity and precision. Painting, printmaking, and commissions spanning Barcelona, New York, and Los Angeles since 1975.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <a href="#" class="nav__name">Xano Armenter</a>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#gallery">Work</a></li>
+      <li><a href="#exhibitions">Exhibitions</a></li>
+      <li><a href="#connect">Connect</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero" id="hero">
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <h1 class="hero__title">Xano<br>Armenter</h1>
+      <p class="hero__subtitle">Painting between chaos and structure since 1975</p>
+      <a href="#gallery" class="hero__cta">Explore the Work</a>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="about__grid">
+        <div class="about__text">
+          <h2 class="section__title">About</h2>
+          <p class="about__lead">Born in Las Palmas de Gran Canaria in 1956, Xano Armenter has spent five decades navigating the space between what we see and what we perceive.</p>
+          <p>His inner drive to recreate visual impressions began with the onset of an eye illness at the age of two, when he also lost his mother. Not having his sight for extended periods transformed the way he saw and appreciated everything around him. When his eyesight returned, his perception of the world became vibrant and alive in ways most people never experience.</p>
+          <p>After studying art and design at the Escola Eina in Barcelona under experimental teachers, he moved to New York in 1980. During the vibrant East Village days of the 1980s, he worked with Milton Glaser, who became his mentor. The energy of New York's graffiti landscapes and downtown art scene left a permanent mark on his practice.</p>
+          <p>He moved to Los Angeles in 1993, where his language shifted toward an abstraction that never fully detaches from its figurative roots. His work has blossomed across mediums and contexts — from canvas to fresco walls, from rugs to wine bottles, from high-end hotels to hospital corridors — in America, Europe, and Asia.</p>
+          <p>To him, painting is a joyous visual chess problem — one that challenges both artist and observer to question and decipher the nature of art as a reflection of the external world.</p>
+          <p class="about__note">Currently teaching illustration, color, and graphic design at Istituto Europeo di Design (IED). President of Barcelona's historic Cercle Artístic de Sant Lluc. Represented by <a href="https://kbhfineart.com/artists/xano-armenter/" target="_blank" rel="noopener">KBH Fine Art</a>.</p>
+        </div>
+        <div class="about__aside">
+          <div class="about__facts">
+            <div class="about__fact">
+              <span class="about__fact-number">50+</span>
+              <span class="about__fact-label">Years Creating</span>
+            </div>
+            <div class="about__fact">
+              <span class="about__fact-number">3</span>
+              <span class="about__fact-label">Continents</span>
+            </div>
+            <div class="about__fact">
+              <span class="about__fact-number">40+</span>
+              <span class="about__fact-label">Solo Shows</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="section gallery" id="gallery">
+    <div class="container">
+      <h2 class="section__title">Work</h2>
+      <div class="gallery__filters" id="galleryFilters">
+        <button class="gallery__filter active" data-filter="all">All</button>
+      </div>
+      <div class="gallery__grid" id="galleryGrid">
+        <!-- Populated by JS from artwork.json -->
+      </div>
+      <div class="gallery__empty" id="galleryEmpty" style="display:none;">
+        No works match this filter.
+      </div>
+    </div>
+  </section>
+
+  <!-- Artwork Detail Modal -->
+  <div class="modal" id="artworkModal">
+    <button class="modal__close" id="modalClose" aria-label="Close">&times;</button>
+    <div class="modal__content">
+      <div class="modal__image-wrap">
+        <img class="modal__image" id="modalImage" src="" alt="">
+      </div>
+      <div class="modal__info">
+        <h3 class="modal__title" id="modalTitle"></h3>
+        <p class="modal__meta" id="modalMeta"></p>
+        <p class="modal__dimensions" id="modalDimensions"></p>
+        <p class="modal__subject" id="modalSubject"></p>
+        <a class="modal__link" id="modalLink" href="" target="_blank" rel="noopener">View on Artwork Archive →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exhibitions -->
+  <section class="section exhibitions" id="exhibitions">
+    <div class="container">
+      <h2 class="section__title">Exhibitions</h2>
+      <div class="exhibitions__tabs">
+        <button class="exhibitions__tab active" data-tab="solo">Solo Shows</button>
+        <button class="exhibitions__tab" data-tab="group">Group Shows</button>
+        <button class="exhibitions__tab" data-tab="commissions">Commissions</button>
+        <button class="exhibitions__tab" data-tab="collections">Collections</button>
+      </div>
+
+      <div class="exhibitions__panel active" id="panel-solo">
+        <ul class="exhibitions__list">
+          <li><span class="year">2020</span> American Paintings New York + Los Angeles 1985-1999, Centre Cultural Terrassa, Barcelona</li>
+          <li><span class="year">2019</span> Seeing beneath the walls, Castell de Benedormiens, Girona</li>
+          <li><span class="year">2017</span> Galeria Àmbit, Barcelona</li>
+          <li><span class="year">2014</span> Galeria Àmbit, Barcelona</li>
+          <li><span class="year">2011</span> Blanc i Negre, Galeria Àmbit, Barcelona</li>
+          <li><span class="year">2010</span> Art &amp; Design, Barcelona</li>
+          <li><span class="year">2008</span> The Heartbeat of the Earth, Convent of San Salvador, Horta de Sant Joan</li>
+          <li><span class="year">2008</span> Hotel Santuari, Balaguer</li>
+          <li><span class="year">2008</span> Galeria Àmbit, Barcelona</li>
+          <li><span class="year">2006</span> Other Realities, 4Spais d'Art, Balaguer</li>
+          <li><span class="year">2005</span> Galeria Àmbit, Barcelona</li>
+          <li><span class="year">2003</span> Retrovisor 93-03, Galeria Àmbit, Barcelona</li>
+          <li><span class="year">2002</span> Paraisos perdidos, Sala Parés, Barcelona</li>
+          <li><span class="year">2001</span> Compact Art, Rrose Sélavy, Barcelona</li>
+          <li><span class="year">2001</span> New Art, Barcelona</li>
+          <li><span class="year">1998</span> 100 Days, Círculo de Bellas Artes, Madrid</li>
+          <li><span class="year">1998</span> ARCO, Madrid</li>
+          <li><span class="year">1998</span> Galeria Trama, Barcelona</li>
+          <li><span class="year">1997</span> New Art, Galeria Trama, Barcelona</li>
+          <li><span class="year">1997</span> 1551 Gallery, Los Angeles</li>
+          <li><span class="year">1996</span> Galeria Trama, Barcelona</li>
+          <li><span class="year">1995</span> Galeria Trama, Barcelona</li>
+          <li><span class="year">1994</span> Filters, Galeria Trama, Barcelona</li>
+          <li><span class="year">1994</span> ARCO (Galeria Trama), Madrid</li>
+          <li><span class="year">1993</span> Commenoz Gallery, Miami</li>
+          <li><span class="year">1992</span> Sala Parés, Barcelona</li>
+          <li><span class="year">1991</span> Por mutuo acuerdo, Sala Vinçon, Barcelona</li>
+          <li><span class="year">1991</span> Francesc Cullel, Olot</li>
+          <li><span class="year">1990</span> Catalunya Gallery, Tokyo</li>
+          <li><span class="year">1990</span> Sala Parés, Barcelona</li>
+          <li><span class="year">1989</span> Galeria Bisart, Palma de Mallorca</li>
+          <li><span class="year">1988</span> L'Hippodrome, Lille, France</li>
+          <li><span class="year">1987</span> Galeria René Métras, Barcelona</li>
+          <li><span class="year">1986</span> The Big Picture, Sala Vinçon, Barcelona</li>
+          <li><span class="year">1986</span> Limbo Lounge Gallery, New York</li>
+          <li><span class="year">1983</span> Sa Llumenera, Cadaqués</li>
+          <li><span class="year">1983</span> Escola d'Art i Disseny Eina, Barcelona</li>
+          <li><span class="year">1978</span> Taller Picasso, Barcelona</li>
+          <li><span class="year">1975</span> Taller Picasso, Barcelona</li>
+        </ul>
+      </div>
+
+      <div class="exhibitions__panel" id="panel-group">
+        <ul class="exhibitions__list">
+          <li><span class="year">2024</span> Il·luminats, Mater: Casa Museo, Barcelona</li>
+          <li><span class="year">2023</span> Ultralocal, Mater: Casa Museo, Barcelona</li>
+          <li><span class="year">2022</span> Galeria Ola, Barcelona</li>
+          <li><span class="year">2014</span> Record'Art Cadaqués, multiple galleries</li>
+          <li><span class="year">2011</span> Arte Navas, Las Navas del Marqués, Ávila</li>
+          <li><span class="year">2009</span> I Have A Dream, International exhibition, New York</li>
+          <li><span class="year">2008</span> Private Life (Joseph Ma Civil collection), CDAN, Huesca</li>
+          <li><span class="year">2007</span> Concor, Knud Hartung, Munich</li>
+          <li><span class="year">2006</span> Maravillas, Galeria d'Art Pilar Riberaygua, Andorra la Vella</li>
+          <li><span class="year">2002</span> Dualitats, Sala Parés, Barcelona</li>
+          <li><span class="year">2001</span> La Bib Collection, La Santa Projectos Culturales, Barcelona</li>
+          <li><span class="year">2000</span> EURO-World, Frankfurt</li>
+          <li><span class="year">1996</span> Essències (Col·lecció Ernesto Omedes), Barcelona</li>
+          <li><span class="year">1994</span> La Magia de la Ciutat, Fundació "la Caixa", Barcelona</li>
+          <li><span class="year">1993</span> LA Exhibition, Municipal Art Gallery, Hollywood</li>
+          <li><span class="year">1992</span> A Barcelona, Sala Parés, Barcelona</li>
+          <li><span class="year">1991</span> Line, Space &amp; Expression, Commenoz Gallery, Miami</li>
+          <li><span class="year">1990</span> Catalonia 90's, The Armory, New York</li>
+          <li><span class="year">1990</span> Lyon &amp; Barcelona, Galerie Michel Guinle, Lyon</li>
+          <li><span class="year">1990</span> Art Expo, Tokyo</li>
+          <li><span class="year">1989</span> 5 Artistes d'Eina, Sala Parés, Barcelona</li>
+          <li><span class="year">1989</span> Bowery Papers, Galeria Pergamon, Barcelona</li>
+          <li><span class="year">1989</span> Catalan Latest Art Exhibition, Catalunya Gallery, Tokyo</li>
+          <li><span class="year">1988</span> Supermercart, Sala Vinçon, Barcelona</li>
+          <li><span class="year">1987</span> Tres al Port, Metronom, Barcelona</li>
+          <li><span class="year">1987</span> Marinas, Otto Zutz, Barcelona</li>
+          <li><span class="year">1986</span> American Prints Supermercart, Barcelona</li>
+          <li><span class="year">1985</span> Artitude, Limbo Lounge Gallery, New York</li>
+          <li><span class="year">1984</span> African Abstracts, Danceteria, New York</li>
+          <li><span class="year">1983</span> Post-Puritanism, Plexus, New York</li>
+          <li><span class="year">1979</span> Amnistia Internacional, Fundació Miró, Barcelona</li>
+          <li><span class="year">1975</span> XIV Premi Internacional Dibuix Joan Miró, Barcelona</li>
+        </ul>
+      </div>
+
+      <div class="exhibitions__panel" id="panel-commissions">
+        <ul class="exhibitions__list">
+          <li><span class="year">2022</span> Suite of 60 paintings for Álvaro Palacios, Corullón, León</li>
+          <li><span class="year">2021</span> Sun &amp; Moon (large-scale paintings), Hospital Clínic, Barcelona</li>
+          <li><span class="year">2017</span> Hotel Seminari paintings, Seu d'Urgell, Lleida</li>
+          <li><span class="year">2008</span> My Town — suite of 32 paintings, Hotel Santuari del Sant Crist, Balaguer</li>
+          <li><span class="year">2006</span> Wine label paintings for Álvaro Palacios (Pétalos)</li>
+          <li><span class="year">2005</span> Limbo carpet, Nani Marquina collection</li>
+          <li><span class="year">1999</span> Seven true fresco murals, Hotel Juan Carlos I, Barcelona</li>
+          <li><span class="year">1998</span> Acid-engraved glass wall, Triangle, Barcelona</li>
+          <li><span class="year">1992</span> Olympic Games Barcelona — postage stamps collection</li>
+          <li><span class="year">1987</span> Catalan Sense, BCD / Bloomingdale's traveling exhibit — Boston, New York, Boca Raton</li>
+        </ul>
+      </div>
+
+      <div class="exhibitions__panel" id="panel-collections">
+        <ul class="exhibitions__list">
+          <li>MACBA — Museum of Contemporary Art of Barcelona</li>
+          <li>La Bib Collection, La Santa Projectos Culturales, Barcelona</li>
+          <li>30 Eines 1967-1997, Fundació Eina, Barcelona</li>
+          <li>Joseph Ma Civil Collection</li>
+          <li>Col·lecció Ernesto Omedes</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Connect -->
+  <section class="section connect" id="connect">
+    <div class="container">
+      <h2 class="section__title">Connect</h2>
+      <p class="connect__lead">For inquiries about available work, commissions, or exhibitions.</p>
+      <div class="connect__links">
+        <a href="https://www.artworkarchive.com/profile/xano-armenter" target="_blank" rel="noopener" class="connect__link">
+          <span class="connect__link-label">Artwork Archive</span>
+          <span class="connect__link-desc">Full portfolio &amp; inquiries</span>
+        </a>
+        <a href="https://www.instagram.com/xano_armenter/" target="_blank" rel="noopener" class="connect__link">
+          <span class="connect__link-label">Instagram</span>
+          <span class="connect__link-desc">@xano_armenter</span>
+        </a>
+        <a href="https://kbhfineart.com/artists/xano-armenter/" target="_blank" rel="noopener" class="connect__link">
+          <span class="connect__link-label">KBH Fine Art</span>
+          <span class="connect__link-desc">Gallery representation</span>
+        </a>
+        <a href="https://www.artsy.net/artist/xano-armenter" target="_blank" rel="noopener" class="connect__link">
+          <span class="connect__link-label">Artsy</span>
+          <span class="connect__link-desc">Browse &amp; collect</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Xano Armenter. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/gallery.js"></script>
+</body>
+</html>
