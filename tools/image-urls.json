@@ -1,95 +1,374 @@
 [
-{"slug":"break-more-walls","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3209_swvsye.jpg"},
-{"slug":"wave-xano-armenter","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/Wave_200x210_2018_copia_njihtr.jpg"},
-{"slug":"ultramar-4-underwater-4","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/Seascape_4_165x128_Tela_2018_xffzkp.jpg"},
-{"slug":"ultramar-3","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/Seascape_2_165x128_Tela_2018_jvjjnm.jpg"},
-{"slug":"ultramar-2-underwater-2","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/Seascape_3_165x128_Tela_2018_vrsh0t.jpg"},
-{"slug":"ultramar-1","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/Seascape_1_165x128_Tela_2018_yi43mp.jpg"},
-{"slug":"taula-de-treball-2","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/17._2018_Taula_de_treball_2_-_50x65_-_acrilic_sobre_tela_nffshk.jpg"},
-{"slug":"about-the-future","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/16._2018_About_The_Future_-_46x38_-_acrilic_sobre_tela_a1mkub.jpg"},
-{"slug":"street-walkby","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3277_hdjrya.jpg"},
-{"slug":"pampagulles","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3237_twunzg.jpg"},
-{"slug":"jo-pintor","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3246_dftskd.jpg"},
-{"slug":"a-un-poema-de-rossend-bonas-serie-de-4-piezas","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3240_tfycf5.jpg"},
-{"slug":"la-cova-dels-colors-retina-2","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/2016_La_Cova_dels_Colors_Retina_2_-_150x150_tela_rtuq9u.jpg"},
-{"slug":"seres-invisibles","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3284_gpkr6a.jpg"},
-{"slug":"en-el-aire-xano-armenter","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3288_d2fjuq.jpg"},
-{"slug":"chanel-sources","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3293_pvh8sr.jpg"},
-{"slug":"carrer-ple-de-gent","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3290_x5lgij.jpg"},
-{"slug":"agora-xano-armenter","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3286_uubbfl.jpg"},
-{"slug":"sense-parets","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/2014_Sense_Parets_-_80x80_tela_fqbnz2.jpg"},
-{"slug":"public-and-private","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3280_dpgk5x.jpg"},
-{"slug":"la-riqueza-content-is-waiting","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3296_rqb8yb.jpg"},
-{"slug":"beach-xano-armenter","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3302_m5cvwx.jpg"},
-{"slug":"not-nothing-xano-armenter","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3270_ioafty.jpg"},
-{"slug":"drops-1","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3268_i2gqda.jpg"},
-{"slug":"city-1-and-city-2","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3264_x11vip.jpg"},
-{"slug":"explorer-xano-armenter","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/10._2011_Explorer_-_46x38_-_acrilic_sobre_tela_dhcoys.jpg"},
-{"slug":"exoplaneta","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3214_r9ohwb.jpg"},
-{"slug":"close-up-unit","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3299_snyqv1.jpg"},
-{"slug":"celebration-xano-armenter","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3271_nyklhc.jpg"},
-{"slug":"broken-walls-2","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/2011_Broken-Walls_2_150x150_tela_qij1n7.jpg"},
-{"slug":"burning-room","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3253_xatwxg.jpg"},
-{"slug":"lo-viejo-y-lo-nuevo","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3256_ykkr3l.jpg"},
-{"slug":"finestra-oberta","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3254_nv5kro.jpg"},
-{"slug":"el-peix-blau","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3261_nbxuak.jpg"},
-{"slug":"cometa-2","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3247_aojhtk.jpg"},
-{"slug":"arrels","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3251_skhqcb.jpg"},
-{"slug":"alien-landscape","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3258_hy8cjr.jpg"},
-{"slug":"2-amigos","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3262_ahfwit.jpg"},
-{"slug":"multitud-xano-armenter","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3220_yz4vlu.jpg"},
-{"slug":"mosaic-romanic","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3219_n5cwxd.jpg"},
-{"slug":"homenaje-a-new-york-4","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3227_krhaxg.jpg"},
-{"slug":"homenaje-a-new-york-2","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3230_yxqugw.jpg"},
-{"slug":"homenaje-a-new-york-1","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3233_njqvr1.jpg"},
-{"slug":"figuras","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3222_r3s12n.jpg"},
-{"slug":"el-niño-de-la-bola-xano-armenter","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3215_bx5zqo.jpg"},
-{"slug":"chess-xano-armenter","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3218_qvq6ik.jpg"},
-{"slug":"xano-home-sweet-home","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3211_gwulk7.jpg"},
-{"slug":"art-director-3","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3212_s2mmke.jpg"},
-{"slug":"art-director-2","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3213_k3bxp2.jpg"},
-{"slug":"art-director-1","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3210_m3c0nf.jpg"},
-{"slug":"the-fool-retrat","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3140_jhaldl.jpg"},
-{"slug":"sota-no","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3165_2_xd2ks9.jpg"},
-{"slug":"secret-formula","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3153_vlgfsy.jpg"},
-{"slug":"red-pipe-xano-armenter","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3272_kbuy1k.jpg"},
-{"slug":"monotipo-xano-armenter","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3224_dlbwwr.jpg"},
-{"slug":"mecanic","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3155_xnb3bz.jpg"},
-{"slug":"loop-xano-armenter","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3118_yrzm94.jpg"},
-{"slug":"laboratori","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3156_naxe9c.jpg"},
-{"slug":"la-gran-feria","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3138_m4qo3y.jpg"},
-{"slug":"just-looking-xano-armenter","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3137_iuyq2x.jpg"},
-{"slug":"in-the-garden","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3148_t02vhv.jpg"},
-{"slug":"globo-rosa","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3145_bwhk6d.jpg"},
-{"slug":"el-somni-del-aviador","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3143_fvpmjp.jpg"},
-{"slug":"cuina","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3150_jqxprx.jpg"},
-{"slug":"content-1-xano-armenter","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3152_v7rihf.jpg"},
-{"slug":"b-n-gran-via","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3170_gmddxb.jpg"},
-{"slug":"b-n-celebration-xano-armenter","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3176_m3zz3n.jpg"},
-{"slug":"b-n-a-plena-llum","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3174_i5m8mc.jpg"},
-{"slug":"b-n-5","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3172_yqyf1v.jpg"},
-{"slug":"b-n-2","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3171_k23vxf.jpg"},
-{"slug":"b-n-1-xano-armenter","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3168_w0q8r1.jpg"},
-{"slug":"sink-xano-armenter","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3105_ciqgve.jpg"},
-{"slug":"the-breakfast","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3095_kesyu7.jpg"},
-{"slug":"la-visita-xano-armenter","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3127_kqzddg.jpg"},
-{"slug":"interesting-red-black","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3114_ddyzey.jpg"},
-{"slug":"big-move","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3163_cb8bpa.jpg"},
-{"slug":"el-bostezo","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3160_jpiu96.jpg"},
-{"slug":"wallpaper-city","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3204_2_rhhoeb.jpg"},
-{"slug":"dirty-dishes-xano-armenter","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3109_v1sn5l.jpg"},
-{"slug":"candy-fallout","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3162_gyzjwz.jpg"},
-{"slug":"blue-rain","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3100_lfjvub.jpg"},
-{"slug":"b-n-dots-xano-armenter","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3178_bhuzjn.jpg"},
-{"slug":"b-n-4","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3182_ozqxzh.jpg"},
-{"slug":"b-n-3-xano-armenter","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3179_e78qid.jpg"},
-{"slug":"abstraccio-de-paisatge-2","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3196_zr89ty.jpg"},
-{"slug":"abstraccio-de-paisatge","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3194_xdkdab.jpg"},
-{"slug":"xano-bodegon-amb-marge","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3192_lc5fow.jpg"},
-{"slug":"las-abuelas","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3200_bdnwwp.jpg"},
-{"slug":"la-tenda","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3198_qqxuqf.jpg"},
-{"slug":"homenaje-a-new-york-3","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3228_pjexj8.jpg"},
-{"slug":"fish-and-chips-xano-armenter","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3184_lx7c3j.jpg"},
-{"slug":"el-somiador","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3190_jtm4sp.jpg"},
-{"slug":"desordre-al-laboratori","image":"https://assets.artworkarchive.com/image/upload/t_jpg_xlarge_width/v1/user_111754/IMG_3187_cyyegj.jpg"}
+  {
+    "slug": "break-more-walls",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3209_swvsye.jpg"
+  },
+  {
+    "slug": "wave-xano-armenter",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/Wave_200x210_2018_copia_njihtr.jpg"
+  },
+  {
+    "slug": "ultramar-4-underwater-4",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/Seascape_4_165x128_Tela_2018_xffzkp.jpg"
+  },
+  {
+    "slug": "ultramar-3",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/Seascape_2_165x128_Tela_2018_jvjjnm.jpg"
+  },
+  {
+    "slug": "ultramar-2-underwater-2",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/Seascape_3_165x128_Tela_2018_vrsh0t.jpg"
+  },
+  {
+    "slug": "ultramar-1",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/Seascape_1_165x128_Tela_2018_yi43mp.jpg"
+  },
+  {
+    "slug": "taula-de-treball-2",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/17._2018_Taula_de_treball_2_-_50x65_-_acrilic_sobre_tela_nffshk.jpg"
+  },
+  {
+    "slug": "about-the-future",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/16._2018_About_The_Future_-_46x38_-_acrilic_sobre_tela_a1mkub.jpg"
+  },
+  {
+    "slug": "street-walkby",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3277_hdjrya.jpg"
+  },
+  {
+    "slug": "pampagulles",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3237_twunzg.jpg"
+  },
+  {
+    "slug": "jo-pintor",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3246_dftskd.jpg"
+  },
+  {
+    "slug": "a-un-poema-de-rossend-bonas-serie-de-4-piezas",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3240_tfycf5.jpg"
+  },
+  {
+    "slug": "la-cova-dels-colors-retina-2",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/2016_La_Cova_dels_Colors_Retina_2_-_150x150_tela_rtuq9u.jpg"
+  },
+  {
+    "slug": "seres-invisibles",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3284_gpkr6a.jpg"
+  },
+  {
+    "slug": "en-el-aire-xano-armenter",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3288_d2fjuq.jpg"
+  },
+  {
+    "slug": "chanel-sources",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3293_pvh8sr.jpg"
+  },
+  {
+    "slug": "carrer-ple-de-gent",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3290_x5lgij.jpg"
+  },
+  {
+    "slug": "agora-xano-armenter",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3286_uubbfl.jpg"
+  },
+  {
+    "slug": "sense-parets",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/2014_Sense_Parets_-_80x80_tela_fqbnz2.jpg"
+  },
+  {
+    "slug": "public-and-private",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3280_dpgk5x.jpg"
+  },
+  {
+    "slug": "la-riqueza-content-is-waiting",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3296_rqb8yb.jpg"
+  },
+  {
+    "slug": "beach-xano-armenter",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3302_m5cvwx.jpg"
+  },
+  {
+    "slug": "not-nothing-xano-armenter",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3270_ioafty.jpg"
+  },
+  {
+    "slug": "drops-1",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3268_i2gqda.jpg"
+  },
+  {
+    "slug": "city-1-and-city-2",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3264_x11vip.jpg"
+  },
+  {
+    "slug": "explorer-xano-armenter",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/10._2011_Explorer_-_46x38_-_acrilic_sobre_tela_dhcoys.jpg"
+  },
+  {
+    "slug": "exoplaneta",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3214_r9ohwb.jpg"
+  },
+  {
+    "slug": "close-up-unit",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3299_snyqv1.jpg"
+  },
+  {
+    "slug": "celebration-xano-armenter",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3271_nyklhc.jpg"
+  },
+  {
+    "slug": "broken-walls-2",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/2011_Broken-Walls_2_150x150_tela_qij1n7.jpg"
+  },
+  {
+    "slug": "burning-room",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3253_xatwxg.jpg"
+  },
+  {
+    "slug": "lo-viejo-y-lo-nuevo",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3256_ykkr3l.jpg"
+  },
+  {
+    "slug": "finestra-oberta",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3254_nv5kro.jpg"
+  },
+  {
+    "slug": "el-peix-blau",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3261_nbxuak.jpg"
+  },
+  {
+    "slug": "cometa-2",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3247_aojhtk.jpg"
+  },
+  {
+    "slug": "arrels",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3251_skhqcb.jpg"
+  },
+  {
+    "slug": "alien-landscape",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3258_hy8cjr.jpg"
+  },
+  {
+    "slug": "2-amigos",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3262_ahfwit.jpg"
+  },
+  {
+    "slug": "multitud-xano-armenter",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3220_yz4vlu.jpg"
+  },
+  {
+    "slug": "mosaic-romanic",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3219_n5cwxd.jpg"
+  },
+  {
+    "slug": "homenaje-a-new-york-4",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3227_krhaxg.jpg"
+  },
+  {
+    "slug": "homenaje-a-new-york-2",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3230_yxqugw.jpg"
+  },
+  {
+    "slug": "homenaje-a-new-york-1",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3233_njqvr1.jpg"
+  },
+  {
+    "slug": "figuras",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3222_r3s12n.jpg"
+  },
+  {
+    "slug": "el-niño-de-la-bola-xano-armenter",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3215_bx5zqo.jpg"
+  },
+  {
+    "slug": "chess-xano-armenter",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3218_qvq6ik.jpg"
+  },
+  {
+    "slug": "xano-home-sweet-home",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3211_gwulk7.jpg"
+  },
+  {
+    "slug": "art-director-3",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3212_s2mmke.jpg"
+  },
+  {
+    "slug": "art-director-2",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3213_k3bxp2.jpg"
+  },
+  {
+    "slug": "art-director-1",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3210_m3c0nf.jpg"
+  },
+  {
+    "slug": "the-fool-retrat",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3140_jhaldl.jpg"
+  },
+  {
+    "slug": "sota-no",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3165_2_xd2ks9.jpg"
+  },
+  {
+    "slug": "secret-formula",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3153_vlgfsy.jpg"
+  },
+  {
+    "slug": "red-pipe-xano-armenter",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3272_kbuy1k.jpg"
+  },
+  {
+    "slug": "monotipo-xano-armenter",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3224_dlbwwr.jpg"
+  },
+  {
+    "slug": "mecanic",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3155_xnb3bz.jpg"
+  },
+  {
+    "slug": "loop-xano-armenter",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3118_yrzm94.jpg"
+  },
+  {
+    "slug": "laboratori",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3156_naxe9c.jpg"
+  },
+  {
+    "slug": "la-gran-feria",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3138_m4qo3y.jpg"
+  },
+  {
+    "slug": "just-looking-xano-armenter",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3137_iuyq2x.jpg"
+  },
+  {
+    "slug": "in-the-garden",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3148_t02vhv.jpg"
+  },
+  {
+    "slug": "globo-rosa",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3145_bwhk6d.jpg"
+  },
+  {
+    "slug": "el-somni-del-aviador",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3143_fvpmjp.jpg"
+  },
+  {
+    "slug": "cuina",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3150_jqxprx.jpg"
+  },
+  {
+    "slug": "content-1-xano-armenter",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3152_v7rihf.jpg"
+  },
+  {
+    "slug": "b-n-gran-via",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3170_gmddxb.jpg"
+  },
+  {
+    "slug": "b-n-celebration-xano-armenter",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3176_m3zz3n.jpg"
+  },
+  {
+    "slug": "b-n-a-plena-llum",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3174_i5m8mc.jpg"
+  },
+  {
+    "slug": "b-n-5",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3172_yqyf1v.jpg"
+  },
+  {
+    "slug": "b-n-2",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3171_k23vxf.jpg"
+  },
+  {
+    "slug": "b-n-1-xano-armenter",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3168_w0q8r1.jpg"
+  },
+  {
+    "slug": "sink-xano-armenter",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3105_ciqgve.jpg"
+  },
+  {
+    "slug": "the-breakfast",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3095_kesyu7.jpg"
+  },
+  {
+    "slug": "la-visita-xano-armenter",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3127_kqzddg.jpg"
+  },
+  {
+    "slug": "interesting-red-black",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3114_ddyzey.jpg"
+  },
+  {
+    "slug": "big-move",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3163_cb8bpa.jpg"
+  },
+  {
+    "slug": "el-bostezo",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3160_jpiu96.jpg"
+  },
+  {
+    "slug": "wallpaper-city",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3204_2_rhhoeb.jpg"
+  },
+  {
+    "slug": "dirty-dishes-xano-armenter",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3109_v1sn5l.jpg"
+  },
+  {
+    "slug": "candy-fallout",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3162_gyzjwz.jpg"
+  },
+  {
+    "slug": "blue-rain",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3100_lfjvub.jpg"
+  },
+  {
+    "slug": "b-n-dots-xano-armenter",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3178_bhuzjn.jpg"
+  },
+  {
+    "slug": "b-n-4",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3182_ozqxzh.jpg"
+  },
+  {
+    "slug": "b-n-3-xano-armenter",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3179_e78qid.jpg"
+  },
+  {
+    "slug": "abstraccio-de-paisatge-2",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3196_zr89ty.jpg"
+  },
+  {
+    "slug": "abstraccio-de-paisatge",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3194_xdkdab.jpg"
+  },
+  {
+    "slug": "xano-bodegon-amb-marge",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3192_lc5fow.jpg"
+  },
+  {
+    "slug": "las-abuelas",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3200_bdnwwp.jpg"
+  },
+  {
+    "slug": "la-tenda",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3198_qqxuqf.jpg"
+  },
+  {
+    "slug": "homenaje-a-new-york-3",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3228_pjexj8.jpg"
+  },
+  {
+    "slug": "fish-and-chips-xano-armenter",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3184_lx7c3j.jpg"
+  },
+  {
+    "slug": "el-somiador",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3190_jtm4sp.jpg"
+  },
+  {
+    "slug": "desordre-al-laboratori",
+    "image": "https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/IMG_3187_cyyegj.jpg"
+  }
 ]
