@@ -1060,6 +1060,119 @@
 
     .connect__link:hover .connect__arrow { transform: translateX(4px); }
 
+    /* Contact form */
+    .connect__form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .connect__form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .connect__field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .connect__field label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--coral);
+    }
+
+    .connect__field input,
+    .connect__field select,
+    .connect__field textarea {
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 0;
+      padding: 12px 14px;
+      font-size: 14px;
+      color: var(--text);
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .connect__field input::placeholder,
+    .connect__field textarea::placeholder {
+      color: var(--muted);
+    }
+
+    .connect__field select option {
+      background: #1a1720;
+      color: var(--text);
+    }
+
+    .connect__field input:focus,
+    .connect__field select:focus,
+    .connect__field textarea:focus {
+      border-color: rgba(240,236,228,0.3);
+    }
+
+    .connect__field textarea {
+      resize: none;
+      line-height: 1.6;
+    }
+
+    .connect__submit {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--coral);
+      color: #fff;
+      border: none;
+      padding: 14px 28px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s, opacity 0.2s;
+      align-self: flex-start;
+      margin-top: 4px;
+    }
+
+    .connect__submit:hover { background: #d94530; }
+    .connect__submit:disabled { opacity: 0.5; cursor: default; }
+
+    .connect__success {
+      display: none;
+      padding: 20px 0;
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .connect__success.is-visible { display: block; }
+
+    .connect__social {
+      display: flex;
+      gap: 24px;
+      margin-top: 8px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .connect__social a {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+
+    .connect__social a:hover { color: var(--text); }
+
     .connect__details { display: flex; flex-direction: column; gap: 36px; }
 
     .connect__detail-label {
@@ -1480,23 +1593,44 @@
         <span class="eyebrow" style="opacity:0;transform:translateY(14px)">Contact</span>
         <h2 class="section-heading" style="clip-path:inset(100% 0 0 0)">Let's talk<br>about the work</h2>
         <p class="connect__sub">For inquiries about available works, commissions, exhibitions, or press.</p>
-        <div class="connect__links">
-          <a href="https://www.artworkarchive.com/profile/xano-armenter" target="_blank" rel="noopener" class="connect__link">
-            <span class="connect__link-label">Artwork Archive</span>
-            <span class="connect__arrow">→</span>
-          </a>
-          <a href="https://kbhfineart.com/artists/xano-armenter/" target="_blank" rel="noopener" class="connect__link">
-            <span class="connect__link-label">KBH Fine Art</span>
-            <span class="connect__arrow">→</span>
-          </a>
-          <a href="https://www.artsy.net/artist/xano-armenter" target="_blank" rel="noopener" class="connect__link">
-            <span class="connect__link-label">Artsy</span>
-            <span class="connect__arrow">→</span>
-          </a>
-          <a href="https://www.instagram.com/xano_armenter/" target="_blank" rel="noopener" class="connect__link">
-            <span class="connect__link-label">Instagram</span>
-            <span class="connect__arrow">→</span>
-          </a>
+        <!-- Contact form — set up a free Formspree account at formspree.io and replace YOUR_FORM_ID below -->
+        <form class="connect__form" id="connectForm" data-endpoint="https://formspree.io/f/YOUR_FORM_ID" novalidate>
+          <div class="connect__form-row">
+            <div class="connect__field">
+              <label for="cf-name">Name</label>
+              <input type="text" id="cf-name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="connect__field">
+              <label for="cf-email">Email</label>
+              <input type="email" id="cf-email" name="email" placeholder="your@email.com" required>
+            </div>
+          </div>
+          <div class="connect__field">
+            <label for="cf-subject">About</label>
+            <select id="cf-subject" name="subject" required>
+              <option value="" disabled selected>Select a topic</option>
+              <option value="Available works">Available works</option>
+              <option value="Commission">Commission enquiry</option>
+              <option value="Exhibition">Exhibition or collaboration</option>
+              <option value="Press">Press or editorial</option>
+              <option value="Other">Something else</option>
+            </select>
+          </div>
+          <div class="connect__field">
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" rows="5" placeholder="Tell me what you have in mind..." required></textarea>
+          </div>
+          <button type="submit" class="connect__submit" id="cf-submit">
+            Send message <span class="connect__arrow">→</span>
+          </button>
+          <div class="connect__success" id="cf-success">
+            Thank you. I'll be in touch shortly.
+          </div>
+        </form>
+        <div class="connect__social">
+          <a href="https://www.instagram.com/xano_armenter/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://kbhfineart.com/artists/xano-armenter/" target="_blank" rel="noopener">KBH Fine Art</a>
+          <a href="https://www.artsy.net/artist/xano-armenter" target="_blank" rel="noopener">Artsy</a>
         </div>
       </div>
       <div class="connect__details">
@@ -1969,6 +2103,50 @@
         scrollTrigger: { trigger: link, start: 'top 90%' } }
     );
   });
+  // =========================================
+  // CONTACT FORM
+  // =========================================
+  const contactForm = document.getElementById('connectForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('cf-submit');
+      const success = document.getElementById('cf-success');
+      const endpoint = contactForm.dataset.endpoint;
+
+      // Validate
+      const name = contactForm.querySelector('[name="name"]').value.trim();
+      const email = contactForm.querySelector('[name="email"]').value.trim();
+      const subject = contactForm.querySelector('[name="subject"]').value;
+      const message = contactForm.querySelector('[name="message"]').value.trim();
+
+      if (!name || !email || !subject || !message) return;
+
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      try {
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ name, email, subject, message })
+        });
+
+        if (res.ok) {
+          contactForm.style.display = 'none';
+          success.classList.add('is-visible');
+        } else {
+          btn.disabled = false;
+          btn.innerHTML = 'Send message <span class="connect__arrow">→</span>';
+          alert('Something went wrong. Please try again or email directly.');
+        }
+      } catch (err) {
+        btn.disabled = false;
+        btn.innerHTML = 'Send message <span class="connect__arrow">→</span>';
+        alert('Could not send. Please try again.');
+      }
+    });
+  }
   </script>
 </body>
 </html>
