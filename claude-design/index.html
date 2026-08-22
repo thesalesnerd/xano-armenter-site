@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Xano Armenter — Paintings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="index.html" class="wordmark">Xano Armenter</a>
+      <nav class="main-nav" aria-label="Primary">
+        <button class="nav-toggle" aria-label="Toggle menu">Menu</button>
+        <ul>
+          <li><a href="artwork.html">Artwork</a></li>
+          <li><a href="graphic-design.html">Graphic Design</a></li>
+          <li><a href="sculpture.html">Sculpture</a></li>
+          <li><a href="exhibitions.html">Exhibitions</a></li>
+          <li><a href="bio.html">Bio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="hero">
+        <img
+          id="hero-img"
+          src="https://assets.artworkarchive.com/image/upload/f_auto,q_auto,w_1600/v1/user_111754/Wave_200x210_2018_copia_njihtr.jpg"
+          alt="Wave, 2018 — Acrylic on canvas, 162 × 180 cm"
+        />
+        <div class="caption">Wave · 2018 · Acrylic on canvas</div>
+        <div class="scroll-hint">Scroll ↓</div>
+      </section>
+
+      <section class="intro">
+        <h1>Xano Armenter — a painter working in acrylic and oil, across four decades.</h1>
+        <p>
+          [Placeholder intro.] Paintings organized in chronological series —
+          from the earliest works in the late 1970s through the most recent
+          body of work in 2018. Still life, marine, urban, landscape, and
+          abstract pictures worked in parallel.
+        </p>
+        <p class="muted" style="margin-top: 32px; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase;">
+          <a href="artwork.html" style="border-bottom: 1px solid currentColor; padding-bottom: 2px;">Enter the artwork →</a>
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>© <span id="year"></span> Xano Armenter</div>
+      <div>Site built as a working draft</div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/site.js"></script>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

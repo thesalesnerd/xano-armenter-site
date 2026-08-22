@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Series — Xano Armenter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="index.html" class="wordmark">Xano Armenter</a>
+      <nav class="main-nav" aria-label="Primary">
+        <button class="nav-toggle" aria-label="Toggle menu">Menu</button>
+        <ul>
+          <li><a href="artwork.html">Artwork</a></li>
+          <li><a href="graphic-design.html">Graphic Design</a></li>
+          <li><a href="sculpture.html">Sculpture</a></li>
+          <li><a href="exhibitions.html">Exhibitions</a></li>
+          <li><a href="bio.html">Bio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="viewer container">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px;">
+          <div>
+            <span class="eyebrow muted" id="series-eyebrow"></span>
+            <h2 id="series-title" style="margin-top: 8px;"></h2>
+          </div>
+          <a href="artwork.html" class="eyebrow muted" style="border-bottom: 1px solid currentColor; padding-bottom: 2px;">← All series</a>
+        </div>
+
+        <div class="viewer-stage" id="stage">
+          <img id="piece-image" alt="" />
+          <div class="viewer-nav">
+            <button class="zone prev" id="prev" aria-label="Previous piece"></button>
+            <button class="zone next" id="next" aria-label="Next piece"></button>
+          </div>
+        </div>
+
+        <div class="viewer-caption">
+          <div>
+            <div class="title" id="piece-title"></div>
+            <div class="viewer-counter" id="counter"></div>
+          </div>
+          <div class="meta" id="piece-meta"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>© <span id="year"></span> Xano Armenter</div>
+      <div><a href="artwork.html">All series</a></div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/site.js"></script>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      const params = new URLSearchParams(location.search);
+      const slug = params.get("s") || SERIES[0].slug;
+      const series = SERIES.find((s) => s.slug === slug) || SERIES[0];
+      let i = 0;
+
+      const img = document.getElementById("piece-image");
+      const title = document.getElementById("piece-title");
+      const meta = document.getElementById("piece-meta");
+      const counter = document.getElementById("counter");
+
+      document.getElementById("series-eyebrow").textContent = series.years;
+      document.getElementById("series-title").textContent = series.title;
+      document.title = `${series.title} — Xano Armenter`;
+
+      // Width used for the viewer image. 1200px is plenty for a contained
+      // viewer (image never displays larger than ~70% of viewport width).
+      const VIEWER_WIDTH = 1200;
+
+      function render() {
+        const p = series.pieces[i];
+        img.src = p.image ? imgAt(p.image, VIEWER_WIDTH) : "";
+        img.alt = `${p.title}${p.year ? ", " + p.year : ""}`;
+        title.textContent = p.title;
+        const metaLines = [];
+        if (p.year) metaLines.push(p.year);
+        if (p.medium) metaLines.push(p.medium);
+        if (p.dimensions) metaLines.push(p.dimensions);
+        if (p.price) metaLines.push(p.price);
+        meta.innerHTML = metaLines.join("<br/>");
+        counter.textContent = `${String(i + 1).padStart(2, "0")} / ${String(series.pieces.length).padStart(2, "0")}`;
+
+        // Warm the browser cache for the next/prev pieces so navigation feels
+        // instant. No-op if URL is empty.
+        const n = series.pieces.length;
+        const next = series.pieces[(i + 1) % n];
+        const prev = series.pieces[(i - 1 + n) % n];
+        if (next && next.image) preload(imgAt(next.image, VIEWER_WIDTH));
+        if (prev && prev.image) preload(imgAt(prev.image, VIEWER_WIDTH));
+      }
+      function go(d) {
+        i = (i + d + series.pieces.length) % series.pieces.length;
+        render();
+      }
+
+      document.getElementById("prev").addEventListener("click", () => go(-1));
+      document.getElementById("next").addEventListener("click", () => go(+1));
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft") go(-1);
+        if (e.key === "ArrowRight") go(+1);
+      });
+
+      render();
+    </script>
+  </body>
+</html>

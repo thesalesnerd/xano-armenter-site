@@ -1,0 +1,325 @@
+/* =========================================================
+   Artist site — minimalist painter aesthetic.
+   References: Benjamin Hardman (whitespace + hero), Samantha
+   Keely Smith (directional-cursor viewer), Hey Studio (grid),
+   Milton Glaser (flat IA).
+   ========================================================= */
+
+:root {
+  --bg: #ffffff;
+  --ink: #111111;
+  --muted: #6b6b6b;
+  --rule: #e5e5e5;
+  --accent: #111111;
+  --maxw: 1600px;
+
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "EB Garamond", "Times New Roman", Georgia, serif;
+
+  --fs-xs: 11px;
+  --fs-sm: 13px;
+  --fs-md: 15px;
+  --fs-lg: 18px;
+  --fs-xl: 28px;
+  --fs-xxl: 48px;
+
+  --ls-wide: 0.12em;
+  --ls-normal: 0.02em;
+
+  --pad: 32px;
+  --pad-lg: 64px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0; padding: 0;
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-sans); font-size: var(--fs-md);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+
+/* ---------- Typography ---------- */
+.eyebrow, nav.main-nav a, .meta {
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+.wordmark {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+h1, h2, h3 { font-weight: 400; margin: 0; }
+h1 { font-family: var(--font-serif); font-size: var(--fs-xxl); line-height: 1.1; letter-spacing: -0.01em; }
+h2 { font-family: var(--font-serif); font-size: var(--fs-xl); line-height: 1.2; }
+h3 { font-size: var(--fs-md); letter-spacing: var(--ls-normal); }
+p { margin: 0 0 1em; }
+.muted { color: var(--muted); }
+
+/* ---------- Navigation ---------- */
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px var(--pad);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 200ms ease;
+}
+.site-header.scrolled { border-bottom-color: var(--rule); }
+
+nav.main-nav ul {
+  display: flex; gap: 28px; list-style: none; margin: 0; padding: 0;
+}
+nav.main-nav a { font-weight: 400; position: relative; padding: 4px 0; }
+nav.main-nav a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0;
+  height: 1px; background: var(--ink);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 180ms ease;
+}
+nav.main-nav a:hover::after,
+nav.main-nav a[aria-current="page"]::after { transform: scaleX(1); }
+
+.nav-toggle {
+  display: none;
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+@media (max-width: 760px) {
+  nav.main-nav ul {
+    display: none; position: fixed; top: 68px; left: 0; right: 0;
+    flex-direction: column; gap: 0;
+    background: var(--bg); padding: 20px var(--pad);
+    border-bottom: 1px solid var(--rule);
+  }
+  nav.main-nav.open ul { display: flex; }
+  nav.main-nav li { padding: 12px 0; border-top: 1px solid var(--rule); }
+  nav.main-nav li:first-child { border-top: 0; }
+  .nav-toggle { display: inline-block; }
+}
+
+main { padding-top: 76px; }
+.container { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
+.section { padding: var(--pad-lg) 0; }
+
+/* ---------- Hero (Benjamin Hardman) ---------- */
+.hero {
+  position: relative;
+  height: calc(100vh - 76px);
+  overflow: hidden;
+  background: linear-gradient(180deg, #1a2b4a 0%, #2d4a6b 40%, #c44d3a 100%);
+}
+.hero img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.hero .caption, .hero .scroll-hint {
+  position: absolute;
+  bottom: 24px;
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
+  mix-blend-mode: difference;
+}
+.hero .caption { left: var(--pad); }
+.hero .scroll-hint { right: var(--pad); }
+
+.intro { padding: 120px var(--pad) 160px; max-width: 780px; }
+.intro h1 { margin-bottom: 32px; }
+.intro p { font-size: var(--fs-lg); line-height: 1.55; }
+
+/* ---------- Series grid (Artwork index, Hey Studio style) ---------- */
+.series-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px 32px;
+}
+@media (max-width: 760px) {
+  .series-grid { grid-template-columns: 1fr; }
+}
+
+/* Compact variant — used on Graphic Design (Milton Glaser work-page style):
+   smaller square tiles, more per row. */
+.series-grid--compact {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 28px 20px;
+}
+.series-grid--compact .series-card .thumb {
+  aspect-ratio: 1 / 1;
+  margin-bottom: 10px;
+}
+.series-grid--compact .series-card h3 {
+  font-size: var(--fs-sm);
+  font-family: var(--font-sans);
+  font-weight: 500;
+}
+.series-grid--compact .series-card .years { font-size: 10px; }
+@media (max-width: 760px) {
+  .series-grid--compact { grid-template-columns: repeat(2, 1fr); }
+}
+
+.series-card { display: block; color: inherit; }
+.series-card .thumb {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: #f2f2f2;
+  margin-bottom: 16px;
+}
+.series-card .thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 600ms ease;
+}
+.series-card:hover .thumb img { transform: scale(1.02); }
+.series-card h3 { margin-bottom: 4px; }
+.series-card .years {
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ---------- Viewer (Samantha Keely Smith) ---------- */
+.viewer {
+  height: calc(100vh - 76px);       /* lock to viewport; caption stays visible */
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* header | stage grows | caption */
+  padding: 24px var(--pad) 24px;
+  gap: 16px;
+}
+.viewer-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 0;                    /* crucial: lets 1fr shrink to fit */
+  overflow: hidden;
+}
+.viewer-stage img {
+  /* Don't bleed full-width; cap at 70% of stage width so the piece reads
+     like it's hung in a gallery with whitespace on both sides.
+     Height is also capped so the entire image stays above the fold. */
+  max-width: 70%;
+  max-height: 100%;
+  width: auto; height: auto;
+  object-fit: contain;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+@media (max-width: 900px) {
+  .viewer-stage img { max-width: 88%; }
+}
+@media (max-width: 760px) {
+  /* On small screens let viewer scroll if image + caption don't both fit. */
+  .viewer { height: auto; min-height: calc(100vh - 76px); }
+  .viewer-stage { min-height: 50vh; }
+}
+.viewer-nav {
+  position: absolute; inset: 0;
+  display: grid; grid-template-columns: 1fr 1fr;
+}
+.viewer-nav .zone {
+  background: transparent;
+  border: 0; height: 100%; width: 100%;
+}
+.viewer-nav .zone.prev {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><circle cx='20' cy='20' r='19' fill='white' stroke='black'/><path d='M24 12 L16 20 L24 28' fill='none' stroke='black' stroke-width='1.5'/></svg>") 20 20, w-resize;
+}
+.viewer-nav .zone.next {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><circle cx='20' cy='20' r='19' fill='white' stroke='black'/><path d='M16 12 L24 20 L16 28' fill='none' stroke='black' stroke-width='1.5'/></svg>") 20 20, e-resize;
+}
+.viewer-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  gap: 32px;
+}
+.viewer-caption .title { font-family: var(--font-serif); font-size: var(--fs-lg); line-height: 1.2; }
+.viewer-caption .meta { color: var(--muted); text-align: right; }
+.viewer-counter { font-size: var(--fs-xs); letter-spacing: var(--ls-wide); color: var(--muted); margin-top: 8px; }
+
+/* ---------- Exhibitions ---------- */
+.exhibitions-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-md);
+}
+.exhibitions-table th {
+  text-align: left;
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 400;
+  padding: 12px 16px 12px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.exhibitions-table td {
+  padding: 20px 16px 20px 0;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+.exhibitions-table tr:hover td { background: #fafafa; }
+
+/* ---------- Bio / Contact ---------- */
+.prose { max-width: 680px; font-size: var(--fs-lg); line-height: 1.65; }
+.prose p + p { margin-top: 1.2em; }
+.page-title { margin-bottom: 48px; }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px;
+  max-width: 880px;
+}
+@media (max-width: 760px) { .contact-grid { grid-template-columns: 1fr; } }
+
+.contact-block h3 {
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.contact-block a { border-bottom: 1px solid var(--ink); padding-bottom: 1px; }
+
+/* ---------- Empty state ---------- */
+.empty-state {
+  padding: 96px 0;
+  text-align: center;
+  color: var(--muted);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--rule);
+  padding: 32px var(--pad);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--muted);
+}
