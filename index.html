@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=2">
 </head>
 <body>
 
@@ -73,8 +73,28 @@
   <section class="section gallery" id="gallery">
     <div class="container">
       <h2 class="section__title">Work</h2>
-      <div class="gallery__filters" id="galleryFilters">
-        <button class="gallery__filter active" data-filter="all">All</button>
+      <div class="gallery__controls">
+        <div class="gallery__control-row">
+          <span class="gallery__control-label">Medium</span>
+          <div class="gallery__filters" id="galleryFilters">
+            <button class="gallery__filter active" data-filter="all">All</button>
+          </div>
+          <button class="gallery__saved-toggle" id="savedToggle" aria-label="Show saved works">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            <span id="savedLabel">Saved</span>
+          </button>
+        </div>
+        <div class="gallery__control-row gallery__control-row--period">
+          <span class="gallery__control-label">Period</span>
+          <div class="gallery__periods" id="galleryPeriods">
+            <button class="gallery__period active" data-from="" data-to="">All</button>
+            <button class="gallery__period" data-from="1970" data-to="1979">1970s</button>
+            <button class="gallery__period" data-from="1980" data-to="1989">1980s</button>
+            <button class="gallery__period" data-from="1990" data-to="1999">1990s</button>
+            <button class="gallery__period" data-from="2000" data-to="2009">2000s</button>
+            <button class="gallery__period" data-from="2010" data-to="2019">2010s</button>
+          </div>
+        </div>
       </div>
       <div class="gallery__grid" id="galleryGrid">
         <!-- Populated by JS from artwork.json -->
@@ -100,6 +120,14 @@
         <a class="modal__link" id="modalLink" href="" target="_blank" rel="noopener">View on Artwork Archive →</a>
       </div>
     </div>
+  </div>
+
+  <!-- Zoom Overlay -->
+  <div class="zoom-overlay" id="zoomOverlay">
+    <button class="zoom-overlay__close" id="zoomClose" aria-label="Close zoom">&times;</button>
+    <img class="zoom-overlay__img" id="zoomImage" src="" alt="">
+    <span class="zoom-overlay__hint" id="zoomHint">Scroll to zoom &nbsp;&middot;&nbsp; Drag to pan</span>
+    <button class="zoom-overlay__reset" id="zoomReset">Reset</button>
   </div>
 
   <!-- Exhibitions -->
