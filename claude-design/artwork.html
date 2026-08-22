@@ -2,63 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Artwork — Xano Armenter</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="css/style.css" />
+    <title>Redirecting — Xano Armenter</title>
+    <link rel="canonical" href="work.html#paintings" />
+    <meta http-equiv="refresh" content="0; url=work.html#paintings" />
   </head>
   <body>
-    <header class="site-header">
-      <a href="index.html" class="wordmark">Xano Armenter</a>
-      <nav class="main-nav" aria-label="Primary">
-        <button class="nav-toggle" aria-label="Toggle menu">Menu</button>
-        <ul>
-          <li><a href="artwork.html">Artwork</a></li>
-          <li><a href="graphic-design.html">Graphic Design</a></li>
-          <li><a href="sculpture.html">Sculpture</a></li>
-          <li><a href="exhibitions.html">Exhibitions</a></li>
-          <li><a href="bio.html">Bio</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <main>
-      <section class="section container">
-        <div class="page-title">
-          <span class="eyebrow muted">Artwork — by decade</span>
-          <h1 style="margin-top: 16px;">Paintings</h1>
-        </div>
-        <div class="series-grid" id="series-grid"></div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div>© <span id="year"></span> Xano Armenter</div>
-      <div><a href="contact.html">Contact</a></div>
-    </footer>
-
-    <script src="js/data.js"></script>
-    <script src="js/site.js"></script>
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-      const grid = document.getElementById("series-grid");
-      SERIES.forEach((s) => {
-        const a = document.createElement("a");
-        a.href = `series.html?s=${encodeURIComponent(s.slug)}`;
-        a.className = "series-card";
-        // Use a 600px-wide thumbnail — the card shows cover at ~360-480px
-        // max, so 1600px is wasteful and slows grid load.
-        const cover = imgAt(s.cover, 600);
-        a.innerHTML = `
-          <div class="thumb"><img src="${cover}" alt="${s.title} — cover" loading="lazy"/></div>
-          <h3>${s.title}</h3>
-          <div class="years">${s.years} · ${s.pieces.length} works</div>
-        `;
-        grid.appendChild(a);
-      });
-    </script>
+    <p>This page moved to <a href="work.html#paintings">Work</a>.</p>
+    <script>location.replace("work.html#paintings");</script>
   </body>
 </html>

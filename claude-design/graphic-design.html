@@ -2,60 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Graphic Design — Xano Armenter</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="css/style.css" />
+    <title>Redirecting — Xano Armenter</title>
+    <link rel="canonical" href="work.html#graphic" />
+    <meta http-equiv="refresh" content="0; url=work.html#graphic" />
   </head>
   <body>
-    <header class="site-header">
-      <a href="index.html" class="wordmark">Xano Armenter</a>
-      <nav class="main-nav" aria-label="Primary">
-        <button class="nav-toggle" aria-label="Toggle menu">Menu</button>
-        <ul>
-          <li><a href="artwork.html">Artwork</a></li>
-          <li><a href="graphic-design.html">Graphic Design</a></li>
-          <li><a href="sculpture.html">Sculpture</a></li>
-          <li><a href="exhibitions.html">Exhibitions</a></li>
-          <li><a href="bio.html">Bio</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <section class="section container">
-        <div class="page-title">
-          <span class="eyebrow muted">Graphic Design</span>
-          <h1 style="margin-top: 16px;">Posters, catalogues, and applied work</h1>
-          <p class="prose muted" style="margin-top: 24px; font-size: 15px;" id="gd-summary"></p>
-        </div>
-        <div class="series-grid series-grid--compact" id="gd-grid"></div>
-      </section>
-    </main>
-    <footer class="site-footer">
-      <div>© <span id="year"></span> Xano Armenter</div>
-      <div><a href="contact.html">Contact</a></div>
-    </footer>
-    <script src="js/data.js"></script>
-    <script src="js/site.js"></script>
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-      document.getElementById("gd-summary").textContent = GRAPHIC_DESIGN.summary;
-
-      const grid = document.getElementById("gd-grid");
-      GRAPHIC_DESIGN.pieces.forEach((p) => {
-        const card = document.createElement("div");
-        card.className = "series-card";
-        const src = p.image ? imgAt(p.image, 400) : "";
-        card.innerHTML = `
-          <div class="thumb">${src ? `<img src="${src}" alt="${p.title}, ${p.year}" loading="lazy"/>` : ""}</div>
-          <h3>${p.title}</h3>
-          <div class="years">${p.year}${p.medium ? " · " + p.medium : ""}</div>
-        `;
-        grid.appendChild(card);
-      });
-    </script>
+    <p>This page moved to <a href="work.html#graphic">Work</a>.</p>
+    <script>location.replace("work.html#graphic");</script>
   </body>
 </html>

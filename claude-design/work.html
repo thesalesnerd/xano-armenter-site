@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Work — Xano Armenter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css?v=20260822a" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="index.html" class="wordmark">Xano Armenter</a>
+      <nav class="main-nav" aria-label="Primary">
+        <button class="nav-toggle" aria-label="Toggle menu">Menu</button>
+        <ul>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="exhibitions.html">Exhibitions</a></li>
+          <li><a href="bio.html">Bio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section container">
+        <div class="page-title">
+          <span class="eyebrow muted">Work</span>
+          <h1 style="margin-top: 16px;">Work</h1>
+        </div>
+
+        <div class="work-tabs" role="tablist" aria-label="Work categories">
+          <button class="work-tab active" role="tab" aria-selected="true" data-tab="paintings">Paintings</button>
+          <button class="work-tab" role="tab" aria-selected="false" data-tab="sculpture">Sculpture</button>
+          <button class="work-tab" role="tab" aria-selected="false" data-tab="graphic">Graphic Design</button>
+        </div>
+
+        <!-- PAINTINGS -->
+        <div class="work-panel active" id="panel-paintings" role="tabpanel">
+          <div class="gal-filters" id="galFilters">
+            <button class="gal-filter active" data-filter="all">All</button>
+          </div>
+          <div class="gal-count" id="galCount"></div>
+          <div class="gal-grid" id="galGrid"></div>
+          <button class="gal-more" id="galMore" style="display:none">Load more</button>
+        </div>
+
+        <!-- SCULPTURE -->
+        <div class="work-panel" id="panel-sculpture" role="tabpanel">
+          <div class="empty-state" id="sculptureBody"></div>
+        </div>
+
+        <!-- GRAPHIC DESIGN -->
+        <div class="work-panel" id="panel-graphic" role="tabpanel">
+          <p class="prose muted" style="margin-bottom: 32px; font-size: 15px;" id="gdSummary"></p>
+          <div class="series-grid series-grid--compact" id="gdGrid"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>© <span id="year"></span> Xano Armenter</div>
+      <div><a href="contact.html">Contact</a></div>
+    </footer>
+
+    <!-- Big-screen view -->
+    <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Artwork detail">
+      <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+      <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">&#8249;</button>
+      <button class="lb-nav lb-next" id="lbNext" aria-label="Next">&#8250;</button>
+      <div class="lb-body">
+        <div class="lb-stage"><img id="lbImg" src="" alt="" /></div>
+        <div class="lb-info">
+          <h2 class="lb-title" id="lbTitle"></h2>
+          <div class="lb-meta" id="lbMeta"></div>
+          <a class="lb-link" id="lbLink" href="" target="_blank" rel="noopener">View on Artwork Archive</a>
+        </div>
+      </div>
+      <div class="lb-counter" id="lbCounter"></div>
+    </div>
+
+    <script src="js/data.js?v=20260822a"></script>
+    <script src="js/site.js?v=20260822a"></script>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      /* ---- Tabs ------------------------------------------------ */
+      const tabs = document.querySelectorAll(".work-tab");
+      tabs.forEach((t) => {
+        t.addEventListener("click", () => {
+          tabs.forEach((b) => {
+            b.classList.remove("active");
+            b.setAttribute("aria-selected", "false");
+          });
+          t.classList.add("active");
+          t.setAttribute("aria-selected", "true");
+          document.querySelectorAll(".work-panel").forEach((p) => p.classList.remove("active"));
+          document.getElementById("panel-" + t.dataset.tab).classList.add("active");
+          // Deep-link so a tab can be shared or reloaded into.
+          history.replaceState(null, "", "#" + t.dataset.tab);
+        });
+      });
+
+      /* ---- Paintings: flatten the series into one catalogue ---- */
+      const ALL = SERIES.flatMap((s) =>
+        s.pieces.map((p) => Object.assign({ series: s.title }, p))
+      );
+
+      const PAGE = 21; // three full rows of the 7-item rhythm
+      let activeFilter = "all";
+      let shown = 0;
+
+      const grid = document.getElementById("galGrid");
+      const moreBtn = document.getElementById("galMore");
+      const countEl = document.getElementById("galCount");
+
+      function filtered() {
+        if (activeFilter === "all") return ALL;
+        return ALL.filter(
+          (a) => a.subject && a.subject.toLowerCase() === activeFilter
+        );
+      }
+
+      // Reveal on scroll — replaces the GSAP ScrollTrigger clip-path
+      // reveal from the previous build with a dependency-free observer.
+      const revealer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (!e.isIntersecting) return;
+            e.target.classList.add("revealed");
+            revealer.unobserve(e.target);
+          });
+        },
+        { rootMargin: "0px 0px -8% 0px" }
+      );
+
+      function render() {
+        const list = filtered();
+        const slice = list.slice(shown, shown + PAGE);
+
+        slice.forEach((art, i) => {
+          const idx = shown + i;
+          const item = document.createElement("div");
+          item.className = "gal-item";
+          // Grid cells cap around 700px wide; 1600px source is wasteful.
+          const src = imgAt(art.image, 800);
+          item.innerHTML = `
+            <img src="${src}" alt="${art.title}" loading="lazy" />
+            <div class="gal-overlay">
+              <div>
+                <div class="gal-item-title">${art.title}</div>
+                <div class="gal-item-meta">${art.year}${art.medium ? " · " + art.medium : ""}</div>
+              </div>
+            </div>`;
+          item.addEventListener("click", () => openLb(idx, list));
+          grid.appendChild(item);
+          revealer.observe(item);
+        });
+
+        shown += slice.length;
+        moreBtn.style.display = shown < list.length ? "block" : "none";
+        countEl.textContent = `${list.length} work${list.length === 1 ? "" : "s"}`;
+      }
+
+      function reset() {
+        shown = 0;
+        grid.innerHTML = "";
+        render();
+      }
+
+      moreBtn.addEventListener("click", render);
+
+      /* ---- Filters --------------------------------------------- */
+      (function buildFilters() {
+        const bar = document.getElementById("galFilters");
+        const subjects = [...new Set(ALL.map((a) => a.subject).filter(Boolean))].sort();
+        subjects.forEach((s) => {
+          const btn = document.createElement("button");
+          btn.className = "gal-filter";
+          btn.dataset.filter = s.toLowerCase();
+          btn.textContent = s;
+          bar.appendChild(btn);
+        });
+        bar.addEventListener("click", (e) => {
+          const btn = e.target.closest(".gal-filter");
+          if (!btn) return;
+          bar.querySelectorAll(".gal-filter").forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          activeFilter = btn.dataset.filter;
+          reset();
+        });
+      })();
+
+      render();
+
+      /* ---- Big-screen view ------------------------------------- */
+      let lbList = [];
+      let lbIdx = 0;
+      const lb = document.getElementById("lb");
+
+      function openLb(index, list) {
+        lbList = list;
+        lbIdx = index;
+        paintLb();
+        lb.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+
+      function paintLb() {
+        const art = lbList[lbIdx];
+        if (!art) return;
+        document.getElementById("lbImg").src = imgAt(art.image, 1600);
+        document.getElementById("lbImg").alt = art.title;
+        document.getElementById("lbTitle").textContent = art.title;
+        document.getElementById("lbMeta").innerHTML =
+          `<strong>${art.year}</strong>` +
+          (art.medium ? "<br>" + art.medium : "") +
+          (art.dimensions ? "<br>" + art.dimensions : "") +
+          (art.series ? "<br>" + art.series : "");
+        document.getElementById("lbLink").href =
+          art.aa_url || "https://www.artworkarchive.com/profile/xano-armenter";
+        document.getElementById("lbCounter").textContent =
+          `${lbIdx + 1} / ${lbList.length}`;
+        preloadNeighbors();
+      }
+
+      // Warm the next/previous images so arrow navigation feels instant.
+      function preloadNeighbors() {
+        [lbIdx - 1, lbIdx + 1].forEach((i) => {
+          const n = lbList[(i + lbList.length) % lbList.length];
+          if (n && n.image) new Image().src = imgAt(n.image, 1600);
+        });
+      }
+
+      function closeLb() {
+        lb.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+
+      function step(delta) {
+        lbIdx = (lbIdx + delta + lbList.length) % lbList.length;
+        paintLb();
+      }
+
+      document.getElementById("lbClose").addEventListener("click", closeLb);
+      document.getElementById("lbPrev").addEventListener("click", () => step(-1));
+      document.getElementById("lbNext").addEventListener("click", () => step(1));
+      lb.addEventListener("click", (e) => {
+        if (e.target === lb) closeLb();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (!lb.classList.contains("open")) return;
+        if (e.key === "Escape") closeLb();
+        if (e.key === "ArrowLeft") step(-1);
+        if (e.key === "ArrowRight") step(1);
+      });
+
+      /* ---- Sculpture ------------------------------------------- */
+      document.getElementById("sculptureBody").textContent = SCULPTURE.summary;
+
+      /* ---- Graphic design -------------------------------------- */
+      document.getElementById("gdSummary").textContent = GRAPHIC_DESIGN.summary;
+      const gdGrid = document.getElementById("gdGrid");
+      GRAPHIC_DESIGN.pieces.forEach((p) => {
+        const card = document.createElement("div");
+        card.className = "series-card";
+        const src = p.image ? imgAt(p.image, 400) : "";
+        card.innerHTML = `
+          <div class="thumb">${src ? `<img src="${src}" alt="${p.title}, ${p.year}" loading="lazy"/>` : ""}</div>
+          <h3>${p.title}</h3>
+          <div class="years">${p.year}${p.medium ? " · " + p.medium : ""}</div>
+        `;
+        gdGrid.appendChild(card);
+      });
+
+      /* ---- Open the tab named in the URL fragment --------------- */
+      const wanted = (location.hash || "").replace("#", "");
+      if (wanted) {
+        const t = document.querySelector(`.work-tab[data-tab="${wanted}"]`);
+        if (t) t.click();
+      }
+    </script>
+  </body>
+</html>
