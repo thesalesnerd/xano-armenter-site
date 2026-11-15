@@ -120,7 +120,7 @@ function Members() {
     const { error } = await supabase.from('artist_members').delete().eq('artist_id', artist.id).eq('user_id', user_id);
     setError(error);
     refresh();
-    if (!error && user_id === session?.user.id) window.location.href = '/';
+    if (!error && user_id === session?.user.id) window.location.href = import.meta.env.BASE_URL;
   }
 
   return (

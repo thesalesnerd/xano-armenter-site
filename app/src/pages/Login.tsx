@@ -33,7 +33,7 @@ export default function Login() {
 
   async function reset() {
     if (!email) return setError(new Error('Enter your email first.'));
-    const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: window.location.origin });
+    const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: window.location.origin + import.meta.env.BASE_URL });
     if (error) setError(error);
     else setNotice('Password reset email sent.');
   }
@@ -42,7 +42,7 @@ export default function Login() {
     <div className="grid min-h-screen place-items-center bg-stone-100 px-4">
       <form onSubmit={submit} className="card w-full max-w-sm space-y-4 p-7 shadow-sm">
         <div className="flex items-center gap-2">
-          <img src="/favicon.svg" alt="" className="h-8 w-8" />
+          <img src={`${import.meta.env.BASE_URL}favicon.svg`} alt="" className="h-8 w-8" />
           <span className="font-serif text-2xl">Artfolio</span>
         </div>
         <p className="text-sm text-stone-500">

@@ -1,0 +1,75 @@
+# Build Artfolio and publish it on GitHub Pages.
+#
+# This file becomes active when app/ is the root of its own repository (GitHub
+# only reads workflows from .github/workflows at the repository root). While
+# app/ is a folder inside another repository it does nothing.
+#
+# One-time setup in that repository:
+#   Settings -> Pages -> Build and deployment -> Source: "GitHub Actions"
+#   Settings -> Secrets and variables -> Actions -> Variables:
+#     VITE_SUPABASE_URL        https://<project-ref>.supabase.co
+#     VITE_SUPABASE_ANON_KEY   the anon / publishable key
+#     VITE_BASE                optional. Path the app is served under. Leave unset
+#                              for https://<user>.github.io/<repo>/ ; set to "/"
+#                              when using a custom domain or a <user>.github.io repo.
+#   These are public values (they end up in the browser bundle), so they are
+#   variables, not secrets.
+#   In Supabase: Authentication -> URL Configuration -> set the Site URL (and
+#   redirect URLs) to the Pages address.
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run typecheck
+
+      - name: Build
+        env:
+          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ vars.VITE_SUPABASE_ANON_KEY }}
+          VITE_BASE: ${{ vars.VITE_BASE || format('/{0}/', github.event.repository.name) }}
+        run: |
+          if [ -z "$VITE_SUPABASE_URL" ] || [ -z "$VITE_SUPABASE_ANON_KEY" ]; then
+            echo "::error::Set the VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY repository variables."
+            exit 1
+          fi
+          npm run build
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

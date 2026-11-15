@@ -40,7 +40,7 @@ export default function Layout() {
   const sidebar = (
     <nav className="flex h-full flex-col gap-1 p-3 text-sm">
       <Link to="/" className="mb-4 flex items-center gap-2 px-2 pt-1">
-        <img src="/favicon.svg" alt="" className="h-7 w-7" />
+        <img src={`${import.meta.env.BASE_URL}favicon.svg`} alt="" className="h-7 w-7" />
         <span className="font-serif text-xl">Artfolio</span>
       </Link>
       <label className="label px-2">Artist</label>
@@ -70,7 +70,7 @@ export default function Layout() {
         </NavLink>
       ))}
       <a
-        href={`/p/${current.artist.slug}`}
+        href={`${import.meta.env.BASE_URL}p/${current.artist.slug}`}
         target="_blank"
         rel="noreferrer"
         className="mt-2 flex items-center gap-2.5 rounded-md px-2 py-1.5 text-stone-700 hover:bg-stone-200/70"

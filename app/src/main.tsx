@@ -24,6 +24,10 @@ const queryClient = new QueryClient({
   defaultOptions: { queries: { staleTime: 30_000, refetchOnWindowFocus: false } },
 });
 
+// Vite's base ("/" at a domain root, "/artfolio-app/" under a project path) without
+// the trailing slash, so routes and links work wherever the app is hosted.
+const basename = import.meta.env.BASE_URL.replace(/\/+$/, '') || '/';
+
 function RequireAuth({ children }: { children: ReactNode }) {
   const { session, loading } = useAuth();
   const location = useLocation();
@@ -36,7 +40,7 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <BrowserRouter>
+        <BrowserRouter basename={basename}>
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/p/:slug" element={<PublicProfile />} />
