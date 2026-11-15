@@ -1382,7 +1382,7 @@
         </div>
       </div>
       <div class="about__aside">
-        <div class="about__image" id="aboutImage"></div>
+        <div class="about__image" id="aboutImage" data-splash="js/portrait-splash.json" data-base="images/portrait-base.jpg" aria-label="Xano Armenter looking up, with colourful paint bursting from his head"></div>
         <div class="about__stats">
           <div class="about__stat">
             <span class="about__stat-num"><span class="count-up" data-target="50">0</span>+</span>
@@ -1726,7 +1726,6 @@
     .then(data => {
       allArtworks = data;
       initHero();
-      initAboutImage();
       buildGalleryFilters();
       renderGallery();
       buildStoreGrid();
@@ -1766,20 +1765,6 @@
     slides[heroIdx].classList.add('active');
     const curr = document.getElementById('counterCurrent');
     if (curr) curr.textContent = String(heroIdx + 1).padStart(2, '0');
-  }
-
-  /* ===========================================
-     ABOUT IMAGE
-  =========================================== */
-  function initAboutImage() {
-    const wrap = document.getElementById('aboutImage');
-    if (!wrap || !allArtworks.length) return;
-    const art = allArtworks.find(a => a.subject === 'Marine') || allArtworks[0];
-    const img = document.createElement('img');
-    img.src = art.image;
-    img.alt = art.title;
-    img.loading = 'lazy';
-    wrap.appendChild(img);
   }
 
   /* ===========================================
@@ -2148,5 +2133,6 @@
     });
   }
   </script>
+  <script src="js/portrait-splash.js"></script>
 </body>
 </html>
