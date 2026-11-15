@@ -217,14 +217,14 @@ isOneToOne: false
                   ]
                 },"pieces": {
                   Row: {
-                    "artist_id": string,"created_at": string,"creation_date": string | null,"currency": string | null,"depth": number | null,"description": string | null,"dimension_unit": string,"edition_size": number | null,"framed": boolean,"framed_depth": number | null,"framed_height": number | null,"framed_width": number | null,"height": number | null,"id": string,"inventory_number": string | null,"is_public": boolean,"kind": Database["public"]['Enums']["piece_kind"],"location": string | null,"medium": string | null,"notes": string | null,"price": number | null,"show_price": boolean,"signature": string | null,"source_ref": string | null,"status": Database["public"]['Enums']["piece_status"],"style": string | null,"subject": string | null,"tags": (string)[],"title": string,"updated_at": string,"width": number | null,"year": number | null
+                    "artist_id": string,"created_at": string,"creation_date": string | null,"currency": string | null,"depth": number | null,"description": string | null,"dimension_unit": string,"edition_size": number | null,"framed": boolean,"framed_depth": number | null,"framed_height": number | null,"framed_width": number | null,"height": number | null,"id": string,"inventory_number": string | null,"is_public": boolean,"kind": Database["public"]['Enums']["piece_kind"],"location": string | null,"medium": string | null,"notes": string | null,"price": number | null,"show_price": boolean,"signature": string | null,"slug": string,"source_ref": string | null,"status": Database["public"]['Enums']["piece_status"],"style": string | null,"subject": string | null,"tags": (string)[],"title": string,"updated_at": string,"width": number | null,"year": number | null,"year_circa": boolean
                   }
                   ComputedFields: never
                   Insert: {
-                    "artist_id": string,"created_at"?: string,"creation_date"?: string | null,"currency"?: string | null,"depth"?: number | null,"description"?: string | null,"dimension_unit"?: string,"edition_size"?: number | null,"framed"?: boolean,"framed_depth"?: number | null,"framed_height"?: number | null,"framed_width"?: number | null,"height"?: number | null,"id"?: string,"inventory_number"?: string | null,"is_public"?: boolean,"kind"?: Database["public"]['Enums']["piece_kind"],"location"?: string | null,"medium"?: string | null,"notes"?: string | null,"price"?: number | null,"show_price"?: boolean,"signature"?: string | null,"source_ref"?: string | null,"status"?: Database["public"]['Enums']["piece_status"],"style"?: string | null,"subject"?: string | null,"tags"?: (string)[],"title": string,"updated_at"?: string,"width"?: number | null,"year"?: number | null
+                    "artist_id": string,"created_at"?: string,"creation_date"?: string | null,"currency"?: string | null,"depth"?: number | null,"description"?: string | null,"dimension_unit"?: string,"edition_size"?: number | null,"framed"?: boolean,"framed_depth"?: number | null,"framed_height"?: number | null,"framed_width"?: number | null,"height"?: number | null,"id"?: string,"inventory_number"?: string | null,"is_public"?: boolean,"kind"?: Database["public"]['Enums']["piece_kind"],"location"?: string | null,"medium"?: string | null,"notes"?: string | null,"price"?: number | null,"show_price"?: boolean,"signature"?: string | null,"slug"?: string,"source_ref"?: string | null,"status"?: Database["public"]['Enums']["piece_status"],"style"?: string | null,"subject"?: string | null,"tags"?: (string)[],"title": string,"updated_at"?: string,"width"?: number | null,"year"?: number | null,"year_circa"?: boolean
                   }
                   Update: {
-                    "artist_id"?: string,"created_at"?: string,"creation_date"?: string | null,"currency"?: string | null,"depth"?: number | null,"description"?: string | null,"dimension_unit"?: string,"edition_size"?: number | null,"framed"?: boolean,"framed_depth"?: number | null,"framed_height"?: number | null,"framed_width"?: number | null,"height"?: number | null,"id"?: string,"inventory_number"?: string | null,"is_public"?: boolean,"kind"?: Database["public"]['Enums']["piece_kind"],"location"?: string | null,"medium"?: string | null,"notes"?: string | null,"price"?: number | null,"show_price"?: boolean,"signature"?: string | null,"source_ref"?: string | null,"status"?: Database["public"]['Enums']["piece_status"],"style"?: string | null,"subject"?: string | null,"tags"?: (string)[],"title"?: string,"updated_at"?: string,"width"?: number | null,"year"?: number | null
+                    "artist_id"?: string,"created_at"?: string,"creation_date"?: string | null,"currency"?: string | null,"depth"?: number | null,"description"?: string | null,"dimension_unit"?: string,"edition_size"?: number | null,"framed"?: boolean,"framed_depth"?: number | null,"framed_height"?: number | null,"framed_width"?: number | null,"height"?: number | null,"id"?: string,"inventory_number"?: string | null,"is_public"?: boolean,"kind"?: Database["public"]['Enums']["piece_kind"],"location"?: string | null,"medium"?: string | null,"notes"?: string | null,"price"?: number | null,"show_price"?: boolean,"signature"?: string | null,"slug"?: string,"source_ref"?: string | null,"status"?: Database["public"]['Enums']["piece_status"],"style"?: string | null,"subject"?: string | null,"tags"?: (string)[],"title"?: string,"updated_at"?: string,"width"?: number | null,"year"?: number | null,"year_circa"?: boolean
                   }
                   Relationships: [
                     {
@@ -294,7 +294,7 @@ isOneToOne: false
                   ]
                 },"public_pieces": {
                   Row: {
-                    "artist_id": string,"artist_slug": string,"created_at": string,"currency": string | null,"depth": number | null,"description": string | null,"dimension_unit": string,"edition_size": number | null,"framed": boolean,"framed_depth": number | null,"framed_height": number | null,"framed_width": number | null,"height": number | null,"id": string,"images": Json | null,"inventory_number": string | null,"kind": Database["public"]['Enums']["piece_kind"],"medium": string | null,"price": number | null,"status": Database["public"]['Enums']["piece_status"],"style": string | null,"subject": string | null,"tags": (string)[],"title": string,"width": number | null,"year": number | null
+                    "artist_id": string,"artist_slug": string,"created_at": string,"currency": string | null,"depth": number | null,"description": string | null,"dimension_unit": string,"edition_size": number | null,"framed": boolean,"framed_depth": number | null,"framed_height": number | null,"framed_width": number | null,"height": number | null,"id": string,"images": Json | null,"inventory_number": string | null,"kind": Database["public"]['Enums']["piece_kind"],"medium": string | null,"price": number | null,"slug": string,"status": Database["public"]['Enums']["piece_status"],"style": string | null,"subject": string | null,"tags": (string)[],"title": string,"width": number | null,"year": number | null,"year_circa": boolean
                   }
                   ComputedFields: never
                   Relationships: [
@@ -321,6 +321,12 @@ isOneToOne: false
 "can_edit":
 { Args: { "a": string }; Returns: boolean
                            },
+"catalogue_v1":
+{ Args: { "p_artist_slug": string }; Returns: Json
+                           },
+"free_piece_slug":
+{ Args: { "p_artist_id": string,"p_base": string,"p_exclude"?: string }; Returns: string
+                           },
 "is_member":
 { Args: { "a": string }; Returns: boolean
                            },
@@ -329,6 +335,9 @@ isOneToOne: false
                            },
 "member_role_of":
 { Args: { "a": string }; Returns: Database["public"]['Enums']["member_role"]
+                           },
+"slugify":
+{ Args: { "p_text": string }; Returns: string
                            },
 "storage_artist_id":
 { Args: { "object_name": string }; Returns: string

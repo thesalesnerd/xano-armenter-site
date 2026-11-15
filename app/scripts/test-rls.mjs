@@ -162,5 +162,111 @@ const { error: outsiderUp } = await (await userClient('carol')).c.storage
   .upload(`${art.id}/${p1.id}/evil.jpg`, blob);
 check("outsider can't upload to alice's folder", !!outsiderUp);
 
+// --- slugs ----------------------------------------------------------------------
+check('slug is built from the title', p1?.slug === 'private-piece' && p2?.slug === 'public-piece', [p1?.slug, p2?.slug]);
+
+const { data: p3, error: p3e } = await alice.c
+  .from('pieces')
+  .insert({ artist_id: art.id, title: 'Públic piece!', is_public: true, year: 1978, year_circa: true, price: 750, location: 'Studio drawer', signature: 'Signed verso', source_ref: 'https://example.test/secret-source' })
+  .select()
+  .single();
+check('duplicate slug gets a -2 suffix', !p3e && p3?.slug === 'public-piece-2', p3e ?? p3?.slug);
+
+const { data: p4 } = await alice.c
+  .from('pieces')
+  .insert({ artist_id: art.id, title: 'Zeta', slug: 'From The Source', is_public: true, year: 2001 })
+  .select()
+  .single();
+check('a given slug is kept, normalised', p4?.slug === 'from-the-source', p4?.slug);
+
+const { data: renamed } = await alice.c.from('pieces').update({ title: 'A completely new title' }).eq('id', p2.id).select().single();
+check('slug is stable after a title update', renamed?.title === 'A completely new title' && renamed?.slug === 'public-piece', renamed?.slug);
+
+const { data: reslug } = await alice.c.from('pieces').update({ slug: 'My Own Slug' }).eq('id', p4.id).select().single();
+check('editor can set the slug explicitly', reslug?.slug === 'my-own-slug', reslug?.slug);
+
+const { error: clashErr } = await alice.c.from('pieces').update({ slug: 'public-piece' }).eq('id', p4.id);
+check("editor can't take a slug that is in use", clashErr?.code === '23505', clashErr);
+
+const { data: allSlugs } = await alice.c.from('pieces').select('slug').eq('artist_id', art.id);
+check('slugs are unique per artist', allSlugs?.length === 4 && new Set(allSlugs.map((p) => p.slug)).size === 4, allSlugs);
+
+// --- catalogue_v1 ---------------------------------------------------------------
+// alice: public profile; p1 private, p2 public (hidden price), p3 + p4 public.
+const { data: pubCol } = await alice.c.from('collections').insert({ artist_id: art.id, name: 'Public series', description: 'Shown', is_public: true }).select().single();
+await alice.c.from('collection_pieces').insert([
+  { collection_id: pubCol.id, piece_id: p2.id, artist_id: art.id, position: 2 },
+  { collection_id: pubCol.id, piece_id: p4.id, artist_id: art.id, position: 0 },
+  { collection_id: pubCol.id, piece_id: p3.id, artist_id: art.id, position: 1 },
+  { collection_id: pubCol.id, piece_id: p1.id, artist_id: art.id, position: 0 }, // private piece
+  { collection_id: aliceCol.id, piece_id: p2.id, artist_id: art.id, position: 0 }, // private collection
+]);
+
+const { data: cat, error: catErr } = await anon.rpc('catalogue_v1', { p_artist_slug: art.slug });
+check('anon can call catalogue_v1 for a public artist', !catErr && cat?.version === 1 && cat?.artist?.slug === art.slug, catErr ?? cat);
+check(
+  'catalogue has the v1 top-level shape',
+  JSON.stringify(Object.keys(cat ?? {}).sort()) === '["artist","collections","generated_at","pieces","version"]' && !Number.isNaN(Date.parse(cat?.generated_at)),
+  Object.keys(cat ?? {}),
+);
+check(
+  'catalogue artist has only public fields',
+  JSON.stringify(Object.keys(cat?.artist ?? {}).sort()) === '["bio","contact_email","currency","dimension_unit","location","name","slug","website"]',
+  Object.keys(cat?.artist ?? {}),
+);
+
+const catIds = (cat?.pieces ?? []).map((p) => p.id);
+check('catalogue lists only public pieces', catIds.length === 3 && !catIds.includes(p1.id), catIds);
+check('catalogue pieces are ordered by year desc (no year last), then title', JSON.stringify(catIds) === JSON.stringify([p4.id, p3.id, p2.id]), catIds);
+
+const PIECE_KEYS = ['collections', 'created_at', 'currency', 'depth', 'description', 'dimension_unit', 'edition_size', 'framed', 'framed_depth', 'framed_height', 'framed_width', 'height', 'id', 'images', 'inventory_number', 'kind', 'medium', 'price', 'slug', 'status', 'style', 'subject', 'tags', 'title', 'updated_at', 'width', 'year', 'year_circa'];
+check(
+  'catalogue pieces have exactly the v1 fields (no notes, location, signature, source_ref)',
+  (cat?.pieces ?? []).every((p) => JSON.stringify(Object.keys(p).sort()) === JSON.stringify(PIECE_KEYS)),
+  Object.keys(cat?.pieces?.[0] ?? {}).sort(),
+);
+const catText = JSON.stringify(cat ?? {});
+check(
+  'catalogue leaks no private text',
+  !['secret note', 'also secret', 'Studio drawer', 'Signed verso', 'secret-source', 'Series A', 'Edited by Bob'].some((t) => catText.includes(t)),
+);
+const c2 = cat?.pieces?.find((p) => p.id === p2.id);
+const c3 = cat?.pieces?.find((p) => p.id === p3.id);
+check('catalogue hides a hidden price', c2 && c2.price === null && c2.currency === 'EUR', c2?.price);
+check('catalogue shows a visible price', c3?.price === 750, c3?.price);
+check('catalogue carries slug and year_circa', c3?.slug === 'public-piece-2' && c3?.year === 1978 && c3?.year_circa === true && c2?.year_circa === false, c3);
+check(
+  'catalogue images use path / thumb_path / width / height / caption',
+  c2?.images?.length === 1 && c2.images[0].path === 'x.jpg' && JSON.stringify(Object.keys(c2.images[0]).sort()) === '["caption","height","path","thumb_path","width"]' && Array.isArray(c3?.images) && c3.images.length === 0,
+  c2?.images,
+);
+check(
+  'catalogue lists only public collections',
+  cat?.collections?.length === 1 && cat.collections[0].id === pubCol.id && cat.collections[0].name === 'Public series' && cat.collections[0].description === 'Shown',
+  cat?.collections,
+);
+check(
+  'collection order respects position and skips private pieces',
+  JSON.stringify(cat?.collections?.[0]?.piece_ids) === JSON.stringify([p4.id, p3.id, p2.id]),
+  cat?.collections?.[0]?.piece_ids,
+);
+check(
+  "a piece's collections are the public ones, with its position",
+  JSON.stringify(c2?.collections) === JSON.stringify([{ id: pubCol.id, name: 'Public series', position: 2 }]),
+  c2?.collections,
+);
+
+const { data: catAuthed, error: catAuthedErr } = await bob.c.rpc('catalogue_v1', { p_artist_slug: art.slug });
+check('signed-in users get the same public catalogue', !catAuthedErr && catAuthed?.pieces?.length === 3, catAuthedErr);
+
+const { data: catBob, error: catBobErr } = await anon.rpc('catalogue_v1', { p_artist_slug: bobArt2.slug });
+check('catalogue_v1 is null for a non-public artist', !catBobErr && catBob === null, catBobErr ?? catBob);
+const { data: catNone, error: catNoneErr } = await anon.rpc('catalogue_v1', { p_artist_slug: `nobody-${run}` });
+check('catalogue_v1 is null for an unknown artist', !catNoneErr && catNone === null, catNoneErr ?? catNone);
+
+await alice.c.from('artists').update({ public_profile: false }).eq('id', art.id);
+const { data: catOff } = await anon.rpc('catalogue_v1', { p_artist_slug: art.slug });
+check('catalogue_v1 turns null when the profile is switched off', catOff === null, catOff);
+
 console.log(failures ? `\n${failures} check(s) failed` : '\nAll checks passed');
 process.exit(failures ? 1 : 0);

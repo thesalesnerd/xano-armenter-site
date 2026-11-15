@@ -42,13 +42,18 @@ begin
   return candidate;
 end $$;
 
+-- The '' default only marks "not given": the trigger below always replaces it,
+-- and the format check rejects it. It keeps slug optional for API clients and
+-- in the generated TypeScript types.
 alter table public.pieces
-  add column slug text,
+  add column slug text not null default '',
   add column year_circa boolean not null default false;
 
 -- Backfill. Pieces imported from Artwork Archive keep the slug they had there
 -- (last segment of ".../artwork/<slug>" in source_ref) so existing links carry
--- over; everything else is slugified from the title.
+-- over; everything else is slugified from the title. updated_at is left alone.
+alter table public.pieces disable trigger pieces_updated_at;
+
 do $$
 declare
   r record;
@@ -60,14 +65,14 @@ begin
              coalesce(
                nullif(public.slugify(substring(r.source_ref from '^https?://[^?#]*/artwork/([^/?#]+)/?(?:[?#].*)?$')), ''),
                public.slugify(r.title)),
-             r.id),
-           updated_at = updated_at
+             r.id)
      where id = r.id;
   end loop;
 end $$;
 
+alter table public.pieces enable trigger pieces_updated_at;
+
 alter table public.pieces
-  alter column slug set not null,
   add constraint pieces_artist_slug_key unique (artist_id, slug),
   add constraint pieces_slug_format check (slug ~ '^[a-z0-9]+(-[a-z0-9]+)*$');
 
