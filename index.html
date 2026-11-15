@@ -20,7 +20,6 @@
     "birthDate": "1956",
     "description": "Catalan painter and visual artist whose work navigates between abstraction and figuration. Known for marine landscapes, urban scenes, and abstract explorations across canvas, fresco, and printmaking. 50+ years of practice across Barcelona, New York, and Los Angeles.",
     "sameAs": [
-      "https://www.artworkarchive.com/profile/xano-armenter",
       "https://kbhfineart.com/artists/xano-armenter/",
       "https://www.artsy.net/artist/xano-armenter",
       "https://www.instagram.com/xano_armenter/"
@@ -1582,7 +1581,7 @@
         <p class="store__sub">Museum-quality prints and objects featuring Xano's paintings. Ships worldwide.</p>
       </div>
       <div class="store__grid" id="storeGrid"></div>
-      <a href="https://www.artworkarchive.com/profile/xano-armenter" target="_blank" rel="noopener" class="store__cta">Enquire about original works</a>
+      <a href="#connect" class="store__cta" data-enquire="Available works">Enquire about original works</a>
     </div>
   </section>
 
@@ -1648,7 +1647,7 @@
         </div>
         <div>
           <div class="connect__detail-label">Archive</div>
-          <div class="connect__detail-value">103 works catalogued<br>artworkarchive.com/profile/xano-armenter</div>
+          <div class="connect__detail-value">103 works catalogued<br>Full catalogue in the gallery above</div>
         </div>
       </div>
     </div>
@@ -1673,7 +1672,7 @@
         <h3 class="lightbox__title" id="lbTitle"></h3>
         <div class="lightbox__meta" id="lbMeta"></div>
         <div class="lightbox__price" id="lbPrice"></div>
-        <a class="lightbox__link" id="lbLink" href="" target="_blank" rel="noopener">View on Artwork Archive</a>
+        <a class="lightbox__link" id="lbLink" href="#connect">Enquire about this work</a>
       </div>
     </div>
   </div>
@@ -1824,7 +1823,7 @@
       item.className = 'gallery__item';
       item.innerHTML = `
         <div class="gallery__item-inner">
-          <img src="${art.image}" alt="${art.title}" loading="lazy">
+          <img src="${art.thumb || art.image}" alt="${art.title}" loading="lazy">
         </div>
         <div class="gallery__item-overlay">
           <div>
@@ -1880,8 +1879,8 @@
       (art.medium ? '<br>' + art.medium : '') +
       (art.dimensions ? '<br>' + art.dimensions : '');
     document.getElementById('lbPrice').textContent = art.price || '';
-    document.getElementById('lbLink').href =
-      art.aa_url || 'https://www.artworkarchive.com/profile/xano-armenter';
+    document.getElementById('lbLink').dataset.enquire = 'Available works';
+    document.getElementById('lbLink').dataset.artwork = art.title + (art.year ? ' (' + art.year + ')' : '');
   }
 
   function closeLightbox() {
@@ -1933,7 +1932,7 @@
       item.className = 'store__item';
       item.innerHTML = `
         <div class="store__img">
-          <img src="${art.image}" alt="${art.title}" loading="lazy">
+          <img src="${art.thumb || art.image}" alt="${art.title}" loading="lazy">
           <span class="store__badge">${PRODUCT_TYPES[i]}</span>
         </div>
         <div class="store__item-body">
@@ -2107,6 +2106,26 @@
   // CONTACT FORM
   // =========================================
   const contactForm = document.getElementById('connectForm');
+
+  // "Enquire" links: close the lightbox, pre-fill the form, scroll to it
+  document.addEventListener('click', function(e) {
+    const link = e.target.closest('[data-enquire]');
+    if (!link || !contactForm) return;
+    e.preventDefault();
+    const lb = document.getElementById('lightbox');
+    if (lb && lb.classList.contains('open')) {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    const subject = contactForm.querySelector('[name="subject"]');
+    if (subject) subject.value = link.dataset.enquire;
+    const message = contactForm.querySelector('[name="message"]');
+    if (message && link.dataset.artwork && !message.value.trim()) {
+      message.value = 'I\'m interested in "' + link.dataset.artwork + '". Is it available?';
+    }
+    document.getElementById('connect').scrollIntoView({ behavior: 'smooth' });
+  });
+
   if (contactForm) {
     contactForm.addEventListener('submit', async function(e) {
       e.preventDefault();
