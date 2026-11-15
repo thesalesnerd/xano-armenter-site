@@ -1,0 +1,38 @@
+# Xano Armenter — artist site
+
+Four-page site (Home, Selected work, About, Contact) plus a full archive, in
+English and Spanish (`/es`). Built from the Figma design and Make prototype,
+with the catalogue exported from Artwork Archive.
+
+```bash
+npm install
+npm run dev      # http://localhost:5173
+npm run build    # static site in dist/
+```
+
+The site is a single-page app, so the host must serve `index.html` for every
+path. `vercel.json` and `public/_redirects` (Netlify, Cloudflare Pages) do
+that; the build also writes `dist/404.html` for GitHub Pages.
+
+## Where things are
+
+| | |
+|---|---|
+| `data/artwork.json` | The catalogue (103 works) exported from Artwork Archive. |
+| `scripts/build-data.py` | Builds `src/data/artworks.json` from it. The **selected works and their order** are the `SELECTED` list at the top. Run `npm run data` after changing it. |
+| `public/artwork/` | Images (1600px) and `thumb/` (800px). |
+| `src/i18n.tsx` | All copy in English and Spanish, and the enquiry email (`CONTACT_EMAIL`). |
+| `src/cv.ts` | Exhibitions and commissions on the About page. |
+| `src/data.ts` | Hero, the three home-page works and the practice image. |
+| `src/components/Mosaic.tsx` | The uncropped mosaic of works. |
+| `src/components/RoomView.tsx` | "Imagine it in your home": the painting to scale on a wall, or over the visitor's own photo. |
+| `src/components/PortraitSplash.tsx` | Animated portrait on the About page (see `HANDOFF-portrait-splash.md`). |
+| `reference/google-site/CONTENT.md` | The artist's own statement and CV, the source for the copy. |
+
+## Notes
+
+- No prices are shown. Every work links to Contact with the work filled in.
+- Paintings are never cropped, except the full-screen hero.
+- The room view uses the catalogued size in centimetres. Works without a
+  catalogued size are shown at an approximate size and say so.
+- The Spanish copy and parts of the English copy are drafts for review.

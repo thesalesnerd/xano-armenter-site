@@ -1,0 +1,1658 @@
+[
+ {
+  "slug": "about-the-future",
+  "title": "About the future",
+  "year": 2018,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": null,
+  "cm": {
+   "h": 46.0,
+   "w": 38.0
+  },
+  "dims": "46 × 38 cm",
+  "image": "/artwork/about-the-future.jpg",
+  "thumb": "/artwork/thumb/about-the-future.jpg",
+  "w": 1317,
+  "h": 1600,
+  "selected": 6
+ },
+ {
+  "slug": "taula-de-treball-2",
+  "title": "Taula de treball 2",
+  "year": 2018,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": "Still Life",
+  "cm": {
+   "h": 55.0,
+   "w": 65.0
+  },
+  "dims": "55 × 65 cm",
+  "image": "/artwork/taula-de-treball-2.jpg",
+  "thumb": "/artwork/thumb/taula-de-treball-2.jpg",
+  "w": 1600,
+  "h": 1226,
+  "selected": null
+ },
+ {
+  "slug": "ultramar-1",
+  "title": "Ultramar 1",
+  "year": 2018,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": "Marine",
+  "cm": {
+   "h": 166.0,
+   "w": 128.0
+  },
+  "dims": "166 × 128 cm",
+  "image": "/artwork/ultramar-1.jpg",
+  "thumb": "/artwork/thumb/ultramar-1.jpg",
+  "w": 1200,
+  "h": 1600,
+  "selected": null
+ },
+ {
+  "slug": "ultramar-2-underwater-2",
+  "title": "Ultramar 2 / Underwater 2",
+  "year": 2018,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": "Marine",
+  "cm": {
+   "h": 166.0,
+   "w": 128.0
+  },
+  "dims": "166 × 128 cm",
+  "image": "/artwork/ultramar-2-underwater-2.jpg",
+  "thumb": "/artwork/thumb/ultramar-2-underwater-2.jpg",
+  "w": 1169,
+  "h": 1600,
+  "selected": 4
+ },
+ {
+  "slug": "ultramar-3",
+  "title": "Ultramar 3",
+  "year": 2018,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": "Marine",
+  "cm": {
+   "h": 166.0,
+   "w": 128.0
+  },
+  "dims": "166 × 128 cm",
+  "image": "/artwork/ultramar-3.jpg",
+  "thumb": "/artwork/thumb/ultramar-3.jpg",
+  "w": 1194,
+  "h": 1600,
+  "selected": 10
+ },
+ {
+  "slug": "ultramar-4-underwater-4",
+  "title": "Ultramar 4 / Underwater 4",
+  "year": 2018,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": "Marine",
+  "cm": {
+   "h": 166.0,
+   "w": 128.0
+  },
+  "dims": "166 × 128 cm",
+  "image": "/artwork/ultramar-4-underwater-4.jpg",
+  "thumb": "/artwork/thumb/ultramar-4-underwater-4.jpg",
+  "w": 1209,
+  "h": 1600,
+  "selected": 1
+ },
+ {
+  "slug": "wave-xano-armenter",
+  "title": "Wave",
+  "year": 2018,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": "Landscape",
+  "cm": {
+   "h": 162.0,
+   "w": 180.0
+  },
+  "dims": "162 × 180 cm",
+  "image": "/artwork/wave-xano-armenter.jpg",
+  "thumb": "/artwork/thumb/wave-xano-armenter.jpg",
+  "w": 1600,
+  "h": 1422,
+  "selected": 0
+ },
+ {
+  "slug": "a-un-poema-de-rossend-bonas-serie-de-4-piezas",
+  "title": "A un poema de Rossend Bonas (serie de 4 piezas)",
+  "year": 2017,
+  "circa": true,
+  "medium": "Acrylic on paper",
+  "subject": null,
+  "cm": {
+   "h": 38.0,
+   "w": 50.0
+  },
+  "dims": "38 × 50 cm",
+  "image": "/artwork/a-un-poema-de-rossend-bonas-serie-de-4-piezas.jpg",
+  "thumb": "/artwork/thumb/a-un-poema-de-rossend-bonas-serie-de-4-piezas.jpg",
+  "w": 1600,
+  "h": 1181,
+  "selected": null
+ },
+ {
+  "slug": "jo-pintor",
+  "title": "Jo pintor",
+  "year": 2017,
+  "circa": true,
+  "medium": "Acrylic on canvas",
+  "subject": null,
+  "cm": {
+   "h": 50.0,
+   "w": 65.0
+  },
+  "dims": "50 × 65 cm",
+  "image": "/artwork/jo-pintor.jpg",
+  "thumb": "/artwork/thumb/jo-pintor.jpg",
+  "w": 1600,
+  "h": 1235,
+  "selected": null
+ },
+ {
+  "slug": "pampagulles",
+  "title": "Pampagulles",
+  "year": 2017,
+  "circa": true,
+  "medium": "Acrylic on canvas",
+  "subject": null,
+  "cm": {
+   "h": 107.0,
+   "w": 91.0
+  },
+  "dims": "107 × 91 cm",
+  "image": "/artwork/pampagulles.jpg",
+  "thumb": "/artwork/thumb/pampagulles.jpg",
+  "w": 1329,
+  "h": 1600,
+  "selected": 3
+ },
+ {
+  "slug": "street-walkby",
+  "title": "Street walkby",
+  "year": 2017,
+  "circa": true,
+  "medium": "Oil on aluminium",
+  "subject": "Urban",
+  "cm": {
+   "h": 42.0,
+   "w": 59.0
+  },
+  "dims": "42 × 59 cm",
+  "image": "/artwork/street-walkby.jpg",
+  "thumb": "/artwork/thumb/street-walkby.jpg",
+  "w": 1600,
+  "h": 1137,
+  "selected": null
+ },
+ {
+  "slug": "la-cova-dels-colors-retina-2",
+  "title": "La cova dels colors (Retina 2)",
+  "year": 2016,
+  "circa": true,
+  "medium": "Acrylic on canvas",
+  "subject": "Abstract",
+  "cm": {
+   "h": 150.0,
+   "w": 150.0
+  },
+  "dims": "150 × 150 cm",
+  "image": "/artwork/la-cova-dels-colors-retina-2.jpg",
+  "thumb": "/artwork/thumb/la-cova-dels-colors-retina-2.jpg",
+  "w": 1600,
+  "h": 1569,
+  "selected": 8
+ },
+ {
+  "slug": "agora-xano-armenter",
+  "title": "Agora",
+  "year": 2015,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": null,
+  "cm": {
+   "h": 54.0,
+   "w": 65.0
+  },
+  "dims": "54 × 65 cm",
+  "image": "/artwork/agora-xano-armenter.jpg",
+  "thumb": "/artwork/thumb/agora-xano-armenter.jpg",
+  "w": 1600,
+  "h": 1324,
+  "selected": 2
+ },
+ {
+  "slug": "carrer-ple-de-gent",
+  "title": "Carrer ple de gent",
+  "year": 2015,
+  "circa": false,
+  "medium": null,
+  "subject": "Urban",
+  "cm": {
+   "h": 65.0,
+   "w": 54.0
+  },
+  "dims": "65 × 54 cm",
+  "image": "/artwork/carrer-ple-de-gent.jpg",
+  "thumb": "/artwork/thumb/carrer-ple-de-gent.jpg",
+  "w": 1338,
+  "h": 1600,
+  "selected": null
+ },
+ {
+  "slug": "chanel-sources",
+  "title": "Chanel sources",
+  "year": 2015,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": "Still Life",
+  "cm": {
+   "h": 46.0,
+   "w": 38.0
+  },
+  "dims": "46 × 38 cm",
+  "image": "/artwork/chanel-sources.jpg",
+  "thumb": "/artwork/thumb/chanel-sources.jpg",
+  "w": 1329,
+  "h": 1600,
+  "selected": null
+ },
+ {
+  "slug": "en-el-aire-xano-armenter",
+  "title": "En el aire",
+  "year": 2015,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": null,
+  "cm": {
+   "h": 54.0,
+   "w": 65.0
+  },
+  "dims": "54 × 65 cm",
+  "image": "/artwork/en-el-aire-xano-armenter.jpg",
+  "thumb": "/artwork/thumb/en-el-aire-xano-armenter.jpg",
+  "w": 1600,
+  "h": 1326,
+  "selected": 5
+ },
+ {
+  "slug": "seres-invisibles",
+  "title": "Seres invisibles",
+  "year": 2015,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": null,
+  "cm": {
+   "h": 54.0,
+   "w": 66.0
+  },
+  "dims": "54 × 66 cm",
+  "image": "/artwork/seres-invisibles.jpg",
+  "thumb": "/artwork/thumb/seres-invisibles.jpg",
+  "w": 1600,
+  "h": 1278,
+  "selected": 18
+ },
+ {
+  "slug": "la-riqueza-content-is-waiting",
+  "title": "La riqueza / Content is waiting",
+  "year": 2014,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": null,
+  "cm": {
+   "h": 38.0,
+   "w": 46.0
+  },
+  "dims": "38 × 46 cm",
+  "image": "/artwork/la-riqueza-content-is-waiting.jpg",
+  "thumb": "/artwork/thumb/la-riqueza-content-is-waiting.jpg",
+  "w": 1600,
+  "h": 1353,
+  "selected": null
+ },
+ {
+  "slug": "public-and-private",
+  "title": "Public and private",
+  "year": 2014,
+  "circa": false,
+  "medium": "Oil on aluminium",
+  "subject": "Urban",
+  "cm": {
+   "h": 50.0,
+   "w": 66.0
+  },
+  "dims": "50 × 66 cm",
+  "image": "/artwork/public-and-private.jpg",
+  "thumb": "/artwork/thumb/public-and-private.jpg",
+  "w": 1600,
+  "h": 1188,
+  "selected": 9
+ },
+ {
+  "slug": "sense-parets",
+  "title": "Sense parets",
+  "year": 2014,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": null,
+  "cm": {
+   "h": 80.0,
+   "w": 80.0
+  },
+  "dims": "80 × 80 cm",
+  "image": "/artwork/sense-parets.jpg",
+  "thumb": "/artwork/thumb/sense-parets.jpg",
+  "w": 1600,
+  "h": 1568,
+  "selected": 7
+ },
+ {
+  "slug": "break-more-walls",
+  "title": "Break More Walls",
+  "year": 2013,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": "Abstract",
+  "cm": {
+   "h": 150.0,
+   "w": 150.0
+  },
+  "dims": "150 × 150 cm",
+  "image": "/artwork/break-more-walls.jpg",
+  "thumb": "/artwork/thumb/break-more-walls.jpg",
+  "w": 1600,
+  "h": 1584,
+  "selected": null
+ },
+ {
+  "slug": "city-1-and-city-2",
+  "title": "City 1 and City 2",
+  "year": 2012,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": "Urban",
+  "cm": {
+   "h": 56.0,
+   "w": 84.0
+  },
+  "dims": "56 × 84 cm",
+  "image": "/artwork/city-1-and-city-2.jpg",
+  "thumb": "/artwork/thumb/city-1-and-city-2.jpg",
+  "w": 1600,
+  "h": 1070,
+  "selected": null
+ },
+ {
+  "slug": "drops-1",
+  "title": "Drops 1",
+  "year": 2012,
+  "circa": false,
+  "medium": "Oil on canvas",
+  "subject": "Abstract",
+  "cm": {
+   "h": 46.0,
+   "w": 38.0
+  },
+  "dims": "46 × 38 cm",
+  "image": "/artwork/drops-1.jpg",
+  "thumb": "/artwork/thumb/drops-1.jpg",
+  "w": 1320,
+  "h": 1600,
+  "selected": null
+ },
+ {
+  "slug": "not-nothing-xano-armenter",
+  "title": "Not nothing",
+  "year": 2012,
+  "circa": false,
+  "medium": "Oil on canvas",
+  "subject": null,
+  "cm": {
+   "h": 65.0,
+   "w": 54.0
+  },
+  "dims": "65 × 54 cm",
+  "image": "/artwork/not-nothing-xano-armenter.jpg",
+  "thumb": "/artwork/thumb/not-nothing-xano-armenter.jpg",
+  "w": 1335,
+  "h": 1600,
+  "selected": null
+ },
+ {
+  "slug": "broken-walls-2",
+  "title": "Broken walls 2",
+  "year": 2011,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": "Abstract",
+  "cm": {
+   "h": 150.0,
+   "w": 150.0
+  },
+  "dims": "150 × 150 cm",
+  "image": "/artwork/broken-walls-2.jpg",
+  "thumb": "/artwork/thumb/broken-walls-2.jpg",
+  "w": 1600,
+  "h": 1598,
+  "selected": null
+ },
+ {
+  "slug": "celebration-xano-armenter",
+  "title": "Celebration",
+  "year": 2011,
+  "circa": false,
+  "medium": "Oil on canvas",
+  "subject": null,
+  "cm": {
+   "h": 54.0,
+   "w": 65.0
+  },
+  "dims": "54 × 65 cm",
+  "image": "/artwork/celebration-xano-armenter.jpg",
+  "thumb": "/artwork/thumb/celebration-xano-armenter.jpg",
+  "w": 1600,
+  "h": 1331,
+  "selected": 11
+ },
+ {
+  "slug": "close-up-unit",
+  "title": "Close up unit",
+  "year": 2011,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": "Abstract",
+  "cm": {
+   "h": 30.0,
+   "w": 30.0
+  },
+  "dims": "30 × 30 cm",
+  "image": "/artwork/close-up-unit.jpg",
+  "thumb": "/artwork/thumb/close-up-unit.jpg",
+  "w": 1600,
+  "h": 1560,
+  "selected": null
+ },
+ {
+  "slug": "exoplaneta",
+  "title": "Exoplaneta",
+  "year": 2011,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": "Abstract",
+  "cm": {
+   "h": 30.0,
+   "w": 90.0
+  },
+  "dims": "30 × 90 cm",
+  "image": "/artwork/exoplaneta.jpg",
+  "thumb": "/artwork/thumb/exoplaneta.jpg",
+  "w": 1600,
+  "h": 527,
+  "selected": null
+ },
+ {
+  "slug": "explorer-xano-armenter",
+  "title": "Explorer",
+  "year": 2011,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": null,
+  "cm": {
+   "h": 46.0,
+   "w": 38.0
+  },
+  "dims": "46 × 38 cm",
+  "image": "/artwork/explorer-xano-armenter.jpg",
+  "thumb": "/artwork/thumb/explorer-xano-armenter.jpg",
+  "w": 1332,
+  "h": 1600,
+  "selected": null
+ },
+ {
+  "slug": "burning-room",
+  "title": "Burning Room",
+  "year": 2009,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": "Still Life",
+  "cm": {
+   "h": 54.0,
+   "w": 65.0
+  },
+  "dims": "54 × 65 cm",
+  "image": "/artwork/burning-room.jpg",
+  "thumb": "/artwork/thumb/burning-room.jpg",
+  "w": 1600,
+  "h": 1332,
+  "selected": null
+ },
+ {
+  "slug": "finestra-oberta",
+  "title": "Finestra oberta",
+  "year": 2008,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": "Still Life",
+  "cm": {
+   "h": 60.0,
+   "w": 73.0
+  },
+  "dims": "60 × 73 cm",
+  "image": "/artwork/finestra-oberta.jpg",
+  "thumb": "/artwork/thumb/finestra-oberta.jpg",
+  "w": 1600,
+  "h": 1330,
+  "selected": null
+ },
+ {
+  "slug": "lo-viejo-y-lo-nuevo",
+  "title": "Lo viejo y lo nuevo",
+  "year": 2008,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": null,
+  "cm": null,
+  "dims": null,
+  "image": "/artwork/lo-viejo-y-lo-nuevo.jpg",
+  "thumb": "/artwork/thumb/lo-viejo-y-lo-nuevo.jpg",
+  "w": 1600,
+  "h": 1162,
+  "selected": null
+ },
+ {
+  "slug": "pintar-la-natura",
+  "title": "Pintar la natura",
+  "year": 2005,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": "Landscape",
+  "cm": {
+   "h": 54.0,
+   "w": 65.0
+  },
+  "dims": "54 × 65 cm",
+  "image": "/artwork/pintar-la-natura.jpg",
+  "thumb": "/artwork/thumb/pintar-la-natura.jpg",
+  "w": 1600,
+  "h": 1332,
+  "selected": 17
+ },
+ {
+  "slug": "abstraccio-de-paisatge",
+  "title": "Abstraccio de paisatge",
+  "year": 2004,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": "Abstract",
+  "cm": {
+   "h": 54.0,
+   "w": 65.0
+  },
+  "dims": "54 × 65 cm",
+  "image": "/artwork/abstraccio-de-paisatge.jpg",
+  "thumb": "/artwork/thumb/abstraccio-de-paisatge.jpg",
+  "w": 1600,
+  "h": 1315,
+  "selected": null
+ },
+ {
+  "slug": "abstraccio-de-paisatge-2",
+  "title": "Abstraccio de paisatge 2",
+  "year": 2004,
+  "circa": false,
+  "medium": "Oil on canvas",
+  "subject": "Abstract",
+  "cm": {
+   "h": 54.0,
+   "w": 65.0
+  },
+  "dims": "54 × 65 cm",
+  "image": "/artwork/abstraccio-de-paisatge-2.jpg",
+  "thumb": "/artwork/thumb/abstraccio-de-paisatge-2.jpg",
+  "w": 1600,
+  "h": 1324,
+  "selected": null
+ },
+ {
+  "slug": "caterina-xano-armenter",
+  "title": "Caterina",
+  "year": 2004,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": null,
+  "cm": {
+   "h": 65.0,
+   "w": 54.0
+  },
+  "dims": "65 × 54 cm",
+  "image": "/artwork/caterina-xano-armenter.jpg",
+  "thumb": "/artwork/thumb/caterina-xano-armenter.jpg",
+  "w": 1292,
+  "h": 1600,
+  "selected": 16
+ },
+ {
+  "slug": "pintar-la-natura-2",
+  "title": "Pintar la natura 2",
+  "year": 2004,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": "Landscape",
+  "cm": {
+   "h": 65.0,
+   "w": 54.0
+  },
+  "dims": "65 × 54 cm",
+  "image": "/artwork/pintar-la-natura-2.jpg",
+  "thumb": "/artwork/thumb/pintar-la-natura-2.jpg",
+  "w": 1336,
+  "h": 1600,
+  "selected": 12
+ },
+ {
+  "slug": "tornar-al-origen",
+  "title": "Tornar al origen",
+  "year": 2004,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": null,
+  "cm": {
+   "h": 108.0,
+   "w": 92.0
+  },
+  "dims": "108 × 92 cm",
+  "image": "/artwork/tornar-al-origen.jpg",
+  "thumb": "/artwork/thumb/tornar-al-origen.jpg",
+  "w": 1352,
+  "h": 1600,
+  "selected": 14
+ },
+ {
+  "slug": "dark-hour",
+  "title": "Dark hour",
+  "year": 2002,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": null,
+  "cm": {
+   "h": 38.0,
+   "w": 46.0
+  },
+  "dims": "38 × 46 cm",
+  "image": "/artwork/dark-hour.jpg",
+  "thumb": "/artwork/thumb/dark-hour.jpg",
+  "w": 1600,
+  "h": 1329,
+  "selected": null
+ },
+ {
+  "slug": "les-ferreres",
+  "title": "Les Ferreres",
+  "year": 2002,
+  "circa": false,
+  "medium": "Oil on canvas",
+  "subject": null,
+  "cm": {
+   "h": 50.0,
+   "w": 65.0
+  },
+  "dims": "50 × 65 cm",
+  "image": "/artwork/les-ferreres.jpg",
+  "thumb": "/artwork/thumb/les-ferreres.jpg",
+  "w": 1600,
+  "h": 1232,
+  "selected": 20
+ },
+ {
+  "slug": "luz-blanca-white-ligth",
+  "title": "Luz blanca / White Light",
+  "year": 2002,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": null,
+  "cm": {
+   "h": 50.0,
+   "w": 65.0
+  },
+  "dims": "50 × 65 cm",
+  "image": "/artwork/luz-blanca-white-ligth.jpg",
+  "thumb": "/artwork/thumb/luz-blanca-white-ligth.jpg",
+  "w": 1600,
+  "h": 1246,
+  "selected": null
+ },
+ {
+  "slug": "studio-formula",
+  "title": "Studio formula",
+  "year": 2002,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": null,
+  "cm": {
+   "h": 60.0,
+   "w": 60.0
+  },
+  "dims": "60 × 60 cm",
+  "image": "/artwork/studio-formula.jpg",
+  "thumb": "/artwork/thumb/studio-formula.jpg",
+  "w": 1600,
+  "h": 1591,
+  "selected": null
+ },
+ {
+  "slug": "ciutat-oberta",
+  "title": "Ciutat oberta",
+  "year": 2001,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": null,
+  "cm": {
+   "h": 50.0,
+   "w": 65.0
+  },
+  "dims": "50 × 65 cm",
+  "image": "/artwork/ciutat-oberta.jpg",
+  "thumb": "/artwork/thumb/ciutat-oberta.jpg",
+  "w": 1600,
+  "h": 1218,
+  "selected": null
+ },
+ {
+  "slug": "red-table-with-yellow-bird",
+  "title": "Red table with yellow bird",
+  "year": 2001,
+  "circa": true,
+  "medium": "Acrylic on canvas",
+  "subject": "Still Life",
+  "cm": {
+   "h": 114.0,
+   "w": 146.0
+  },
+  "dims": "114 × 146 cm",
+  "image": "/artwork/red-table-with-yellow-bird.jpg",
+  "thumb": "/artwork/thumb/red-table-with-yellow-bird.jpg",
+  "w": 1600,
+  "h": 1228,
+  "selected": 15
+ },
+ {
+  "slug": "studio-corner-xano-armenter",
+  "title": "Studio corner",
+  "year": 1997,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": "Still Life",
+  "cm": {
+   "h": 65.0,
+   "w": 68.0
+  },
+  "dims": "65 × 68 cm",
+  "image": "/artwork/studio-corner-xano-armenter.jpg",
+  "thumb": "/artwork/thumb/studio-corner-xano-armenter.jpg",
+  "w": 1600,
+  "h": 1471,
+  "selected": null
+ },
+ {
+  "slug": "la-mente-tambien-juega-opening",
+  "title": "La mente tambien juega (Opening)",
+  "year": 1996,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": null,
+  "cm": {
+   "h": 92.0,
+   "w": 81.0
+  },
+  "dims": "92 × 81 cm",
+  "image": "/artwork/la-mente-tambien-juega-opening.jpg",
+  "thumb": "/artwork/thumb/la-mente-tambien-juega-opening.jpg",
+  "w": 1405,
+  "h": 1600,
+  "selected": null
+ },
+ {
+  "slug": "lets-dance-xano-armenter",
+  "title": "Lets Dance",
+  "year": 1994,
+  "circa": true,
+  "medium": "Acrylic on paper",
+  "subject": null,
+  "cm": {
+   "h": 35.0,
+   "w": 62.0
+  },
+  "dims": "35 × 62 cm",
+  "image": "/artwork/lets-dance-xano-armenter.jpg",
+  "thumb": "/artwork/thumb/lets-dance-xano-armenter.jpg",
+  "w": 1600,
+  "h": 892,
+  "selected": null
+ },
+ {
+  "slug": "the-club-xano-armenter",
+  "title": "The club",
+  "year": 1993,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": "Urban",
+  "cm": {
+   "h": 178.0,
+   "w": 122.0
+  },
+  "dims": "178 × 122 cm",
+  "image": "/artwork/the-club-xano-armenter.jpg",
+  "thumb": "/artwork/thumb/the-club-xano-armenter.jpg",
+  "w": 1091,
+  "h": 1600,
+  "selected": 13
+ },
+ {
+  "slug": "the-new-baby-xano-armenter",
+  "title": "The New Baby",
+  "year": 1992,
+  "circa": true,
+  "medium": "Oil on canvas",
+  "subject": null,
+  "cm": {
+   "h": 100.0,
+   "w": 81.0
+  },
+  "dims": "100 × 81 cm",
+  "image": "/artwork/the-new-baby-xano-armenter.jpg",
+  "thumb": "/artwork/thumb/the-new-baby-xano-armenter.jpg",
+  "w": 1257,
+  "h": 1600,
+  "selected": null
+ },
+ {
+  "slug": "continium",
+  "title": "Continium",
+  "year": 1991,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": null,
+  "cm": {
+   "h": 81.0,
+   "w": 65.0
+  },
+  "dims": "81 × 65 cm",
+  "image": "/artwork/continium.jpg",
+  "thumb": "/artwork/thumb/continium.jpg",
+  "w": 1343,
+  "h": 1600,
+  "selected": null
+ },
+ {
+  "slug": "graffiti-town-xano-armenter",
+  "title": "Graffiti Town",
+  "year": 1991,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": null,
+  "cm": null,
+  "dims": null,
+  "image": "/artwork/graffiti-town-xano-armenter.jpg",
+  "thumb": "/artwork/thumb/graffiti-town-xano-armenter.jpg",
+  "w": 1200,
+  "h": 1600,
+  "selected": null
+ },
+ {
+  "slug": "hot-pipes",
+  "title": "Hot pipes",
+  "year": 1991,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": null,
+  "cm": {
+   "h": 100.0,
+   "w": 81.0
+  },
+  "dims": "100 × 81 cm",
+  "image": "/artwork/hot-pipes.jpg",
+  "thumb": "/artwork/thumb/hot-pipes.jpg",
+  "w": 1271,
+  "h": 1600,
+  "selected": null
+ },
+ {
+  "slug": "ingeni-i",
+  "title": "Ingeni I",
+  "year": 1991,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": null,
+  "cm": null,
+  "dims": "130 × 180 cm",
+  "image": "/artwork/ingeni-i.jpg",
+  "thumb": "/artwork/thumb/ingeni-i.jpg",
+  "w": 1600,
+  "h": 1448,
+  "selected": null
+ },
+ {
+  "slug": "ingeni-ii",
+  "title": "Ingeni II",
+  "year": 1991,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": null,
+  "cm": {
+   "h": 180.0,
+   "w": 130.0
+  },
+  "dims": "180 × 130 cm",
+  "image": "/artwork/ingeni-ii.jpg",
+  "thumb": "/artwork/thumb/ingeni-ii.jpg",
+  "w": 1063,
+  "h": 1600,
+  "selected": null
+ },
+ {
+  "slug": "ingeni-iii",
+  "title": "Ingeni III",
+  "year": 1991,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": null,
+  "cm": null,
+  "dims": "180 × 130 cm",
+  "image": "/artwork/ingeni-iii.jpg",
+  "thumb": "/artwork/thumb/ingeni-iii.jpg",
+  "w": 998,
+  "h": 1600,
+  "selected": null
+ },
+ {
+  "slug": "ingeni-petit",
+  "title": "Ingeni petit",
+  "year": 1991,
+  "circa": false,
+  "medium": "Acrylic on paper",
+  "subject": null,
+  "cm": {
+   "h": 40.0,
+   "w": 33.0
+  },
+  "dims": "40 × 33 cm",
+  "image": "/artwork/ingeni-petit.jpg",
+  "thumb": "/artwork/thumb/ingeni-petit.jpg",
+  "w": 1284,
+  "h": 1600,
+  "selected": null
+ },
+ {
+  "slug": "jerry-s-lab",
+  "title": "Jerry's Lab",
+  "year": 1991,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": null,
+  "cm": {
+   "h": 100.0,
+   "w": 81.0
+  },
+  "dims": "100 × 81 cm",
+  "image": "/artwork/jerry-s-lab.jpg",
+  "thumb": "/artwork/thumb/jerry-s-lab.jpg",
+  "w": 1325,
+  "h": 1600,
+  "selected": 22
+ },
+ {
+  "slug": "la-reserva",
+  "title": "La Reserva",
+  "year": 1991,
+  "circa": false,
+  "medium": "Acrylic on paper",
+  "subject": null,
+  "cm": null,
+  "dims": null,
+  "image": "/artwork/la-reserva.jpg",
+  "thumb": "/artwork/thumb/la-reserva.jpg",
+  "w": 1600,
+  "h": 1200,
+  "selected": null
+ },
+ {
+  "slug": "laberint",
+  "title": "Laberint",
+  "year": 1991,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": null,
+  "cm": {
+   "h": 225.0,
+   "w": 200.0
+  },
+  "dims": "225 × 200 cm",
+  "image": "/artwork/laberint.jpg",
+  "thumb": "/artwork/thumb/laberint.jpg",
+  "w": 1590,
+  "h": 1600,
+  "selected": null
+ },
+ {
+  "slug": "laboratori",
+  "title": "Laboratori",
+  "year": 1991,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": null,
+  "cm": {
+   "h": 93.0,
+   "w": 103.0
+  },
+  "dims": "93 × 103 cm",
+  "image": "/artwork/laboratori.jpg",
+  "thumb": "/artwork/thumb/laboratori.jpg",
+  "w": 1600,
+  "h": 1544,
+  "selected": null
+ },
+ {
+  "slug": "loop-xano-armenter",
+  "title": "Loop",
+  "year": 1991,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": null,
+  "cm": {
+   "h": 38.0,
+   "w": 46.0
+  },
+  "dims": "38 × 46 cm",
+  "image": "/artwork/loop-xano-armenter.jpg",
+  "thumb": "/artwork/thumb/loop-xano-armenter.jpg",
+  "w": 1600,
+  "h": 1311,
+  "selected": null
+ },
+ {
+  "slug": "mecanic",
+  "title": "Mecanic",
+  "year": 1991,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": null,
+  "cm": null,
+  "dims": "130 × 97 cm",
+  "image": "/artwork/mecanic.jpg",
+  "thumb": "/artwork/thumb/mecanic.jpg",
+  "w": 1035,
+  "h": 1600,
+  "selected": null
+ },
+ {
+  "slug": "monotipo-xano-armenter",
+  "title": "Monotipo",
+  "year": 1991,
+  "circa": false,
+  "medium": "Ink on paper",
+  "subject": "Still Life",
+  "cm": {
+   "h": 68.0,
+   "w": 48.0
+  },
+  "dims": "68 × 48 cm",
+  "image": "/artwork/monotipo-xano-armenter.jpg",
+  "thumb": "/artwork/thumb/monotipo-xano-armenter.jpg",
+  "w": 1153,
+  "h": 1600,
+  "selected": null
+ },
+ {
+  "slug": "red-pipe-xano-armenter",
+  "title": "Red Pipe",
+  "year": 1991,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": "Still Life",
+  "cm": {
+   "h": 38.0,
+   "w": 46.0
+  },
+  "dims": "38 × 46 cm",
+  "image": "/artwork/red-pipe-xano-armenter.jpg",
+  "thumb": "/artwork/thumb/red-pipe-xano-armenter.jpg",
+  "w": 1600,
+  "h": 1327,
+  "selected": null
+ },
+ {
+  "slug": "secret-formula",
+  "title": "Secret formula",
+  "year": 1991,
+  "circa": true,
+  "medium": "Acrylic on canvas",
+  "subject": "Still Life",
+  "cm": {
+   "h": 100.0,
+   "w": 81.0
+  },
+  "dims": "100 × 81 cm",
+  "image": "/artwork/secret-formula.jpg",
+  "thumb": "/artwork/thumb/secret-formula.jpg",
+  "w": 1284,
+  "h": 1600,
+  "selected": null
+ },
+ {
+  "slug": "sota-no",
+  "title": "Sota No",
+  "year": 1991,
+  "circa": true,
+  "medium": null,
+  "subject": null,
+  "cm": {
+   "h": 99.0,
+   "w": 128.0
+  },
+  "dims": "99 × 128 cm",
+  "image": "/artwork/sota-no.jpg",
+  "thumb": "/artwork/thumb/sota-no.jpg",
+  "w": 1600,
+  "h": 1222,
+  "selected": null
+ },
+ {
+  "slug": "the-fool-retrat",
+  "title": "The Fool (Retrat)",
+  "year": 1991,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": null,
+  "cm": {
+   "h": 138.0,
+   "w": 96.0
+  },
+  "dims": "138 × 96 cm",
+  "image": "/artwork/the-fool-retrat.jpg",
+  "thumb": "/artwork/thumb/the-fool-retrat.jpg",
+  "w": 968,
+  "h": 1600,
+  "selected": null
+ },
+ {
+  "slug": "la-siesta-xano-armenter",
+  "title": "La Siesta",
+  "year": 1990,
+  "circa": false,
+  "medium": "Oil on canvas",
+  "subject": null,
+  "cm": null,
+  "dims": null,
+  "image": "/artwork/la-siesta-xano-armenter.jpg",
+  "thumb": "/artwork/thumb/la-siesta-xano-armenter.jpg",
+  "w": 1600,
+  "h": 1246,
+  "selected": null
+ },
+ {
+  "slug": "painting-mix",
+  "title": "Painting mix",
+  "year": 1990,
+  "circa": false,
+  "medium": "Oil on canvas",
+  "subject": null,
+  "cm": {
+   "h": 100.0,
+   "w": 80.0
+  },
+  "dims": "100 × 80 cm",
+  "image": "/artwork/painting-mix.jpg",
+  "thumb": "/artwork/thumb/painting-mix.jpg",
+  "w": 1274,
+  "h": 1600,
+  "selected": null
+ },
+ {
+  "slug": "paisatge-pintat",
+  "title": "Paisatge pintat",
+  "year": 1990,
+  "circa": false,
+  "medium": "Oil on canvas",
+  "subject": "Landscape",
+  "cm": null,
+  "dims": null,
+  "image": "/artwork/paisatge-pintat.jpg",
+  "thumb": "/artwork/thumb/paisatge-pintat.jpg",
+  "w": 1600,
+  "h": 1285,
+  "selected": null
+ },
+ {
+  "slug": "the-truck-driver",
+  "title": "The Truck Driver",
+  "year": 1990,
+  "circa": true,
+  "medium": "Acrylic on canvas",
+  "subject": null,
+  "cm": null,
+  "dims": null,
+  "image": "/artwork/the-truck-driver.jpg",
+  "thumb": "/artwork/thumb/the-truck-driver.jpg",
+  "w": 1303,
+  "h": 1600,
+  "selected": null
+ },
+ {
+  "slug": "dos-figuras-xano-armenter",
+  "title": "Dos figuras",
+  "year": 1989,
+  "circa": true,
+  "medium": "Acrylic on paper",
+  "subject": null,
+  "cm": {
+   "h": 93.0,
+   "w": 66.0
+  },
+  "dims": "93 × 66 cm",
+  "image": "/artwork/dos-figuras-xano-armenter.jpg",
+  "thumb": "/artwork/thumb/dos-figuras-xano-armenter.jpg",
+  "w": 1106,
+  "h": 1600,
+  "selected": null
+ },
+ {
+  "slug": "house-xano-armenter",
+  "title": "House",
+  "year": 1989,
+  "circa": false,
+  "medium": "Acrylic on paper",
+  "subject": null,
+  "cm": {
+   "h": 66.0,
+   "w": 93.0
+  },
+  "dims": "66 × 93 cm",
+  "image": "/artwork/house-xano-armenter.jpg",
+  "thumb": "/artwork/thumb/house-xano-armenter.jpg",
+  "w": 1600,
+  "h": 1263,
+  "selected": null
+ },
+ {
+  "slug": "no-se-conocen",
+  "title": "No Se Conocen",
+  "year": 1989,
+  "circa": true,
+  "medium": "Acrylic on paper",
+  "subject": null,
+  "cm": {
+   "h": 114.0,
+   "w": 146.0
+  },
+  "dims": "114 × 146 cm",
+  "image": "/artwork/no-se-conocen.jpg",
+  "thumb": "/artwork/thumb/no-se-conocen.jpg",
+  "w": 1600,
+  "h": 1251,
+  "selected": null
+ },
+ {
+  "slug": "big-move",
+  "title": "Big Move",
+  "year": 1986,
+  "circa": true,
+  "medium": "Oil on canvas",
+  "subject": null,
+  "cm": {
+   "h": 146.0,
+   "w": 114.0
+  },
+  "dims": "146 × 114 cm",
+  "image": "/artwork/big-move.jpg",
+  "thumb": "/artwork/thumb/big-move.jpg",
+  "w": 1248,
+  "h": 1600,
+  "selected": 19
+ },
+ {
+  "slug": "interesting-red-black",
+  "title": "Interesting (Red & black)",
+  "year": 1986,
+  "circa": false,
+  "medium": "Oil on canvas",
+  "subject": null,
+  "cm": {
+   "h": 168.0,
+   "w": 123.0
+  },
+  "dims": "168 × 123 cm",
+  "image": "/artwork/interesting-red-black.jpg",
+  "thumb": "/artwork/thumb/interesting-red-black.jpg",
+  "w": 1122,
+  "h": 1600,
+  "selected": null
+ },
+ {
+  "slug": "la-visita-xano-armenter",
+  "title": "La Visita",
+  "year": 1986,
+  "circa": true,
+  "medium": "Oil on canvas",
+  "subject": null,
+  "cm": {
+   "h": 100.0,
+   "w": 81.0
+  },
+  "dims": "100 × 81 cm",
+  "image": "/artwork/la-visita-xano-armenter.jpg",
+  "thumb": "/artwork/thumb/la-visita-xano-armenter.jpg",
+  "w": 1200,
+  "h": 1600,
+  "selected": null
+ },
+ {
+  "slug": "sink-xano-armenter",
+  "title": "Sink",
+  "year": 1986,
+  "circa": false,
+  "medium": "Oil on canvas",
+  "subject": null,
+  "cm": {
+   "h": 130.0,
+   "w": 122.0
+  },
+  "dims": "130 × 122 cm",
+  "image": "/artwork/sink-xano-armenter.jpg",
+  "thumb": "/artwork/thumb/sink-xano-armenter.jpg",
+  "w": 1485,
+  "h": 1600,
+  "selected": null
+ },
+ {
+  "slug": "the-breakfast",
+  "title": "The breakfast",
+  "year": 1986,
+  "circa": false,
+  "medium": "Oil on canvas",
+  "subject": null,
+  "cm": {
+   "h": 134.0,
+   "w": 160.0
+  },
+  "dims": "134 × 160 cm",
+  "image": "/artwork/the-breakfast.jpg",
+  "thumb": "/artwork/thumb/the-breakfast.jpg",
+  "w": 1600,
+  "h": 1327,
+  "selected": null
+ },
+ {
+  "slug": "dirty-dishes-xano-armenter",
+  "title": "Dirty dishes",
+  "year": 1984,
+  "circa": false,
+  "medium": "Oil on canvas",
+  "subject": null,
+  "cm": {
+   "h": 100.0,
+   "w": 136.0
+  },
+  "dims": "100 × 136 cm",
+  "image": "/artwork/dirty-dishes-xano-armenter.jpg",
+  "thumb": "/artwork/thumb/dirty-dishes-xano-armenter.jpg",
+  "w": 1600,
+  "h": 1178,
+  "selected": null
+ },
+ {
+  "slug": "el-bostezo",
+  "title": "El Bostezo",
+  "year": 1984,
+  "circa": true,
+  "medium": "Oil on canvas",
+  "subject": null,
+  "cm": {
+   "h": 92.0,
+   "w": 74.0
+  },
+  "dims": "92 × 74 cm",
+  "image": "/artwork/el-bostezo.jpg",
+  "thumb": "/artwork/thumb/el-bostezo.jpg",
+  "w": 1258,
+  "h": 1600,
+  "selected": null
+ },
+ {
+  "slug": "wallpaper-city",
+  "title": "Wallpaper city",
+  "year": 1984,
+  "circa": true,
+  "medium": "Acrylic on paper",
+  "subject": "Urban",
+  "cm": {
+   "h": 25.0,
+   "w": 46.0
+  },
+  "dims": "25 × 46 cm",
+  "image": "/artwork/wallpaper-city.jpg",
+  "thumb": "/artwork/thumb/wallpaper-city.jpg",
+  "w": 1600,
+  "h": 869,
+  "selected": null
+ },
+ {
+  "slug": "estudi-de-estudi",
+  "title": "Estudi de estudi",
+  "year": 1980,
+  "circa": false,
+  "medium": "Oil on canvas",
+  "subject": null,
+  "cm": {
+   "h": 146.0,
+   "w": 114.0
+  },
+  "dims": "146 × 114 cm",
+  "image": "/artwork/estudi-de-estudi.jpg",
+  "thumb": "/artwork/thumb/estudi-de-estudi.jpg",
+  "w": 1278,
+  "h": 1600,
+  "selected": null
+ },
+ {
+  "slug": "candy-fallout",
+  "title": "Candy fallout",
+  "year": 1979,
+  "circa": false,
+  "medium": "Oil on canvas",
+  "subject": null,
+  "cm": {
+   "h": 146.0,
+   "w": 114.0
+  },
+  "dims": "146 × 114 cm",
+  "image": "/artwork/candy-fallout.jpg",
+  "thumb": "/artwork/thumb/candy-fallout.jpg",
+  "w": 1227,
+  "h": 1600,
+  "selected": null
+ },
+ {
+  "slug": "desnudo-xano-armenter",
+  "title": "Desnudo",
+  "year": 1979,
+  "circa": false,
+  "medium": "Oil on canvas",
+  "subject": null,
+  "cm": {
+   "h": 81.0,
+   "w": 100.0
+  },
+  "dims": "81 × 100 cm",
+  "image": "/artwork/desnudo-xano-armenter.jpg",
+  "thumb": "/artwork/thumb/desnudo-xano-armenter.jpg",
+  "w": 1600,
+  "h": 1294,
+  "selected": null
+ },
+ {
+  "slug": "doce-y-diez",
+  "title": "Doce y diez",
+  "year": 1979,
+  "circa": false,
+  "medium": "Oil on canvas",
+  "subject": null,
+  "cm": {
+   "h": 81.0,
+   "w": 100.0
+  },
+  "dims": "81 × 100 cm",
+  "image": "/artwork/doce-y-diez.jpg",
+  "thumb": "/artwork/thumb/doce-y-diez.jpg",
+  "w": 1600,
+  "h": 1302,
+  "selected": null
+ },
+ {
+  "slug": "plantas-xano-armenter",
+  "title": "Plantas",
+  "year": 1979,
+  "circa": false,
+  "medium": "Oil on canvas",
+  "subject": null,
+  "cm": {
+   "h": 100.0,
+   "w": 72.0
+  },
+  "dims": "100 × 72 cm",
+  "image": "/artwork/plantas-xano-armenter.jpg",
+  "thumb": "/artwork/thumb/plantas-xano-armenter.jpg",
+  "w": 1195,
+  "h": 1600,
+  "selected": 23
+ },
+ {
+  "slug": "taula-de-treball",
+  "title": "Taula de treball",
+  "year": 1979,
+  "circa": false,
+  "medium": "Oil on canvas",
+  "subject": "Still Life",
+  "cm": {
+   "h": 81.0,
+   "w": 81.0
+  },
+  "dims": "81 × 81 cm",
+  "image": "/artwork/taula-de-treball.jpg",
+  "thumb": "/artwork/thumb/taula-de-treball.jpg",
+  "w": 1600,
+  "h": 1569,
+  "selected": null
+ },
+ {
+  "slug": "bodegon-amb-marge",
+  "title": "Bodegon Amb Marge",
+  "year": 1978,
+  "circa": true,
+  "medium": "Oil on canvas",
+  "subject": "Still Life",
+  "cm": null,
+  "dims": null,
+  "image": "/artwork/bodegon-amb-marge.jpg",
+  "thumb": "/artwork/thumb/bodegon-amb-marge.jpg",
+  "w": 1600,
+  "h": 1102,
+  "selected": null
+ },
+ {
+  "slug": "martini-lady-xano-armenter",
+  "title": "Martini lady",
+  "year": 1978,
+  "circa": true,
+  "medium": "Oil on canvas",
+  "subject": null,
+  "cm": {
+   "h": 100.0,
+   "w": 81.0
+  },
+  "dims": "100 × 81 cm",
+  "image": "/artwork/martini-lady-xano-armenter.jpg",
+  "thumb": "/artwork/thumb/martini-lady-xano-armenter.jpg",
+  "w": 1261,
+  "h": 1600,
+  "selected": 21
+ },
+ {
+  "slug": "playa-negra",
+  "title": "Playa Negra",
+  "year": 1978,
+  "circa": true,
+  "medium": "Oil on canvas",
+  "subject": null,
+  "cm": {
+   "h": 114.0,
+   "w": 146.0
+  },
+  "dims": "114 × 146 cm",
+  "image": "/artwork/playa-negra.jpg",
+  "thumb": "/artwork/thumb/playa-negra.jpg",
+  "w": 1600,
+  "h": 1125,
+  "selected": null
+ },
+ {
+  "slug": "las-abuelas",
+  "title": "Las abuelas",
+  "year": null,
+  "circa": false,
+  "medium": "Oil on canvas",
+  "subject": null,
+  "cm": null,
+  "dims": null,
+  "image": "/artwork/las-abuelas.jpg",
+  "thumb": "/artwork/thumb/las-abuelas.jpg",
+  "w": 1430,
+  "h": 1600,
+  "selected": null
+ },
+ {
+  "slug": "multiples-realitats",
+  "title": "Multiples realitats",
+  "year": null,
+  "circa": false,
+  "medium": "Acrylic on canvas",
+  "subject": null,
+  "cm": {
+   "h": 60.0,
+   "w": 60.0
+  },
+  "dims": "60 × 60 cm",
+  "image": "/artwork/multiples-realitats.jpg",
+  "thumb": "/artwork/thumb/multiples-realitats.jpg",
+  "w": 1598,
+  "h": 1600,
+  "selected": null
+ },
+ {
+  "slug": "pineda-de-olle-pinell",
+  "title": "Pineda de Olle Pinell",
+  "year": null,
+  "circa": false,
+  "medium": null,
+  "subject": null,
+  "cm": null,
+  "dims": null,
+  "image": "/artwork/pineda-de-olle-pinell.jpg",
+  "thumb": "/artwork/thumb/pineda-de-olle-pinell.jpg",
+  "w": 1214,
+  "h": 1600,
+  "selected": null
+ }
+]

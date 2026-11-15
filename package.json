@@ -1,0 +1,25 @@
+{
+  "name": "xano-armenter-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build && cp dist/index.html dist/404.html",
+    "preview": "vite preview",
+    "data": "python3 scripts/build-data.py"
+  },
+  "dependencies": {
+    "@fontsource/dm-sans": "^5.3.0",
+    "@fontsource/instrument-serif": "^5.3.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router": "^7.18.5"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^5.2.0",
+    "typescript": "^5.7.0",
+    "vite": "^7.3.8"
+  }
+}
