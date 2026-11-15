@@ -25,6 +25,7 @@ export const TARGETS = [
   { key: 'collections', label: 'Collections (separate with ;)', synonyms: ['collections', 'collection', 'series', 'groups'] },
   { key: 'is_public', label: 'Public (yes/no)', synonyms: ['public', 'is public', 'show on profile', 'published', 'visible'] },
   { key: 'image_urls', label: 'Image URL(s)', synonyms: ['image', 'image url', 'image urls', 'images', 'photo', 'photo url', 'primary image', 'image link'] },
+  { key: 'slug', label: 'URL slug', synonyms: ['slug', 'url slug', 'handle', 'permalink'] },
   { key: 'source_ref', label: 'Original link / ID', synonyms: ['url', 'link', 'aa url', 'aa_url', 'source', 'source url', 'artwork url'] },
 ] as const;
 
@@ -95,6 +96,42 @@ export function parseDimensions(v: string): { height: number | null; width: numb
   return { height: nums[0] ?? null, width: nums[1] ?? null, depth: nums[2] ?? null, unit };
 }
 
+/** "1978", "~1978", "c. 1978", "circa 1978", "2018-03-01". Approximate years set `circa`. */
+export function parseYear(v: string): { year: number | null; circa: boolean } {
+  const m = v.match(/\b(1\d{3}|2\d{3})\b/);
+  if (!m) return { year: null, circa: false };
+  const before = v.slice(0, m.index).trim();
+  const circa = /(?:[~≈]|\b(?:c|ca|circa|approx|about|around)\.?)$/i.test(before) || /^\s*\?/.test(v.slice(m.index! + 4));
+  return { year: Number(m[1]), circa };
+}
+
+/**
+ * Slug the piece had in the system it came from, taken from its link:
+ * ".../profile/<artist>/artwork/about-the-future" -> "about-the-future".
+ * Null when the link doesn't point at a single work (the database then
+ * builds the slug from the title).
+ */
+export function slugFromRef(ref: string): string | null {
+  if (!/^https?:\/\//i.test(ref)) return null;
+  let url: URL;
+  try {
+    url = new URL(ref);
+  } catch {
+    return null;
+  }
+  const parts = url.pathname.split('/').filter(Boolean);
+  if (!parts.length) return null;
+  // Artwork Archive: only ".../artwork/<slug>" is a work; a bare profile link is not.
+  if (/artworkarchive\.com$/i.test(url.hostname) && parts[parts.length - 2] !== 'artwork') return null;
+  let last = parts[parts.length - 1];
+  try {
+    last = decodeURIComponent(last);
+  } catch {
+    /* keep as is */
+  }
+  return last.replace(/\.[a-z0-9]{2,5}$/i, '') || null;
+}
+
 const truthy = (v: string) => /^(y|yes|true|1|public|published|visible|x)$/i.test(v.trim());
 
 export type ParsedRow = {
@@ -130,14 +167,19 @@ export function mapRow(
   const statusRaw = get('status');
   const status = parseStatus(statusRaw);
   if (statusRaw && !status) problems.push(`unknown status “${statusRaw}”`);
-  const yearMatch = get('year').match(/\b(1\d{3}|2\d{3})\b/);
+  const { year, circa } = parseYear(get('year'));
+  const sourceRef = get('source_ref');
+  const slug = get('slug') || slugFromRef(sourceRef);
   const pub = get('is_public');
 
   return {
     piece: {
       title: title || 'Untitled',
       inventory_number: get('inventory_number') || null,
-      year: yearMatch ? Number(yearMatch[1]) : null,
+      year,
+      year_circa: circa,
+      // Left out when unknown: the database slugifies the title.
+      ...(slug ? { slug } : {}),
       medium: get('medium') || null,
       subject: get('subject') || null,
       style: get('style') || null,
@@ -154,7 +196,7 @@ export function mapRow(
       edition_size: get('edition_size') ? parseNumber(get('edition_size')) : null,
       kind: get('edition_size') ? 'edition' : 'original',
       tags: get('tags').split(/[,;]/).map((t) => t.trim()).filter(Boolean),
-      source_ref: get('source_ref') || null,
+      source_ref: sourceRef || null,
     },
     collections: get('collections').split(';').map((c) => c.trim()).filter(Boolean),
     imageUrls: get('image_urls').split(/[\s,|]+/).filter((u) => /^https?:\/\//.test(u)),

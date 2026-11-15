@@ -1,0 +1,96 @@
+# Catalogue snapshot for the artist website.
+#
+# COPY THIS FILE TO THE WEBSITE REPOSITORY as
+#   .github/workflows/catalogue-snapshot.yml
+# It does nothing while it sits in the Artfolio app repository.
+#
+# It expects the snapshot script to be vendored into the website repository at
+#   scripts/snapshot-catalogue.mjs
+# which is a plain copy of Artfolio's integrations/xano-site/snapshot.mjs (no
+# dependencies, nothing to install). Copy it again when the script changes.
+#
+# Repository variables to set in the website repo (Settings -> Secrets and
+# variables -> Actions -> Variables). They are public values, the same ones the
+# browser sees, so they are variables and not secrets:
+#   SUPABASE_URL          https://<project-ref>.supabase.co
+#   SUPABASE_ANON_KEY     the anon / publishable key
+# Optional variables:
+#   ARTIST_SLUG           default xano-armenter
+#   SELECTED_COLLECTION   default Selected
+#
+# "Run now": Actions tab -> Catalogue snapshot -> Run workflow,
+# or `gh workflow run catalogue-snapshot.yml`.
+
+name: Catalogue snapshot
+
+on:
+  schedule:
+    - cron: '23 4 * * *' # every day at 04:23 UTC
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Accept a snapshot with fewer than half the current works (or no selected works)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: catalogue-snapshot
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Fetch the catalogue
+        env:
+          SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ vars.SUPABASE_ANON_KEY }}
+          ARTIST_SLUG: ${{ vars.ARTIST_SLUG || 'xano-armenter' }}
+          SELECTED_COLLECTION: ${{ vars.SELECTED_COLLECTION || 'Selected' }}
+          OUT: src/data/artworks.json
+          FORCE: ${{ inputs.force && '--force' || '' }}
+        # Exits non-zero, leaving the file as it was, if the catalogue is
+        # unreachable, empty or suspiciously small. The run then shows as failed
+        # and the website keeps the last good snapshot.
+        run: node scripts/snapshot-catalogue.mjs $FORCE
+
+      - name: Commit if the catalogue changed
+        id: commit
+        run: |
+          git add --intent-to-add src/data/artworks.json
+          if git diff --quiet -- src/data/artworks.json; then
+            echo "Catalogue unchanged, nothing to commit."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/artworks.json
+          git commit -m "Refresh catalogue snapshot"
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      # ======================================================================
+      # DEPLOY GOES HERE
+      # This workflow only updates src/data/artworks.json. How the website is
+      # rebuilt and published is up to the website repository:
+      #   - If the host builds on every push from its own Git integration
+      #     (Vercel, Netlify, Cloudflare Pages), nothing more is needed.
+      #   - If the site is deployed by another GitHub Actions workflow that
+      #     runs `on: push`, note that a push made with the default
+      #     GITHUB_TOKEN does NOT start other workflows. Either add the
+      #     build/deploy steps below, guarded by
+      #         if: steps.commit.outputs.changed == 'true'
+      #     or give the deploy workflow a `workflow_run` trigger on
+      #     "Catalogue snapshot", or call it here with `workflow_call`.
+      # ======================================================================
