@@ -6,7 +6,9 @@
 
    Usage:
      <div class="portrait-splash" data-splash="js/portrait-splash.json"
-          data-base="images/portrait-base.jpg"></div>
+          data-base="images/portrait-base.jpg" data-intro="bird"></div>
+   data-intro="bird" (optional): a bird flies over and drops the jacket
+   splatter first, then the head burst plays.
      <script src="js/portrait-splash.js"></script>
 
    Starts when scrolled into view. Click/tap the image to replay.
@@ -65,24 +67,46 @@
     const HX = W * 0.66, HY = H * 0.36;
     const rand = rng(7);
 
+    // ---- optional intro: a bird flies over and drops the lapel paint ----
+    const bird = host.dataset.intro === 'bird';
+    let IPx = 0, IPy = 0, A = 0; // impact point = centre of the lapel splatter
+    blobs.forEach(b => { if (b.group === 'lapel') { IPx += b.cx * b.area; IPy += b.cy * b.area; A += b.area; } });
+    IPx /= A || 1; IPy /= A || 1;
+
+    let BIRD = null;
+    let tB = 650, tL = null; // next start time for burst / lapel blobs
+    if (bird) {
+      const D = 3200, tb = 600, x0 = -90, x1 = W + 90, y0 = H * 0.17, drift = 26, fall = 860;
+      const tr = tb + D * ((IPx - drift) - x0) / (x1 - x0); // release when nearly overhead
+      BIRD = { tb, D, x0, x1, y0, tr, fall, drift, impact: tr + fall };
+      tL = BIRD.impact;
+      tB = BIRD.impact + 1150; // a beat... then the idea hits
+    }
+
     // ---- build a timeline -------------------------------------------
-    let t = 650; // photo develops first
-    let lapelStarted = false;
     const items = blobs.map((b, i) => {
-      if (b.group === 'lapel' && !lapelStarted) { t += 420; lapelStarted = true; }
+      const isLapel = b.group === 'lapel';
       const isStroke = b.elong > 2.4 && b.len > 34;
       const big = Math.sqrt(b.area);
       const dur = isStroke ? 260 + b.len * 2.6 : 300 + big * 2.2;
-      const item = { b, isStroke, start: t, dur, flecks: [] };
-      // big blobs take a beat longer before the next one hits
-      t += b.group === 'lapel' ? 85 : 38 + Math.min(big, 80) * 0.55 + rand() * 30;
+      let start;
+      if (isLapel) {
+        if (tL === null) tL = tB + 420;
+        start = tL; tL += bird ? 26 : 85;
+      } else {
+        start = tB;
+        // big blobs take a beat longer before the next one hits
+        tB += 38 + Math.min(big, 80) * 0.55 + rand() * 30;
+      }
+      const item = { b, isStroke, start, dur, flecks: [], fromIP: bird && isLapel };
 
       const path = el('path', { d: b.d, fill: b.fill, opacity: 0 }, paintLayer);
       item.path = path;
 
       // travel direction (from the head outward / from above for the lapel)
       let vx = b.cx - HX, vy = b.cy - HY;
-      if (b.group === 'lapel') { vx = (b.cx - W * 0.55) * 0.3; vy = 60; }
+      if (item.fromIP) { vx = b.cx - IPx; vy = b.cy - IPy; if (Math.hypot(vx, vy) < 1) vy = 1; }
+      else if (isLapel) { vx = (b.cx - W * 0.55) * 0.3; vy = 60; }
       const vl = Math.hypot(vx, vy) || 1;
       item.ux = vx / vl; item.uy = vy / vl;
 
@@ -119,7 +143,52 @@
       }
       return item;
     });
-    const total = t + 900;
+    const total = Math.max(tB, tL || 0, BIRD ? BIRD.tb + BIRD.D : 0) + 900;
+
+    // ---- the bird (drawn facing right, origin at its body) --------------
+    let birdG, nearWing, farWing, drop, birdPos;
+    if (BIRD) {
+      const grad = el('linearGradient', { id: uid + 'drop', x1: 0, y1: 0, x2: 0, y2: 1 }, defs);
+      [['0', '#fffb9a'], ['.3', '#fffb9a'], ['.3', '#17ff56'], ['.55', '#17ff56'], ['.55', '#fe011c'], ['.8', '#fe011c'], ['.8', '#8a30b0'], ['1', '#8a30b0']]
+        .forEach(([o, c]) => el('stop', { offset: o, 'stop-color': c }, grad));
+      drop = el('path', { d: 'M0 -10C4 -3 8 2 8 6A8 8 0 0 1 -8 6C-8 2 -4 -3 0 -10Z', fill: `url(#${uid}drop)`, opacity: 0 }, svg);
+      birdG = el('g', { opacity: 0 }, svg);
+      const ink = '#16161a';
+      farWing = el('path', { d: 'M-2 -3C-6 -18 -2 -30 4 -38C8 -26 10 -14 8 -3Z', fill: '#3b3b44' }, birdG);
+      el('path', { d: 'M-15 -2L-31 -9L-28 0L-31 7Z', fill: ink }, birdG);                       // tail
+      el('ellipse', { cx: 0, cy: 0, rx: 17, ry: 7.5 }, birdG).setAttribute('fill', ink);       // body
+      el('circle', { cx: 15, cy: -4, r: 6.5, fill: ink }, birdG);                               // head
+      el('path', { d: 'M20.5 -6L29 -3.5L20.5 -1Z', fill: '#ffae22' }, birdG);                   // beak
+      el('circle', { cx: 17, cy: -5.5, r: 1.3, fill: '#fff' }, birdG);                          // eye
+      nearWing = el('path', { d: 'M-8 -2C-12 -20 -6 -34 6 -44C10 -28 12 -14 6 -1Z', fill: ink }, birdG);
+      birdPos = now => {
+        const u = (now - BIRD.tb) / BIRD.D;
+        let x = BIRD.x0 + (BIRD.x1 - BIRD.x0) * u;
+        let y = BIRD.y0 - 40 * u + Math.sin(u * Math.PI * 2.5) * 12;
+        if (now > BIRD.tr) y -= 9 * Math.sin(Math.min((now - BIRD.tr) / 260, 1) * Math.PI); // little hop on release
+        return { u, x, y };
+      };
+    }
+    function renderBird(now) {
+      if (!BIRD) return;
+      const { u, x, y } = birdPos(now);
+      if (u <= 0 || u >= 1) birdG.setAttribute('opacity', 0);
+      else {
+        const flap = Math.cos(now / 1000 * Math.PI * 2 * 4.2);
+        const tilt = -4 + Math.sin(u * Math.PI * 2.5) * 4;
+        birdG.setAttribute('opacity', 1);
+        birdG.setAttribute('transform', `translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${tilt.toFixed(1)}) scale(1.35)`);
+        nearWing.setAttribute('transform', `translate(0 -2) scale(1 ${flap.toFixed(3)}) translate(0 2)`);
+        farWing.setAttribute('transform', `translate(0 -2) scale(1 ${(flap * 0.8).toFixed(3)}) translate(0 2)`);
+      }
+      const q = (now - BIRD.tr) / BIRD.fall;
+      if (q <= 0 || q >= 1) { drop.setAttribute('opacity', 0); return; }
+      const r = birdPos(BIRD.tr);
+      const sx = r.x, sy = r.y + 12;
+      const dx = sx + BIRD.drift * easeOutCubic(q), dy = sy + (IPy - sy) * q * q;
+      drop.setAttribute('opacity', 1);
+      drop.setAttribute('transform', `translate(${dx.toFixed(1)} ${dy.toFixed(1)}) scale(${(1.7 * (1 - 0.2 * q)).toFixed(3)} ${(1.7 * (1 + 0.6 * q)).toFixed(3)})`);
+    }
 
     // ---- render a moment in time -------------------------------------
     function render(now) {
@@ -143,7 +212,7 @@
           if (p < fly) {
             const f = easeInQuad(p / fly);
             s = 0.15 + 0.95 * f;
-            const back = (1 - f) * (22 + Math.sqrt(b.area) * 0.6);
+            const back = (1 - f) * (it.fromIP ? Math.hypot(b.cx - IPx, b.cy - IPy) : 22 + Math.sqrt(b.area) * 0.6);
             ox = -it.ux * back; oy = -it.uy * back;
             sq = -0.25 * (1 - f); // stretched along travel while flying
           } else {
@@ -173,6 +242,7 @@
         }
       }
       disp.setAttribute('scale', (wet * 7).toFixed(2));
+      renderBird(now);
     }
 
     // ---- playback ----------------------------------------------------
