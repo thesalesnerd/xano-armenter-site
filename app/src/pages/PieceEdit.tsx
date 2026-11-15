@@ -155,7 +155,7 @@ export default function PieceEdit() {
               <span className="font-mono">{data.inventory_number}</span>
               <StatusBadge status={data.status} />
               {data.is_public && artist.public_profile && (
-                <a className="underline" href={`/p/${artist.slug}/w/${data.id}`} target="_blank" rel="noreferrer">View public page</a>
+                <a className="underline" href={`${import.meta.env.BASE_URL}p/${artist.slug}/w/${data.id}`} target="_blank" rel="noreferrer">View public page</a>
               )}
             </div>
           )}
