@@ -25,7 +25,7 @@ that; the build also writes `dist/404.html` for GitHub Pages.
 | `src/cv.ts` | Exhibitions and commissions on the About page. |
 | `src/data.ts` | Hero, the three home-page works and the practice image. |
 | `src/components/Mosaic.tsx` | The uncropped mosaic of works. |
-| `src/components/RoomView.tsx` | "Imagine it in your home": the painting to scale on a wall, or over the visitor's own photo. |
+| `src/components/RoomView.tsx` | "Imagine it in your home": the painting at true size in a room photo (`public/rooms/`, scale constants in `ROOMS`), or over the visitor's own photo. |
 | `src/components/PortraitSplash.tsx` | Animated portrait on the About page (see `HANDOFF-portrait-splash.md`). |
 | `reference/google-site/CONTENT.md` | The artist's own statement and CV, the source for the copy. |
 

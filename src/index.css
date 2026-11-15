@@ -1378,24 +1378,6 @@ main {
   background: var(--paper);
 }
 
-.room-swatches {
-  display: flex;
-  gap: 10px;
-}
-
-.room-swatch {
-  width: 34px;
-  height: 34px;
-  padding: 0;
-  border: 1px solid #4d4b47;
-  border-radius: 50%;
-}
-
-.room-swatch[aria-pressed="true"] {
-  outline: 2px solid var(--paper);
-  outline-offset: 3px;
-}
-
 .room-upload {
   display: flex;
   height: 100%;
