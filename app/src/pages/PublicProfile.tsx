@@ -18,7 +18,9 @@ export function usePublicArtist(slug: string) {
         supabase.from('public_collections').select('*').eq('artist_id', artist.id!).order('name'),
       ]);
       if (e2 || e3) throw e2 || e3;
-      return { artist, pieces: pieces ?? [], collections: collections ?? [] };
+      // The public page shows works with at least one image; image-less records stay in the inventory.
+      const withImages = (pieces ?? []).filter((p) => ((p.images as unknown[] | null) ?? []).length > 0);
+      return { artist, pieces: withImages, collections: collections ?? [] };
     },
   });
 }
