@@ -23,6 +23,8 @@ import PublicPiece from './pages/PublicPiece';
 const queryClient = new QueryClient({
   defaultOptions: { queries: { staleTime: 30_000, refetchOnWindowFocus: false } },
 });
+// Lets the app run under a sub-path when Vite's `base` is set; "/" otherwise.
+const basename = import.meta.env.BASE_URL.replace(/\/+$/, '') || '/';
 
 function RequireAuth({ children }: { children: ReactNode }) {
   const { session, loading } = useAuth();
@@ -36,7 +38,7 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <BrowserRouter>
+        <BrowserRouter basename={basename}>
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/p/:slug" element={<PublicProfile />} />

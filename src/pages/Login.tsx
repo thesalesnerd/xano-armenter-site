@@ -33,7 +33,7 @@ export default function Login() {
 
   async function reset() {
     if (!email) return setError(new Error('Enter your email first.'));
-    const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: window.location.origin });
+    const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: window.location.origin + import.meta.env.BASE_URL });
     if (error) setError(error);
     else setNotice('Password reset email sent.');
   }

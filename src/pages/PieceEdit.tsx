@@ -10,7 +10,7 @@ import type { Piece, PieceEdition, PieceImage, PieceInsert, PieceStatus } from '
 import { ErrorNote, Spinner, StatusBadge } from '../components/ui';
 
 type Form = {
-  title: string; inventory_number: string; kind: 'original' | 'edition'; year: string; creation_date: string;
+  title: string; slug: string; inventory_number: string; kind: 'original' | 'edition'; year: string; year_circa: boolean; creation_date: string;
   medium: string; subject: string; style: string;
   height: string; width: string; depth: string; dimension_unit: string;
   framed: boolean; framed_height: string; framed_width: string; framed_depth: string;
@@ -21,8 +21,8 @@ type Form = {
 function toForm(p: Piece | null, defaults: { currency: string; unit: string }): Form {
   const s = (v: unknown) => (v == null ? '' : String(v));
   return {
-    title: s(p?.title), inventory_number: s(p?.inventory_number), kind: p?.kind ?? 'original',
-    year: s(p?.year), creation_date: s(p?.creation_date), medium: s(p?.medium), subject: s(p?.subject), style: s(p?.style),
+    title: s(p?.title), slug: s(p?.slug), inventory_number: s(p?.inventory_number), kind: p?.kind ?? 'original',
+    year: s(p?.year), year_circa: p?.year_circa ?? false, creation_date: s(p?.creation_date), medium: s(p?.medium), subject: s(p?.subject), style: s(p?.style),
     height: s(p?.height), width: s(p?.width), depth: s(p?.depth), dimension_unit: p?.dimension_unit ?? defaults.unit,
     framed: p?.framed ?? false, framed_height: s(p?.framed_height), framed_width: s(p?.framed_width), framed_depth: s(p?.framed_depth),
     price: s(p?.price), currency: p?.currency ?? defaults.currency, show_price: p?.show_price ?? true,
@@ -37,7 +37,9 @@ function fromForm(f: Form): Omit<PieceInsert, 'artist_id'> {
   const str = (v: string) => (v.trim() === '' ? null : v.trim());
   return {
     title: f.title.trim(), inventory_number: str(f.inventory_number), kind: f.kind,
-    year: num(f.year), creation_date: str(f.creation_date), medium: str(f.medium), subject: str(f.subject), style: str(f.style),
+    // Omit an empty slug so the database fills it from the title.
+    ...(str(f.slug) ? { slug: str(f.slug)! } : {}),
+    year: num(f.year), year_circa: f.year_circa && num(f.year) != null, creation_date: str(f.creation_date), medium: str(f.medium), subject: str(f.subject), style: str(f.style),
     height: num(f.height), width: num(f.width), depth: num(f.depth), dimension_unit: f.dimension_unit,
     framed: f.framed, framed_height: f.framed ? num(f.framed_height) : null, framed_width: f.framed ? num(f.framed_width) : null,
     framed_depth: f.framed ? num(f.framed_depth) : null,
@@ -122,7 +124,12 @@ export default function PieceEdit() {
       if (isNew) navigate(`../pieces/${id}`, { replace: true });
       else setSavedAt(Date.now());
     } catch (err) {
-      setError((err as { code?: string }).code === '23505' ? new Error('That inventory number is already used by another piece.') : err);
+      const e = err as { code?: string; message?: string };
+      setError(
+        e.code !== '23505'
+          ? err
+          : new Error(/slug/.test(e.message ?? '') ? 'That web address (slug) is already used by another piece.' : 'That inventory number is already used by another piece.'),
+      );
     } finally {
       setSaving(false);
     }
@@ -200,7 +207,12 @@ export default function PieceEdit() {
             <div className="grid gap-4 sm:grid-cols-6">
               <Field label="Title" className="sm:col-span-4"><input className="input" required value={form.title} onChange={(e) => set('title', e.target.value)} /></Field>
               <Field label="Inventory #" className="sm:col-span-2"><input className="input font-mono" placeholder="Auto" value={form.inventory_number} onChange={(e) => set('inventory_number', e.target.value)} /></Field>
-              <Field label="Year" className="sm:col-span-2"><input className="input" inputMode="numeric" value={form.year} onChange={(e) => set('year', e.target.value.replace(/\D/g, '').slice(0, 4))} /></Field>
+              <div className="sm:col-span-2">
+                <Field label="Year"><input className="input" inputMode="numeric" value={form.year} onChange={(e) => set('year', e.target.value.replace(/\D/g, '').slice(0, 4))} /></Field>
+                <label className="mt-2 flex items-center gap-2 text-sm">
+                  <input type="checkbox" className="accent-stone-900" checked={form.year_circa} onChange={(e) => set('year_circa', e.target.checked)} /> Approximate (circa)
+                </label>
+              </div>
               <Field label="Creation date" className="sm:col-span-2"><input type="date" className="input" value={form.creation_date} onChange={(e) => set('creation_date', e.target.value)} /></Field>
               <Field label="Type" className="sm:col-span-2">
                 <select className="input" value={form.kind} onChange={(e) => set('kind', e.target.value as Form['kind'])}>
@@ -212,6 +224,10 @@ export default function PieceEdit() {
               <Field label="Subject" className="sm:col-span-3"><input className="input" placeholder="Marine, Still life…" value={form.subject} onChange={(e) => set('subject', e.target.value)} /></Field>
               <Field label="Style" className="sm:col-span-3"><input className="input" value={form.style} onChange={(e) => set('style', e.target.value)} /></Field>
               <Field label="Tags (comma separated)" className="sm:col-span-3"><input className="input" value={form.tags} onChange={(e) => set('tags', e.target.value)} /></Field>
+              <Field label="Web address (slug)" className="sm:col-span-6">
+                <input className="input font-mono" placeholder="Auto, from the title" value={form.slug} onChange={(e) => set('slug', e.target.value.toLowerCase().replace(/[^a-z0-9-]+/g, '-'))} />
+                <span className="mt-1 block text-xs font-normal text-stone-500">Used in links to this piece on websites. It doesn't change when you rename the piece; changing it breaks existing links.</span>
+              </Field>
             </div>
             <datalist id="dl-medium">
               {['Acrylic on canvas', 'Oil on canvas', 'Oil on linen', 'Watercolour on paper', 'Mixed media', 'Fresco', 'Monotype', 'Etching', 'Screenprint', 'Charcoal on paper'].map((m) => <option key={m} value={m} />)}
