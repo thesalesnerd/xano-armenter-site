@@ -113,8 +113,9 @@ export default function Import() {
               if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
               await uploadPieceImage(artist.id, piece.id, await resp.blob(), pos);
               res.images++;
-            } catch {
-              res.imageFailures.push(`${row.piece.title}: ${url}`);
+            } catch (e) {
+              const reason = e instanceof Error ? e.message : String((e as { message?: unknown })?.message ?? e);
+              res.imageFailures.push(`${row.piece.title}: ${url} (${reason})`);
             }
           }
         }

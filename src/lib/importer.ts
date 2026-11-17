@@ -157,7 +157,17 @@ export function mapRow(
       source_ref: get('source_ref') || null,
     },
     collections: get('collections').split(';').map((c) => c.trim()).filter(Boolean),
-    imageUrls: get('image_urls').split(/[\s,|]+/).filter((u) => /^https?:\/\//.test(u)),
+    // Split on whitespace, | or ;, and on a comma only when another URL follows it.
+    // Image CDN URLs (Artwork Archive / Cloudinary) carry commas inside the path: f_auto,q_auto,w_1600.
+    imageUrls: splitImageUrls(get('image_urls')),
     problems,
   };
+}
+
+/** Splits an image-URL cell into URLs without cutting CDN paths that contain commas. */
+export function splitImageUrls(cell: string): string[] {
+  return cell
+    .split(/[\s|;]+|,(?=\s*https?:\/\/)/)
+    .map((u) => u.trim().replace(/,+$/, ''))
+    .filter((u) => /^https?:\/\//.test(u));
 }
