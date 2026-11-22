@@ -6,6 +6,7 @@ import { applyFilters, filtersFromParams, filtersToParams, type Filters } from '
 import { DEFAULT_INVENTORY_FIELDS, downloadText, INVENTORY_FIELDS, piecesToCsv, REPORT_TYPES, type InventoryField, type ReportType } from '../lib/reports';
 import FilterBar from '../components/FilterBar';
 import { PageHeader, Spinner } from '../components/ui';
+import { useLocations } from '../lib/parity';
 
 export default function Reports() {
   const { artist } = useWorkspace();
@@ -16,8 +17,11 @@ export default function Reports() {
   const [type, setType] = useState<ReportType>('inventory');
   const [fields, setFields] = useState<InventoryField[]>(DEFAULT_INVENTORY_FIELDS);
   const [title, setTitle] = useState('');
+  const [groupBy, setGroupBy] = useState(false);
+  const [showLocation, setShowLocation] = useState(true);
+  const { data: locations = [] } = useLocations(artist.id);
 
-  const scoped = useMemo(() => applyFilters(pieces, filters), [pieces, sp]); // eslint-disable-line react-hooks/exhaustive-deps
+  const scoped = useMemo(() => applyFilters(pieces, filters).filter((p) => type !== 'available' || p.status === 'available'), [pieces, sp, type]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (isLoading) return <Spinner />;
 
@@ -25,6 +29,8 @@ export default function Reports() {
   printParams.set('type', type);
   if (type === 'inventory') printParams.set('fields', fields.join(','));
   if (title) printParams.set('title', title);
+  if (type === 'inventory' && groupBy) printParams.set('group', 'location');
+  if (type === 'available' && !showLocation) printParams.set('hideLocation', '1');
 
   return (
     <div className="max-w-5xl">
@@ -32,7 +38,7 @@ export default function Reports() {
         <p className="mt-1 text-sm text-stone-500">Printable documents you can save as PDF, and a full spreadsheet export of your data.</p>
       </PageHeader>
 
-      <div className="grid gap-3 sm:grid-cols-3">
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {REPORT_TYPES.map((r) => (
           <button
             key={r.value}
@@ -47,7 +53,7 @@ export default function Reports() {
 
       <h2 className="mb-2 mt-8 text-xs font-semibold uppercase tracking-wider text-stone-500">Which pieces</h2>
       <FilterBar filters={filters} onChange={(f: Filters) => setSp(filtersToParams(f, sp), { replace: true })} pieces={pieces} collections={collections} />
-      <p className="mt-2 text-sm text-stone-600">{scoped.length} of {pieces.length} pieces included.</p>
+      <p className="mt-2 text-sm text-stone-600">{scoped.length} of {pieces.length} pieces included{type === 'available' ? ' (available works only)' : ''}.</p>
 
       {type === 'inventory' && (
         <>
@@ -71,6 +77,13 @@ export default function Reports() {
         </>
       )}
 
+      {type === 'inventory' && (
+        <label className="mt-4 flex items-center gap-2 text-sm"><input type="checkbox" className="accent-stone-900" checked={groupBy} onChange={(e) => setGroupBy(e.target.checked)} /> Group by location</label>
+      )}
+      {type === 'available' && (
+        <label className="mt-4 flex items-center gap-2 text-sm"><input type="checkbox" className="accent-stone-900" checked={showLocation} onChange={(e) => setShowLocation(e.target.checked)} /> Show where each work is (uncheck before sending to a gallery)</label>
+      )}
+
       <h2 className="mb-2 mt-8 text-xs font-semibold uppercase tracking-wider text-stone-500">Title (optional)</h2>
       <input className="input max-w-md" placeholder={REPORT_TYPES.find((r) => r.value === type)!.label} value={title} onChange={(e) => setTitle(e.target.value)} />
 
@@ -79,7 +92,7 @@ export default function Reports() {
         <button
           className="btn-secondary"
           disabled={!scoped.length}
-          onClick={() => downloadText(`${artist.slug}-inventory-${new Date().toISOString().slice(0, 10)}.csv`, piecesToCsv(scoped, collections))}
+          onClick={() => downloadText(`${artist.slug}-inventory-${new Date().toISOString().slice(0, 10)}.csv`, piecesToCsv(scoped, collections, locations))}
         >
           Export CSV ({scoped.length})
         </button>

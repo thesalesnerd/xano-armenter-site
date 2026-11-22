@@ -14,7 +14,7 @@ import { ErrorNote, PageHeader } from '../components/ui';
 type Result = { created: number; skipped: number; images: number; imageFailures: string[]; errors: string[] };
 
 export default function Import() {
-  const { artist, canEdit } = useWorkspace();
+  const { artist, canEdit, isOwner } = useWorkspace();
   const qc = useQueryClient();
   const { data: existing = [] } = usePieces(artist.id);
   const { data: collections = [] } = useCollections(artist.id);
@@ -138,6 +138,12 @@ export default function Import() {
           Bring your inventory across from another system or a spreadsheet. Upload a CSV (from Artwork Archive's export, Excel or Google Sheets) or a JSON
           array, match its columns to Artfolio fields, check the preview, and import.
         </p>
+        {isOwner && (
+          <Link to="aa" className="card mt-4 block max-w-2xl p-4 hover:ring-stone-400">
+            <span className="font-medium">Moving from Artwork Archive?</span>
+            <span className="block text-sm text-stone-500">Use the Artwork Archive importer: pieces, locations, contacts, sales, exhibitions and extra images, with a dry-run report and safe re-runs. →</span>
+          </Link>
+        )}
       </PageHeader>
 
       <label className="card flex cursor-pointer flex-col items-center gap-1 border-2 border-dashed border-stone-300 px-6 py-10 text-center hover:border-stone-500">

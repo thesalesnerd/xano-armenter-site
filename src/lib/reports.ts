@@ -3,10 +3,11 @@ import type { Collection, PieceWithImages } from './types';
 import { dimensions, statusLabel } from './format';
 import { imageUrl } from './supabase';
 
-export type ReportType = 'inventory' | 'price_list' | 'portfolio';
+export type ReportType = 'inventory' | 'available' | 'price_list' | 'portfolio';
 
 export const REPORT_TYPES: { value: ReportType; label: string; blurb: string }[] = [
   { value: 'inventory', label: 'Inventory report', blurb: 'A table of every piece with thumbnail, status, location and price. For insurance, accountants and your own records.' },
+  { value: 'available', label: 'Available works', blurb: 'Every work currently available, with image, size, price and where it is. For galleries, fairs and studio visits.' },
   { value: 'price_list', label: 'Price list', blurb: 'Clean list for galleries and collectors: image, title, year, medium, size and price.' },
   { value: 'portfolio', label: 'Portfolio', blurb: 'One work per page with a large image and caption. For submissions and presentations.' },
 ];
@@ -28,7 +29,8 @@ export type InventoryField = (typeof INVENTORY_FIELDS)[number]['key'];
 export const DEFAULT_INVENTORY_FIELDS: InventoryField[] = ['image', 'inventory_number', 'title', 'year', 'medium', 'dimensions', 'status', 'location', 'price'];
 
 /** Full data export, one row per piece. Columns mirror the import format so files round-trip. */
-export function piecesToCsv(pieces: PieceWithImages[], collections: Collection[]): string {
+export function piecesToCsv(pieces: PieceWithImages[], collections: Collection[], locations: { id: string; name: string }[] = []): string {
+  const locName = new Map(locations.map((l) => [l.id, l.name]));
   const colName = new Map(collections.map((c) => [c.id, c.name]));
   const rows = pieces.map((p) => ({
     inventory_number: p.inventory_number ?? '',
@@ -54,6 +56,7 @@ export function piecesToCsv(pieces: PieceWithImages[], collections: Collection[]
     public: p.is_public ? 'yes' : 'no',
     show_price: p.show_price ? 'yes' : 'no',
     location: p.location ?? '',
+    storage_location: p.location_id ? locName.get(p.location_id) ?? '' : '',
     edition_size: p.edition_size ?? '',
     signature: p.signature ?? '',
     tags: (p.tags ?? []).join(', '),
@@ -74,4 +77,12 @@ export function downloadText(filename: string, text: string, type = 'text/csv;ch
   a.download = filename;
   a.click();
   setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+}
+
+/** "Camp 3 · rack B": the location record, plus the free-text details when they add something. */
+export function locationLabel(p: { location: string | null; location_id: string | null }, locations: { id: string; name: string }[]): string {
+  const rec = p.location_id ? locations.find((l) => l.id === p.location_id)?.name : undefined;
+  const text = p.location?.trim();
+  if (rec && text && text.toLowerCase() !== rec.toLowerCase()) return `${rec} · ${text}`;
+  return rec ?? text ?? '';
 }

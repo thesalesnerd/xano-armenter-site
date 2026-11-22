@@ -8,6 +8,10 @@ import { useAuth } from '../auth';
 const NAV = [
   { to: 'pieces', label: 'Pieces', icon: 'M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v5H4zM13 14h7v5h-7z' },
   { to: 'collections', label: 'Collections', icon: 'M3 7h6l2 2h10v10H3z' },
+  { to: 'locations', label: 'Locations', icon: 'M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21zM12 12a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z' },
+  { to: 'exhibitions', label: 'Exhibitions', icon: 'M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6' },
+  { to: 'contacts', label: 'Contacts', icon: 'M16 19v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1M9.5 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM21 19v-1a4 4 0 0 0-3-3.9M15.5 4.1a3 3 0 0 1 0 5.8', owner: true },
+  { to: 'sales', label: 'Sales', icon: 'M4 7h16v12H4zM4 11h16M8 15h3', owner: true },
   { to: 'reports', label: 'Reports', icon: 'M6 3h9l4 4v14H6zM9 12h7M9 16h7M9 8h3' },
   { to: 'import', label: 'Import', icon: 'M12 3v12m0 0-4-4m4 4 4-4M4 17v3h16v-3' },
   { to: 'settings', label: 'Settings', icon: 'M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM19 12l2-1-1-3-2 .3-1.5-1.5L17 5l-3-1-1 2h-2L10 4 7 5l.5 1.8L6 8.3 4 8 3 11l2 1v0l-2 1 1 3 2-.3 1.5 1.5L7 19l3 1 1-2h2l1 2 3-1-.5-1.8 1.5-1.5 2 .3 1-3z' },
@@ -54,7 +58,7 @@ export default function Layout() {
         ))}
         <option value="__new">+ New artist…</option>
       </select>
-      {NAV.map((n) => (
+      {NAV.filter((n) => !('owner' in n) || current.role === 'owner').map((n) => (
         <NavLink
           key={n.to}
           to={n.to}

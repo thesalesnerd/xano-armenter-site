@@ -21,7 +21,7 @@ async function resize(file: Blob, max: number, quality: number): Promise<Resized
 }
 
 /** Resizes in the browser (2400px master + 640px thumbnail), uploads both and records the image. */
-export async function uploadPieceImage(artistId: string, pieceId: string, file: Blob, position: number) {
+export async function uploadPieceImage(artistId: string, pieceId: string, file: Blob, position: number, sourceUrl?: string) {
   const [full, thumb] = await Promise.all([resize(file, 2400, 0.88), resize(file, 640, 0.8)]);
   const id = crypto.randomUUID();
   const storage_path = `${artistId}/${pieceId}/${id}.jpg`;
@@ -39,6 +39,7 @@ export async function uploadPieceImage(artistId: string, pieceId: string, file: 
     position,
     width: full.width,
     height: full.height,
+    ...(sourceUrl ? { source_url: sourceUrl } : {}),
   });
   if (error) {
     await bucket.remove([storage_path, thumb_path]);

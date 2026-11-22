@@ -12,9 +12,13 @@ the back end. No server code to run: all access rules live in the database
 
 | Area | Features |
 | --- | --- |
-| **Pieces** | Grid, list and table views; search; filters (status, medium, subject, collection, visibility, year); sorting; bulk status/visibility/collection/delete. Full record per piece: inventory number (auto-assigned with your prefix), year, medium, subject, style, dimensions and framed dimensions, price and currency, 10 statuses, location, signature, tags, public description, private notes. Multiple images per piece, resized in the browser (2400px + thumbnail). Editions with per-print status, price and location. |
+| **Pieces** | Grid, list and table views; search; filters (status, medium, subject, collection, visibility, year); sorting; bulk status/visibility/collection/delete. Full record per piece: inventory number (auto-assigned with your prefix), year, medium, subject, style, dimensions and framed dimensions, price and currency, 10 statuses, location, signature, tags, public description, private notes. Multiple images per piece, resized in the browser (2400px + thumbnail), reorderable, each with a caption and a public/private switch. Editions with per-print status, price and location. |
+| **Locations** | Storage locations (studio, storage, galleries, collectors) with address and contact. Set per piece; filter pieces and group the inventory report by location. Turn locations typed on pieces into records in one click. |
+| **Exhibitions** | Shows, fairs, residencies with venue and dates; which works were in each. Public exhibitions appear in `catalogue_v1`. |
+| **Contacts, sales, invoices** *(owners only)* | Collectors, galleries (flag the one that represents the artist), institutions. Sales with buyer, gallery, commission and tax; recording a sale can mark the piece sold. Numbered invoices built from sales, printable as PDF. Sales CSV export. |
+| **Provenance, notes, documents** *(owners only)* | Per piece: ordered provenance (entries can be made public), a dated private notes log, and private documents (certificates, invoices, condition reports) in a private Storage bucket opened through 5-minute signed links. |
 | **Collections** | Group pieces into series or shows; optionally public. |
-| **Reports** | Printable inventory report (choose columns, totals), price list, and one-work-per-page portfolio, all saved as PDF from the browser. Full CSV export. |
+| **Reports** | Printable inventory report (choose columns, totals, group by location), available-works list, price list, and one-work-per-page portfolio, all saved as PDF from the browser. Full CSV export. |
 | **Public profile** | `/p/<artist>`: bio, public works, public collections, a page per work with enquiry link. Private notes and hidden prices are never exposed. |
 | **Import** | CSV or JSON upload with automatic column matching, preview, duplicate skipping, collection creation and image download from URLs. A command-line importer for large migrations with local image files. |
 | **Workspaces & people** | Any user can create artists. Owners manage settings and people; editors manage the inventory; viewers can only look. |
@@ -42,6 +46,27 @@ the back end. No server code to run: all access rules live in the database
 Set `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` in the host's environment settings.
 
 ## Migrating from Artwork Archive
+
+**Artwork Archive importer (recommended):** in AA, export your data while logged in (pieces,
+contacts, sales, exhibitions, locations; CSV or Excel). In Artfolio open **Import → Moving from
+Artwork Archive?** and upload all the files at once. Each sheet is recognised (you can change
+it and its column mapping), then **Run dry run** shows every create, update and skip with the
+reason, and every column that would not be imported. Nothing is written until you press
+**Apply**.
+
+- Pieces match on inventory number, then slug (an explicit slug column, the AA
+  `/artwork/<slug>` link, or the title the way AA slugs it). A row whose only match is a piece
+  with the same title is reported, not created.
+- Existing values are never overwritten unless you tick *Replace existing values*; differing
+  values are listed as conflicts. Status is the exception: Artfolio defaulted imported works to
+  "available", so an AA status replaces "available". Visibility and slugs of existing pieces
+  are never changed. New pieces are private unless you choose otherwise.
+- Contacts match on AA id, email, then name; sales on AA id or piece + date + price;
+  exhibitions on AA id or title + start date; images on their source URL. A second run with
+  the same files is a no-op (`npm run test:import-db` proves this against the local stack).
+- Each applied run is logged in `import_runs`.
+
+**Plain CSV:**
 
 **From an export (recommended):** export your pieces from Artwork Archive as a spreadsheet,
 save it as CSV and upload it on the **Import** page. Columns are matched automatically and you
@@ -84,6 +109,9 @@ const pieces = await res.json(); // images[].storage_path -> /storage/v1/object/
 - A workspace can't lose its last owner.
 - Anonymous visitors can't read any table directly, only the `public_*` views, which list
   public pieces of artists with a live profile and leave out notes and hidden prices.
+- Locations and exhibitions follow the same member/editor rules. Contacts, sales, invoices,
+  provenance, private notes, documents and import runs are readable and writable by
+  workspace **owners only**. Documents live in a private `documents` bucket, owners only.
 - Images live in one Storage bucket under `<artist_id>/<piece_id>/<random-id>.jpg`. Only
   editors of that artist can upload or delete. The bucket is public-read with
   unguessable paths, the same model image CDNs use, so image URLs work in reports, the
@@ -95,6 +123,10 @@ const pieces = await res.json(); // images[].storage_path -> /storage/v1/object/
 npx supabase start          # local Postgres, Auth, Storage (Docker)
 npx supabase db reset       # apply migrations to the local database
 npm run test:rls            # 31 checks of the access rules against the local stack
+npm run test:rls:parity     # 51 checks of the locations/contacts/sales/... rules and catalogue_v1
+npm test                    # importer unit tests
+npm run test:import-db      # importer end to end against the local stack (idempotency)
+npm run test:e2e            # Playwright run of every parity screen (see the script header)
 npm run typecheck
 npx supabase gen types typescript --local > src/lib/database.types.ts   # after schema changes
 ```

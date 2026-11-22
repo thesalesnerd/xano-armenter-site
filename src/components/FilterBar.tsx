@@ -2,6 +2,8 @@ import { useState } from 'react';
 import type { Collection, PieceWithImages } from '../lib/types';
 import { STATUSES } from '../lib/format';
 import { distinct, EMPTY_FILTERS, type Filters } from '../lib/filters';
+import { useLocations } from '../lib/parity';
+import { useWorkspace } from '../workspace';
 
 type Props = {
   filters: Filters;
@@ -11,10 +13,11 @@ type Props = {
 };
 
 export default function FilterBar({ filters: f, onChange, pieces, collections }: Props) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(!!f.location);
+  const { data: locations = [] } = useLocations(useWorkspace().artist.id);
   const set = <K extends keyof Filters>(k: K, v: Filters[K]) => onChange({ ...f, [k]: v });
   const active =
-    f.status.length + [f.medium, f.subject, f.collection, f.visibility, f.yearFrom, f.yearTo].filter(Boolean).length;
+    f.status.length + [f.medium, f.subject, f.collection, f.location, f.visibility, f.yearFrom, f.yearTo].filter(Boolean).length;
   const mediums = distinct(pieces, 'medium');
   const subjects = distinct(pieces, 'subject');
 
@@ -91,6 +94,14 @@ export default function FilterBar({ filters: f, onChange, pieces, collections }:
             <select id="f-col" className="input" value={f.collection} onChange={(e) => set('collection', e.target.value)}>
               <option value="">Any</option>
               {collections.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
+            </select>
+          </div>
+          <div>
+            <label className="label" htmlFor="f-loc">Location</label>
+            <select id="f-loc" className="input" value={f.location} onChange={(e) => set('location', e.target.value)}>
+              <option value="">Any</option>
+              <option value="none">No location set</option>
+              {locations.map((l) => <option key={l.id} value={l.id}>{l.name}</option>)}
             </select>
           </div>
           <div>

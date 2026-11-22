@@ -17,6 +17,12 @@ import Reports from './pages/Reports';
 import ReportPrint from './pages/ReportPrint';
 import Import from './pages/Import';
 import Settings from './pages/Settings';
+import Locations from './pages/Locations';
+import Contacts from './pages/Contacts';
+import Sales from './pages/Sales';
+import InvoiceDetail from './pages/InvoiceDetail';
+import Exhibitions, { ExhibitionDetail } from './pages/Exhibitions';
+import ImportAA from './pages/ImportAA';
 import PublicProfile from './pages/PublicProfile';
 import PublicPiece from './pages/PublicPiece';
 
@@ -55,6 +61,13 @@ createRoot(document.getElementById('root')!).render(
               <Route path="reports" element={<Reports />} />
               <Route path="reports/print" element={<ReportPrint />} />
               <Route path="import" element={<Import />} />
+              <Route path="import/aa" element={<ImportAA />} />
+              <Route path="locations" element={<Locations />} />
+              <Route path="exhibitions" element={<Exhibitions />} />
+              <Route path="exhibitions/:exhibitionId" element={<ExhibitionDetail />} />
+              <Route path="contacts" element={<Contacts />} />
+              <Route path="sales" element={<Sales />} />
+              <Route path="sales/invoices/:invoiceId" element={<InvoiceDetail />} />
               <Route path="settings" element={<Settings />} />
             </Route>
             <Route path="*" element={<Navigate to="/" replace />} />
