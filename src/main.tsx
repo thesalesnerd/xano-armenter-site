@@ -24,6 +24,7 @@ import Sales from './pages/Sales';
 import InvoiceDetail from './pages/InvoiceDetail';
 import Exhibitions, { ExhibitionDetail } from './pages/Exhibitions';
 import ImportAA from './pages/ImportAA';
+import Website from './pages/Website';
 import PublicProfile from './pages/PublicProfile';
 import PublicPiece from './pages/PublicPiece';
 import QuickUpdate from './pages/quick/QuickUpdate';
@@ -76,6 +77,7 @@ createRoot(document.getElementById('root')!).render(
               <Route path="contacts" element={<Contacts />} />
               <Route path="sales" element={<Sales />} />
               <Route path="sales/invoices/:invoiceId" element={<InvoiceDetail />} />
+              <Route path="website" element={<Website />} />
               <Route path="settings" element={<Settings />} />
             </Route>
             <Route path="*" element={<Navigate to="/" replace />} />

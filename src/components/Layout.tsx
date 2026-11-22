@@ -15,6 +15,7 @@ const NAV = [
   { to: 'sales', label: 'Sales', icon: 'M4 7h16v12H4zM4 11h16M8 15h3', owner: true },
   { to: 'reports', label: 'Reports', icon: 'M6 3h9l4 4v14H6zM9 12h7M9 16h7M9 8h3' },
   { to: 'import', label: 'Import', icon: 'M12 3v12m0 0-4-4m4 4 4-4M4 17v3h16v-3' },
+  { to: 'website', label: 'Website', icon: 'M3 5h18v14H3zM3 9h18M7 7h.01M10 7h.01' },
   { to: 'settings', label: 'Settings', icon: 'M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM19 12l2-1-1-3-2 .3-1.5-1.5L17 5l-3-1-1 2h-2L10 4 7 5l.5 1.8L6 8.3 4 8 3 11l2 1v0l-2 1 1 3 2-.3 1.5 1.5L7 19l3 1 1-2h2l1 2 3-1-.5-1.8 1.5-1.5 2 .3 1-3z' },
 ];
 
