@@ -17,6 +17,15 @@ export function Lightbox({ works, index, base }: { works: Artwork[]; index: numb
     navigate(`${base}/${works[(index + step + works.length) % works.length].slug}${search}`, { replace: true, preventScrollReset: true });
   const close = () => navigate(base + search, { preventScrollReset: true });
 
+  // Each work has its own URL; give the tab (and bookmarks) its title too.
+  useEffect(() => {
+    const before = document.title;
+    document.title = `${work.title} — Xano Armenter`;
+    return () => {
+      document.title = before;
+    };
+  }, [work.title]);
+
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => {
@@ -52,9 +61,9 @@ export function Lightbox({ works, index, base }: { works: Artwork[]; index: numb
           <p>{[medium(work.medium), yearLabel(work, t.lightbox.circa)].filter(Boolean).join(", ")}</p>
           {work.dims && <p>{work.dims}</p>}
           {work.series.length > 0 && <p>{work.series.join(", ")}</p>}
-          {(work.sold || work.price !== null) && (
-            <p className="lightbox-price">{work.sold ? t.lightbox.sold : priceLabel(work, lang === "es" ? "es-ES" : "en-US")}</p>
-          )}
+          <p className="lightbox-price">
+            {work.sold ? t.lightbox.sold : [t.lightbox.available, priceLabel(work, lang === "es" ? "es-ES" : "en-US")].filter(Boolean).join(" · ")}
+          </p>
           <div className="lightbox-actions">
             <button type="button" className="text-link" onClick={() => setRoom(true)}>
               <span>{t.lightbox.room}</span>

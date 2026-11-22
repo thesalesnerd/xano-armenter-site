@@ -1,6 +1,11 @@
 // Builds a printable sheet of replacement QR labels, one per public work,
 // pointing at xanoarmenter.com instead of artworkarchive.com.
 //
+// Each QR encodes the permanent short URL https://xanoarmenter.com/qr/<inventory #>
+// (api/qr.js redirects it to the work's current page), so a renamed work or a
+// redesigned site never needs a new label. Artfolio's admin (Reports → QR
+// labels) prints the same labels with more size options.
+//
 //   npm i --no-save qrcode@1.5.4
 //   node tools/aa-audit/make-qr-labels.mjs        -> docs/qr-labels.html
 //
@@ -27,8 +32,9 @@ const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
 
 const labels = [];
 for (const r of rows.filter((r) => r.site_url)) {
-  const svg = await QRCode.toString(r.site_url, { type: "svg", margin: 0, errorCorrectionLevel: "M" });
-  labels.push(`<div class="l">${svg}<div><b>${esc(r.title)}</b><span>Xano Armenter</span><span>${esc(r.inventory_number)}</span><small>${esc(r.site_url.replace("https://", ""))}</small></div></div>`);
+  const url = `https://xanoarmenter.com/qr/${r.inventory_number}`;
+  const svg = await QRCode.toString(url, { type: "svg", margin: 0, errorCorrectionLevel: "M" });
+  labels.push(`<div class="l" data-inv="${esc(r.inventory_number)}">${svg}<div><b>${esc(r.title)}</b><span>Xano Armenter</span><span>${esc(r.inventory_number)}</span><small>${esc(url.replace("https://", ""))}</small></div></div>`);
 }
 
 writeFileSync(new URL("../../docs/qr-labels.html", here), `<!doctype html><meta charset="utf-8"><title>QR labels</title>

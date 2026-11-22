@@ -1,1 +1,8 @@
-{ "framework": "vite", "outputDirectory": "dist", "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }] }
+{
+  "framework": "vite",
+  "outputDirectory": "dist",
+  "rewrites": [
+    { "source": "/qr/:id", "destination": "/api/qr?id=:id" },
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
+  ]
+}

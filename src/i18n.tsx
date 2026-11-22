@@ -60,6 +60,7 @@ const en = {
     enquire: "Enquire about this work",
     circa: "c.",
     sold: "Sold",
+    available: "Available",
   },
   room: {
     title: "Imagine it in your home",
@@ -184,6 +185,7 @@ const es: typeof en = {
     enquire: "Consultar por esta obra",
     circa: "h.",
     sold: "Vendida",
+    available: "Disponible",
   },
   room: {
     title: "Imagínala en tu casa",
