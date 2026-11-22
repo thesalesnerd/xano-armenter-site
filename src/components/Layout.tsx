@@ -100,14 +100,14 @@ export default function Layout() {
 
   return (
     <WorkspaceContext.Provider value={ws}>
-      <div className="min-h-screen md:grid md:grid-cols-[232px_1fr]">
+      <div className="min-h-screen md:grid md:grid-cols-[232px_1fr] print:block">
         <aside className="no-print sticky top-0 hidden h-screen border-r border-stone-200 bg-stone-100/70 md:block">{sidebar}</aside>
         <div className="no-print flex items-center justify-between border-b border-stone-200 bg-white px-4 py-2 md:hidden">
           <span className="font-serif text-lg">{current.artist.name}</span>
           <button className="btn-ghost" onClick={() => setOpen((o) => !o)} aria-label="Menu">☰</button>
         </div>
         {open && <div className="no-print border-b border-stone-200 bg-stone-100 md:hidden">{sidebar}</div>}
-        <main className="min-w-0 px-4 py-6 md:px-8 md:py-8">
+        <main className="min-w-0 px-4 py-6 md:px-8 md:py-8 print:p-0">
           <Outlet />
         </main>
       </div>

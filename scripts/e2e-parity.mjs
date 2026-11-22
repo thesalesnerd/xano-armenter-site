@@ -321,6 +321,22 @@ await step('Reports: inventory grouped by location', async () => {
   await shot(page, '09-report-inventory');
 });
 
+await step('Print: reports use the full page width (no sidebar column)', async () => {
+  await page.emulateMedia({ media: 'print' });
+  const box = await page.locator('main').boundingBox();
+  await page.emulateMedia({ media: 'screen' });
+  expect(box.x < 5 && box.width > 1300, JSON.stringify(box));
+});
+await step('QR: piece panel and label sheet render', async () => {
+  await page.goto(`${A}/pieces/${wave.id}`);
+  await page.getByText(/QR/).first().waitFor();
+  await page.goto(`${A}/reports/labels`);
+  await page.getByPlaceholder('https://xanoarmenter.com').fill('https://xanoarmenter.com');
+  await page.getByText('Enter the website the codes should point to.').waitFor({ state: 'detached' });
+  await page.getByText('Wave').last().waitFor();
+  await shot(page, '10-qr-labels');
+});
+
 // --- Editor role -------------------------------------------------------------------------
 const ed = await signIn(editor.email);
 await step('Editor: no contacts or sales in the menu, owner-only pages refuse', async () => {
