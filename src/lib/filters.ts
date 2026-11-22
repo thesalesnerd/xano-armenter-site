@@ -6,6 +6,7 @@ export type Filters = {
   medium: string;
   subject: string;
   collection: string;
+  location: string; // location id, or 'none'
   visibility: '' | 'public' | 'private';
   yearFrom: string;
   yearTo: string;
@@ -13,7 +14,7 @@ export type Filters = {
 };
 
 export const EMPTY_FILTERS: Filters = {
-  q: '', status: [], medium: '', subject: '', collection: '', visibility: '', yearFrom: '', yearTo: '', sort: 'newest',
+  q: '', status: [], medium: '', subject: '', collection: '', location: '', visibility: '', yearFrom: '', yearTo: '', sort: 'newest',
 };
 
 export function filtersFromParams(sp: URLSearchParams): Filters {
@@ -23,6 +24,7 @@ export function filtersFromParams(sp: URLSearchParams): Filters {
     medium: sp.get('medium') ?? '',
     subject: sp.get('subject') ?? '',
     collection: sp.get('collection') ?? '',
+    location: sp.get('location') ?? '',
     visibility: (sp.get('visibility') ?? '') as Filters['visibility'],
     yearFrom: sp.get('yearFrom') ?? '',
     yearTo: sp.get('yearTo') ?? '',
@@ -38,6 +40,7 @@ export function filtersToParams(f: Filters, base?: URLSearchParams): URLSearchPa
   set('medium', f.medium);
   set('subject', f.subject);
   set('collection', f.collection);
+  set('location', f.location);
   set('visibility', f.visibility);
   set('yearFrom', f.yearFrom);
   set('yearTo', f.yearTo);
@@ -59,6 +62,8 @@ export function applyFilters(pieces: PieceWithImages[], f: Filters): PieceWithIm
     if (f.medium && p.medium !== f.medium) return false;
     if (f.subject && p.subject !== f.subject) return false;
     if (f.collection && !p.collection_pieces.some((c) => c.collection_id === f.collection)) return false;
+    if (f.location === 'none' && p.location_id) return false;
+    if (f.location && f.location !== 'none' && p.location_id !== f.location) return false;
     if (f.visibility === 'public' && !p.is_public) return false;
     if (f.visibility === 'private' && p.is_public) return false;
     if (f.yearFrom && (p.year == null || p.year < Number(f.yearFrom))) return false;

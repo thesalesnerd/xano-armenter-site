@@ -139,6 +139,266 @@ isOneToOne: false
       referencedColumns: ["id"]
     }
                   ]
+                },"contacts": {
+                  Row: {
+                    "address": string | null,"artist_id": string,"city": string | null,"company": string | null,"country": string | null,"created_at": string,"email": string | null,"id": string,"kind": string,"name": string,"notes": string | null,"phone": string | null,"represents_artist": boolean,"source_ref": string | null,"tags": (string)[],"updated_at": string,"website": string | null
+                  }
+                  ComputedFields: never
+                  Insert: {
+                    "address"?: string | null,"artist_id": string,"city"?: string | null,"company"?: string | null,"country"?: string | null,"created_at"?: string,"email"?: string | null,"id"?: string,"kind"?: string,"name": string,"notes"?: string | null,"phone"?: string | null,"represents_artist"?: boolean,"source_ref"?: string | null,"tags"?: (string)[],"updated_at"?: string,"website"?: string | null
+                  }
+                  Update: {
+                    "address"?: string | null,"artist_id"?: string,"city"?: string | null,"company"?: string | null,"country"?: string | null,"created_at"?: string,"email"?: string | null,"id"?: string,"kind"?: string,"name"?: string,"notes"?: string | null,"phone"?: string | null,"represents_artist"?: boolean,"source_ref"?: string | null,"tags"?: (string)[],"updated_at"?: string,"website"?: string | null
+                  }
+                  Relationships: [
+                    {
+      foreignKeyName: "contacts_artist_id_fkey"
+      columns: ["artist_id"]
+isOneToOne: false
+      referencedRelation: "artists"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "contacts_artist_id_fkey"
+      columns: ["artist_id"]
+isOneToOne: false
+      referencedRelation: "public_artists"
+      referencedColumns: ["id"]
+    }
+                  ]
+                },"documents": {
+                  Row: {
+                    "artist_id": string,"contact_id": string | null,"created_at": string,"created_by": string | null,"exhibition_id": string | null,"id": string,"mime_type": string | null,"piece_id": string | null,"sale_id": string | null,"size_bytes": number | null,"source_url": string | null,"storage_path": string,"title": string,"updated_at": string
+                  }
+                  ComputedFields: never
+                  Insert: {
+                    "artist_id": string,"contact_id"?: string | null,"created_at"?: string,"created_by"?: string | null,"exhibition_id"?: string | null,"id"?: string,"mime_type"?: string | null,"piece_id"?: string | null,"sale_id"?: string | null,"size_bytes"?: number | null,"source_url"?: string | null,"storage_path": string,"title": string,"updated_at"?: string
+                  }
+                  Update: {
+                    "artist_id"?: string,"contact_id"?: string | null,"created_at"?: string,"created_by"?: string | null,"exhibition_id"?: string | null,"id"?: string,"mime_type"?: string | null,"piece_id"?: string | null,"sale_id"?: string | null,"size_bytes"?: number | null,"source_url"?: string | null,"storage_path"?: string,"title"?: string,"updated_at"?: string
+                  }
+                  Relationships: [
+                    {
+      foreignKeyName: "documents_artist_id_fkey"
+      columns: ["artist_id"]
+isOneToOne: false
+      referencedRelation: "artists"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "documents_artist_id_fkey"
+      columns: ["artist_id"]
+isOneToOne: false
+      referencedRelation: "public_artists"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "documents_contact_id_fkey"
+      columns: ["contact_id"]
+isOneToOne: false
+      referencedRelation: "contacts"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "documents_exhibition_id_fkey"
+      columns: ["exhibition_id"]
+isOneToOne: false
+      referencedRelation: "exhibitions"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "documents_exhibition_id_fkey"
+      columns: ["exhibition_id"]
+isOneToOne: false
+      referencedRelation: "public_exhibitions"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "documents_piece_id_fkey"
+      columns: ["piece_id"]
+isOneToOne: false
+      referencedRelation: "pieces"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "documents_piece_id_fkey"
+      columns: ["piece_id"]
+isOneToOne: false
+      referencedRelation: "public_pieces"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "documents_sale_id_fkey"
+      columns: ["sale_id"]
+isOneToOne: false
+      referencedRelation: "sales"
+      referencedColumns: ["id"]
+    }
+                  ]
+                },"exhibition_pieces": {
+                  Row: {
+                    "artist_id": string,"created_at": string,"exhibition_id": string,"notes": string | null,"piece_id": string
+                  }
+                  ComputedFields: never
+                  Insert: {
+                    "artist_id": string,"created_at"?: string,"exhibition_id": string,"notes"?: string | null,"piece_id": string
+                  }
+                  Update: {
+                    "artist_id"?: string,"created_at"?: string,"exhibition_id"?: string,"notes"?: string | null,"piece_id"?: string
+                  }
+                  Relationships: [
+                    {
+      foreignKeyName: "exhibition_pieces_artist_id_fkey"
+      columns: ["artist_id"]
+isOneToOne: false
+      referencedRelation: "artists"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "exhibition_pieces_artist_id_fkey"
+      columns: ["artist_id"]
+isOneToOne: false
+      referencedRelation: "public_artists"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "exhibition_pieces_exhibition_id_fkey"
+      columns: ["exhibition_id"]
+isOneToOne: false
+      referencedRelation: "exhibitions"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "exhibition_pieces_exhibition_id_fkey"
+      columns: ["exhibition_id"]
+isOneToOne: false
+      referencedRelation: "public_exhibitions"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "exhibition_pieces_piece_id_fkey"
+      columns: ["piece_id"]
+isOneToOne: false
+      referencedRelation: "pieces"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "exhibition_pieces_piece_id_fkey"
+      columns: ["piece_id"]
+isOneToOne: false
+      referencedRelation: "public_pieces"
+      referencedColumns: ["id"]
+    }
+                  ]
+                },"exhibitions": {
+                  Row: {
+                    "artist_id": string,"city": string | null,"country": string | null,"created_at": string,"description": string | null,"end_date": string | null,"id": string,"is_public": boolean,"kind": string,"source_ref": string | null,"start_date": string | null,"title": string,"updated_at": string,"url": string | null,"venue": string | null,"venue_contact_id": string | null
+                  }
+                  ComputedFields: never
+                  Insert: {
+                    "artist_id": string,"city"?: string | null,"country"?: string | null,"created_at"?: string,"description"?: string | null,"end_date"?: string | null,"id"?: string,"is_public"?: boolean,"kind"?: string,"source_ref"?: string | null,"start_date"?: string | null,"title": string,"updated_at"?: string,"url"?: string | null,"venue"?: string | null,"venue_contact_id"?: string | null
+                  }
+                  Update: {
+                    "artist_id"?: string,"city"?: string | null,"country"?: string | null,"created_at"?: string,"description"?: string | null,"end_date"?: string | null,"id"?: string,"is_public"?: boolean,"kind"?: string,"source_ref"?: string | null,"start_date"?: string | null,"title"?: string,"updated_at"?: string,"url"?: string | null,"venue"?: string | null,"venue_contact_id"?: string | null
+                  }
+                  Relationships: [
+                    {
+      foreignKeyName: "exhibitions_artist_id_fkey"
+      columns: ["artist_id"]
+isOneToOne: false
+      referencedRelation: "artists"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "exhibitions_artist_id_fkey"
+      columns: ["artist_id"]
+isOneToOne: false
+      referencedRelation: "public_artists"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "exhibitions_venue_contact_id_fkey"
+      columns: ["venue_contact_id"]
+isOneToOne: false
+      referencedRelation: "contacts"
+      referencedColumns: ["id"]
+    }
+                  ]
+                },"import_runs": {
+                  Row: {
+                    "artist_id": string,"created_at": string,"created_by": string | null,"file_names": (string)[],"id": string,"source": string,"summary": NonNullable<Json>
+                  }
+                  ComputedFields: never
+                  Insert: {
+                    "artist_id": string,"created_at"?: string,"created_by"?: string | null,"file_names"?: (string)[],"id"?: string,"source": string,"summary"?: NonNullable<Json>
+                  }
+                  Update: {
+                    "artist_id"?: string,"created_at"?: string,"created_by"?: string | null,"file_names"?: (string)[],"id"?: string,"source"?: string,"summary"?: NonNullable<Json>
+                  }
+                  Relationships: [
+                    {
+      foreignKeyName: "import_runs_artist_id_fkey"
+      columns: ["artist_id"]
+isOneToOne: false
+      referencedRelation: "artists"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "import_runs_artist_id_fkey"
+      columns: ["artist_id"]
+isOneToOne: false
+      referencedRelation: "public_artists"
+      referencedColumns: ["id"]
+    }
+                  ]
+                },"invoices": {
+                  Row: {
+                    "artist_id": string,"contact_id": string | null,"created_at": string,"currency": string | null,"discount": number | null,"due_date": string | null,"id": string,"issue_date": string,"notes": string | null,"number": string,"paid_date": string | null,"shipping": number | null,"source_ref": string | null,"status": string,"tax_rate": number | null,"updated_at": string
+                  }
+                  ComputedFields: never
+                  Insert: {
+                    "artist_id": string,"contact_id"?: string | null,"created_at"?: string,"currency"?: string | null,"discount"?: number | null,"due_date"?: string | null,"id"?: string,"issue_date"?: string,"notes"?: string | null,"number": string,"paid_date"?: string | null,"shipping"?: number | null,"source_ref"?: string | null,"status"?: string,"tax_rate"?: number | null,"updated_at"?: string
+                  }
+                  Update: {
+                    "artist_id"?: string,"contact_id"?: string | null,"created_at"?: string,"currency"?: string | null,"discount"?: number | null,"due_date"?: string | null,"id"?: string,"issue_date"?: string,"notes"?: string | null,"number"?: string,"paid_date"?: string | null,"shipping"?: number | null,"source_ref"?: string | null,"status"?: string,"tax_rate"?: number | null,"updated_at"?: string
+                  }
+                  Relationships: [
+                    {
+      foreignKeyName: "invoices_artist_id_fkey"
+      columns: ["artist_id"]
+isOneToOne: false
+      referencedRelation: "artists"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "invoices_artist_id_fkey"
+      columns: ["artist_id"]
+isOneToOne: false
+      referencedRelation: "public_artists"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "invoices_contact_id_fkey"
+      columns: ["contact_id"]
+isOneToOne: false
+      referencedRelation: "contacts"
+      referencedColumns: ["id"]
+    }
+                  ]
+                },"locations": {
+                  Row: {
+                    "address": string | null,"artist_id": string,"contact_id": string | null,"created_at": string,"id": string,"is_public": boolean,"kind": string,"name": string,"notes": string | null,"updated_at": string
+                  }
+                  ComputedFields: never
+                  Insert: {
+                    "address"?: string | null,"artist_id": string,"contact_id"?: string | null,"created_at"?: string,"id"?: string,"is_public"?: boolean,"kind"?: string,"name": string,"notes"?: string | null,"updated_at"?: string
+                  }
+                  Update: {
+                    "address"?: string | null,"artist_id"?: string,"contact_id"?: string | null,"created_at"?: string,"id"?: string,"is_public"?: boolean,"kind"?: string,"name"?: string,"notes"?: string | null,"updated_at"?: string
+                  }
+                  Relationships: [
+                    {
+      foreignKeyName: "locations_artist_id_fkey"
+      columns: ["artist_id"]
+isOneToOne: false
+      referencedRelation: "artists"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "locations_artist_id_fkey"
+      columns: ["artist_id"]
+isOneToOne: false
+      referencedRelation: "public_artists"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "locations_contact_fk"
+      columns: ["contact_id"]
+isOneToOne: false
+      referencedRelation: "contacts"
+      referencedColumns: ["id"]
+    }
+                  ]
                 },"piece_editions": {
                   Row: {
                     "artist_id": string,"created_at": string,"edition_number": string,"id": string,"location": string | null,"notes": string | null,"piece_id": string,"price": number | null,"status": Database["public"]['Enums']["piece_status"],"updated_at": string
@@ -179,14 +439,14 @@ isOneToOne: false
                   ]
                 },"piece_images": {
                   Row: {
-                    "artist_id": string,"caption": string | null,"created_at": string,"height": number | null,"id": string,"piece_id": string,"position": number,"storage_path": string,"thumb_path": string | null,"width": number | null
+                    "artist_id": string,"caption": string | null,"created_at": string,"height": number | null,"id": string,"is_public": boolean,"piece_id": string,"position": number,"source_url": string | null,"storage_path": string,"thumb_path": string | null,"width": number | null
                   }
                   ComputedFields: never
                   Insert: {
-                    "artist_id": string,"caption"?: string | null,"created_at"?: string,"height"?: number | null,"id"?: string,"piece_id": string,"position"?: number,"storage_path": string,"thumb_path"?: string | null,"width"?: number | null
+                    "artist_id": string,"caption"?: string | null,"created_at"?: string,"height"?: number | null,"id"?: string,"is_public"?: boolean,"piece_id": string,"position"?: number,"source_url"?: string | null,"storage_path": string,"thumb_path"?: string | null,"width"?: number | null
                   }
                   Update: {
-                    "artist_id"?: string,"caption"?: string | null,"created_at"?: string,"height"?: number | null,"id"?: string,"piece_id"?: string,"position"?: number,"storage_path"?: string,"thumb_path"?: string | null,"width"?: number | null
+                    "artist_id"?: string,"caption"?: string | null,"created_at"?: string,"height"?: number | null,"id"?: string,"is_public"?: boolean,"piece_id"?: string,"position"?: number,"source_url"?: string | null,"storage_path"?: string,"thumb_path"?: string | null,"width"?: number | null
                   }
                   Relationships: [
                     {
@@ -215,16 +475,54 @@ isOneToOne: false
       referencedColumns: ["id"]
     }
                   ]
-                },"pieces": {
+                },"piece_notes": {
                   Row: {
-                    "artist_id": string,"created_at": string,"creation_date": string | null,"currency": string | null,"depth": number | null,"description": string | null,"dimension_unit": string,"edition_size": number | null,"framed": boolean,"framed_depth": number | null,"framed_height": number | null,"framed_width": number | null,"height": number | null,"id": string,"inventory_number": string | null,"is_public": boolean,"kind": Database["public"]['Enums']["piece_kind"],"location": string | null,"medium": string | null,"notes": string | null,"price": number | null,"show_price": boolean,"slug": string,"signature": string | null,"source_ref": string | null,"status": Database["public"]['Enums']["piece_status"],"style": string | null,"subject": string | null,"tags": (string)[],"title": string,"updated_at": string,"width": number | null,"year_circa": boolean,"year": number | null
+                    "artist_id": string,"body": string,"created_at": string,"created_by": string | null,"id": string,"piece_id": string,"source_ref": string | null,"updated_at": string
                   }
                   ComputedFields: never
                   Insert: {
-                    "artist_id": string,"created_at"?: string,"creation_date"?: string | null,"currency"?: string | null,"depth"?: number | null,"description"?: string | null,"dimension_unit"?: string,"edition_size"?: number | null,"framed"?: boolean,"framed_depth"?: number | null,"framed_height"?: number | null,"framed_width"?: number | null,"height"?: number | null,"id"?: string,"inventory_number"?: string | null,"is_public"?: boolean,"kind"?: Database["public"]['Enums']["piece_kind"],"location"?: string | null,"medium"?: string | null,"notes"?: string | null,"price"?: number | null,"show_price"?: boolean,"slug"?: string,"signature"?: string | null,"source_ref"?: string | null,"status"?: Database["public"]['Enums']["piece_status"],"style"?: string | null,"subject"?: string | null,"tags"?: (string)[],"title": string,"updated_at"?: string,"width"?: number | null,"year_circa"?: boolean,"year"?: number | null
+                    "artist_id": string,"body": string,"created_at"?: string,"created_by"?: string | null,"id"?: string,"piece_id": string,"source_ref"?: string | null,"updated_at"?: string
                   }
                   Update: {
-                    "artist_id"?: string,"created_at"?: string,"creation_date"?: string | null,"currency"?: string | null,"depth"?: number | null,"description"?: string | null,"dimension_unit"?: string,"edition_size"?: number | null,"framed"?: boolean,"framed_depth"?: number | null,"framed_height"?: number | null,"framed_width"?: number | null,"height"?: number | null,"id"?: string,"inventory_number"?: string | null,"is_public"?: boolean,"kind"?: Database["public"]['Enums']["piece_kind"],"location"?: string | null,"medium"?: string | null,"notes"?: string | null,"price"?: number | null,"show_price"?: boolean,"slug"?: string,"signature"?: string | null,"source_ref"?: string | null,"status"?: Database["public"]['Enums']["piece_status"],"style"?: string | null,"subject"?: string | null,"tags"?: (string)[],"title"?: string,"updated_at"?: string,"width"?: number | null,"year_circa"?: boolean,"year"?: number | null
+                    "artist_id"?: string,"body"?: string,"created_at"?: string,"created_by"?: string | null,"id"?: string,"piece_id"?: string,"source_ref"?: string | null,"updated_at"?: string
+                  }
+                  Relationships: [
+                    {
+      foreignKeyName: "piece_notes_artist_id_fkey"
+      columns: ["artist_id"]
+isOneToOne: false
+      referencedRelation: "artists"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "piece_notes_artist_id_fkey"
+      columns: ["artist_id"]
+isOneToOne: false
+      referencedRelation: "public_artists"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "piece_notes_piece_id_fkey"
+      columns: ["piece_id"]
+isOneToOne: false
+      referencedRelation: "pieces"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "piece_notes_piece_id_fkey"
+      columns: ["piece_id"]
+isOneToOne: false
+      referencedRelation: "public_pieces"
+      referencedColumns: ["id"]
+    }
+                  ]
+                },"pieces": {
+                  Row: {
+                    "artist_id": string,"created_at": string,"creation_date": string | null,"currency": string | null,"depth": number | null,"description": string | null,"dimension_unit": string,"edition_size": number | null,"framed": boolean,"framed_depth": number | null,"framed_height": number | null,"framed_width": number | null,"height": number | null,"id": string,"inventory_number": string | null,"is_public": boolean,"kind": Database["public"]['Enums']["piece_kind"],"location": string | null,"location_id": string | null,"medium": string | null,"notes": string | null,"price": number | null,"show_price": boolean,"signature": string | null,"slug": string,"source_ref": string | null,"status": Database["public"]['Enums']["piece_status"],"style": string | null,"subject": string | null,"tags": (string)[],"title": string,"updated_at": string,"width": number | null,"year": number | null,"year_circa": boolean
+                  }
+                  ComputedFields: never
+                  Insert: {
+                    "artist_id": string,"created_at"?: string,"creation_date"?: string | null,"currency"?: string | null,"depth"?: number | null,"description"?: string | null,"dimension_unit"?: string,"edition_size"?: number | null,"framed"?: boolean,"framed_depth"?: number | null,"framed_height"?: number | null,"framed_width"?: number | null,"height"?: number | null,"id"?: string,"inventory_number"?: string | null,"is_public"?: boolean,"kind"?: Database["public"]['Enums']["piece_kind"],"location"?: string | null,"location_id"?: string | null,"medium"?: string | null,"notes"?: string | null,"price"?: number | null,"show_price"?: boolean,"signature"?: string | null,"slug"?: string,"source_ref"?: string | null,"status"?: Database["public"]['Enums']["piece_status"],"style"?: string | null,"subject"?: string | null,"tags"?: (string)[],"title": string,"updated_at"?: string,"width"?: number | null,"year"?: number | null,"year_circa"?: boolean
+                  }
+                  Update: {
+                    "artist_id"?: string,"created_at"?: string,"creation_date"?: string | null,"currency"?: string | null,"depth"?: number | null,"description"?: string | null,"dimension_unit"?: string,"edition_size"?: number | null,"framed"?: boolean,"framed_depth"?: number | null,"framed_height"?: number | null,"framed_width"?: number | null,"height"?: number | null,"id"?: string,"inventory_number"?: string | null,"is_public"?: boolean,"kind"?: Database["public"]['Enums']["piece_kind"],"location"?: string | null,"location_id"?: string | null,"medium"?: string | null,"notes"?: string | null,"price"?: number | null,"show_price"?: boolean,"signature"?: string | null,"slug"?: string,"source_ref"?: string | null,"status"?: Database["public"]['Enums']["piece_status"],"style"?: string | null,"subject"?: string | null,"tags"?: (string)[],"title"?: string,"updated_at"?: string,"width"?: number | null,"year"?: number | null,"year_circa"?: boolean
                   }
                   Relationships: [
                     {
@@ -238,6 +536,12 @@ isOneToOne: false
       columns: ["artist_id"]
 isOneToOne: false
       referencedRelation: "public_artists"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "pieces_location_id_fkey"
+      columns: ["location_id"]
+isOneToOne: false
+      referencedRelation: "locations"
       referencedColumns: ["id"]
     }
                   ]
@@ -254,6 +558,112 @@ isOneToOne: false
                   }
                   Relationships: [
                     
+                  ]
+                },"provenance": {
+                  Row: {
+                    "artist_id": string,"contact_id": string | null,"created_at": string,"date_text": string | null,"description": string | null,"event": string,"id": string,"is_public": boolean,"party": string | null,"piece_id": string,"position": number,"updated_at": string
+                  }
+                  ComputedFields: never
+                  Insert: {
+                    "artist_id": string,"contact_id"?: string | null,"created_at"?: string,"date_text"?: string | null,"description"?: string | null,"event"?: string,"id"?: string,"is_public"?: boolean,"party"?: string | null,"piece_id": string,"position"?: number,"updated_at"?: string
+                  }
+                  Update: {
+                    "artist_id"?: string,"contact_id"?: string | null,"created_at"?: string,"date_text"?: string | null,"description"?: string | null,"event"?: string,"id"?: string,"is_public"?: boolean,"party"?: string | null,"piece_id"?: string,"position"?: number,"updated_at"?: string
+                  }
+                  Relationships: [
+                    {
+      foreignKeyName: "provenance_artist_id_fkey"
+      columns: ["artist_id"]
+isOneToOne: false
+      referencedRelation: "artists"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "provenance_artist_id_fkey"
+      columns: ["artist_id"]
+isOneToOne: false
+      referencedRelation: "public_artists"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "provenance_contact_id_fkey"
+      columns: ["contact_id"]
+isOneToOne: false
+      referencedRelation: "contacts"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "provenance_piece_id_fkey"
+      columns: ["piece_id"]
+isOneToOne: false
+      referencedRelation: "pieces"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "provenance_piece_id_fkey"
+      columns: ["piece_id"]
+isOneToOne: false
+      referencedRelation: "public_pieces"
+      referencedColumns: ["id"]
+    }
+                  ]
+                },"sales": {
+                  Row: {
+                    "artist_id": string,"buyer_contact_id": string | null,"commission_pct": number | null,"created_at": string,"currency": string | null,"edition_id": string | null,"id": string,"invoice_id": string | null,"notes": string | null,"piece_id": string,"price": number | null,"sale_date": string | null,"source_ref": string | null,"status": string,"tax_amount": number | null,"updated_at": string,"via_contact_id": string | null
+                  }
+                  ComputedFields: never
+                  Insert: {
+                    "artist_id": string,"buyer_contact_id"?: string | null,"commission_pct"?: number | null,"created_at"?: string,"currency"?: string | null,"edition_id"?: string | null,"id"?: string,"invoice_id"?: string | null,"notes"?: string | null,"piece_id": string,"price"?: number | null,"sale_date"?: string | null,"source_ref"?: string | null,"status"?: string,"tax_amount"?: number | null,"updated_at"?: string,"via_contact_id"?: string | null
+                  }
+                  Update: {
+                    "artist_id"?: string,"buyer_contact_id"?: string | null,"commission_pct"?: number | null,"created_at"?: string,"currency"?: string | null,"edition_id"?: string | null,"id"?: string,"invoice_id"?: string | null,"notes"?: string | null,"piece_id"?: string,"price"?: number | null,"sale_date"?: string | null,"source_ref"?: string | null,"status"?: string,"tax_amount"?: number | null,"updated_at"?: string,"via_contact_id"?: string | null
+                  }
+                  Relationships: [
+                    {
+      foreignKeyName: "sales_artist_id_fkey"
+      columns: ["artist_id"]
+isOneToOne: false
+      referencedRelation: "artists"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "sales_artist_id_fkey"
+      columns: ["artist_id"]
+isOneToOne: false
+      referencedRelation: "public_artists"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "sales_buyer_contact_id_fkey"
+      columns: ["buyer_contact_id"]
+isOneToOne: false
+      referencedRelation: "contacts"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "sales_edition_id_fkey"
+      columns: ["edition_id"]
+isOneToOne: false
+      referencedRelation: "piece_editions"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "sales_invoice_id_fkey"
+      columns: ["invoice_id"]
+isOneToOne: false
+      referencedRelation: "invoices"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "sales_piece_id_fkey"
+      columns: ["piece_id"]
+isOneToOne: false
+      referencedRelation: "pieces"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "sales_piece_id_fkey"
+      columns: ["piece_id"]
+isOneToOne: false
+      referencedRelation: "public_pieces"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "sales_via_contact_id_fkey"
+      columns: ["via_contact_id"]
+isOneToOne: false
+      referencedRelation: "contacts"
+      referencedColumns: ["id"]
+    }
                   ]
                 }
           }
@@ -292,9 +702,29 @@ isOneToOne: false
       referencedColumns: ["id"]
     }
                   ]
+                },"public_exhibitions": {
+                  Row: {
+                    "artist_id": string,"artist_slug": string,"city": string | null,"country": string | null,"description": string | null,"end_date": string | null,"id": string,"kind": string,"piece_ids": (string)[] | null,"start_date": string | null,"title": string,"url": string | null,"venue": string | null
+                  }
+                  ComputedFields: never
+                  Relationships: [
+                    {
+      foreignKeyName: "exhibitions_artist_id_fkey"
+      columns: ["artist_id"]
+isOneToOne: false
+      referencedRelation: "artists"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "exhibitions_artist_id_fkey"
+      columns: ["artist_id"]
+isOneToOne: false
+      referencedRelation: "public_artists"
+      referencedColumns: ["id"]
+    }
+                  ]
                 },"public_pieces": {
                   Row: {
-                    "artist_id": string,"artist_slug": string,"created_at": string,"currency": string | null,"depth": number | null,"description": string | null,"dimension_unit": string,"edition_size": number | null,"framed": boolean,"framed_depth": number | null,"framed_height": number | null,"framed_width": number | null,"height": number | null,"id": string,"images": Json | null,"inventory_number": string | null,"kind": Database["public"]['Enums']["piece_kind"],"medium": string | null,"price": number | null,"status": Database["public"]['Enums']["piece_status"],"slug": string,"style": string | null,"subject": string | null,"tags": (string)[],"title": string,"width": number | null,"year_circa": boolean,"year": number | null
+                    "artist_id": string,"artist_slug": string,"created_at": string,"currency": string | null,"depth": number | null,"description": string | null,"dimension_unit": string,"edition_size": number | null,"framed": boolean,"framed_depth": number | null,"framed_height": number | null,"framed_width": number | null,"height": number | null,"id": string,"images": Json | null,"inventory_number": string | null,"kind": Database["public"]['Enums']["piece_kind"],"medium": string | null,"price": number | null,"slug": string,"status": Database["public"]['Enums']["piece_status"],"style": string | null,"subject": string | null,"tags": (string)[],"title": string,"width": number | null,"year": number | null,"year_circa": boolean
                   }
                   ComputedFields: never
                   Relationships: [
@@ -321,6 +751,12 @@ isOneToOne: false
 "can_edit":
 { Args: { "a": string }; Returns: boolean
                            },
+"catalogue_v1":
+{ Args: { "p_artist_slug": string }; Returns: Json
+                           },
+"free_piece_slug":
+{ Args: { "p_artist_id": string,"p_base": string,"p_exclude"?: string }; Returns: string
+                           },
 "is_member":
 { Args: { "a": string }; Returns: boolean
                            },
@@ -329,6 +765,12 @@ isOneToOne: false
                            },
 "member_role_of":
 { Args: { "a": string }; Returns: Database["public"]['Enums']["member_role"]
+                           },
+"next_invoice_number":
+{ Args: { "p_artist_id": string }; Returns: string
+                           },
+"slugify":
+{ Args: { "p_text": string }; Returns: string
                            },
 "storage_artist_id":
 { Args: { "object_name": string }; Returns: string

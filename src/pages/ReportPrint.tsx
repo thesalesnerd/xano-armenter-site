@@ -5,7 +5,8 @@ import { useCollections, usePieces } from '../lib/queries';
 import { applyFilters, filtersFromParams } from '../lib/filters';
 import { dimensions, money, statusLabel } from '../lib/format';
 import { imageUrl } from '../lib/supabase';
-import { DEFAULT_INVENTORY_FIELDS, INVENTORY_FIELDS, REPORT_TYPES, type InventoryField, type ReportType } from '../lib/reports';
+import { DEFAULT_INVENTORY_FIELDS, INVENTORY_FIELDS, locationLabel, REPORT_TYPES, type InventoryField, type ReportType } from '../lib/reports';
+import { useLocations, type Location } from '../lib/parity';
 import type { PieceWithImages } from '../lib/types';
 import { Spinner } from '../components/ui';
 
@@ -17,16 +18,18 @@ export default function ReportPrint() {
   const fields = (sp.get('fields')?.split(',') as InventoryField[] | undefined) ?? DEFAULT_INVENTORY_FIELDS;
   const { data: pieces = [], isLoading } = usePieces(artist.id);
   const { data: collections = [] } = useCollections(artist.id);
+  const { data: locations = [], isLoading: locLoading } = useLocations(artist.id);
 
   const rows = useMemo(() => {
     const base = ids ? pieces.filter((p) => ids.includes(p.id)) : pieces;
     const f = filtersFromParams(sp);
     if (!sp.get('sort') && type !== 'inventory') f.sort = 'year_desc';
-    if (!sp.get('sort') && type === 'inventory') f.sort = 'inventory';
-    return applyFilters(base, f);
+    if (!sp.get('sort') && (type === 'inventory' || type === 'available')) f.sort = 'inventory';
+    const out = applyFilters(base, f);
+    return type === 'available' ? out.filter((p) => p.status === 'available') : out;
   }, [pieces, sp]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  if (isLoading) return <Spinner />;
+  if (isLoading || locLoading) return <Spinner />;
 
   const collection = collections.find((c) => c.id === sp.get('collection'));
   const title = sp.get('title') || collection?.name || REPORT_TYPES.find((r) => r.value === type)!.label;
@@ -49,11 +52,19 @@ export default function ReportPrint() {
         <div className="mt-1 text-sm text-stone-500">{today} · {rows.length} works</div>
       </header>
 
-      {type === 'inventory' && <Inventory rows={rows} fields={fields} />}
+      {type === 'inventory' && (sp.get('group') === 'location'
+        ? groupByLocation(rows, locations).map(([name, group]) => (
+            <section key={name} className="mb-8 break-inside-avoid-page">
+              <h2 className="mb-2 font-serif text-xl">{name} <span className="font-sans text-sm text-stone-500">({group.length})</span></h2>
+              <Inventory rows={group} fields={fields} locations={locations} />
+            </section>
+          ))
+        : <Inventory rows={rows} fields={fields} locations={locations} />)}
+      {type === 'available' && <Available rows={rows} locations={sp.get('hideLocation') ? null : locations} />}
       {type === 'price_list' && <PriceList rows={rows} />}
       {type === 'portfolio' && <Portfolio rows={rows} artistName={artist.name} />}
 
-      {type === 'inventory' && fields.includes('price') && (
+      {(type === 'available' || (type === 'inventory' && fields.includes('price'))) && (
         <p className="mt-6 text-right text-sm">
           Total listed value: <strong>{money(total, artist.currency)}</strong>
           <span className="text-stone-500"> (pieces priced in {artist.currency})</span>
@@ -66,7 +77,7 @@ export default function ReportPrint() {
   );
 }
 
-function cell(p: PieceWithImages, key: InventoryField) {
+function cell(p: PieceWithImages, key: InventoryField, locations: Location[]) {
   switch (key) {
     case 'image': {
       const img = p.piece_images[0];
@@ -74,13 +85,14 @@ function cell(p: PieceWithImages, key: InventoryField) {
     }
     case 'dimensions': return dimensions(p);
     case 'status': return statusLabel(p.status);
+    case 'location': return locationLabel(p, locations);
     case 'price': return money(p.price, p.currency);
     case 'title': return <span className="font-serif">{p.title}</span>;
     default: return (p[key] as string | number | null) ?? '';
   }
 }
 
-function Inventory({ rows, fields }: { rows: PieceWithImages[]; fields: InventoryField[] }) {
+function Inventory({ rows, fields, locations }: { rows: PieceWithImages[]; fields: InventoryField[]; locations: Location[] }) {
   const cols = INVENTORY_FIELDS.filter((f) => fields.includes(f.key));
   return (
     <table className="w-full border-collapse text-[13px]">
@@ -94,7 +106,7 @@ function Inventory({ rows, fields }: { rows: PieceWithImages[]; fields: Inventor
           <tr key={p.id} className="break-inside-avoid border-b border-stone-200 align-top">
             {cols.map((c) => (
               <td key={c.key} className={`px-2 py-2 ${c.key === 'price' ? 'whitespace-nowrap text-right' : ''} ${c.key === 'inventory_number' ? 'font-mono text-xs' : ''} ${c.key === 'notes' ? 'max-w-56 text-xs text-stone-600' : ''}`}>
-                {cell(p, c.key)}
+                {cell(p, c.key, locations)}
               </td>
             ))}
           </tr>
@@ -145,5 +157,45 @@ function Portfolio({ rows, artistName }: { rows: PieceWithImages[]; artistName: 
         );
       })}
     </div>
+  );
+}
+
+function groupByLocation(rows: PieceWithImages[], locations: Location[]): [string, PieceWithImages[]][] {
+  const m = new Map<string, PieceWithImages[]>();
+  for (const p of rows) {
+    const name = (p.location_id && locations.find((l) => l.id === p.location_id)?.name) || p.location?.trim() || 'No location';
+    m.set(name, [...(m.get(name) ?? []), p]);
+  }
+  return [...m.entries()].sort(([a], [b]) => (a === 'No location' ? 1 : b === 'No location' ? -1 : a.localeCompare(b)));
+}
+
+function Available({ rows, locations }: { rows: PieceWithImages[]; locations: Location[] | null }) {
+  return (
+    <table className="w-full border-collapse text-[13px]">
+      <thead>
+        <tr className="border-b-2 border-stone-800 text-left text-[11px] uppercase tracking-wide text-stone-600">
+          <th className="px-2 py-2" /><th className="px-2">Inventory #</th><th className="px-2">Work</th><th className="px-2">Size</th>
+          {locations && <th className="px-2">Location</th>}<th className="px-2 text-right">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((p) => {
+          const img = p.piece_images[0];
+          return (
+            <tr key={p.id} className="break-inside-avoid border-b border-stone-200 align-top">
+              <td className="w-24 px-2 py-2">{img && <img src={imageUrl(img.thumb_path ?? img.storage_path)} alt="" className="h-20 w-20 object-contain" />}</td>
+              <td className="px-2 py-2 font-mono text-xs">{p.inventory_number}</td>
+              <td className="px-2 py-2">
+                <div className="font-serif italic">{p.title}</div>
+                <div className="text-stone-600">{[p.year ? (p.year_circa ? `c. ${p.year}` : p.year) : null, p.medium].filter(Boolean).join(', ')}</div>
+              </td>
+              <td className="whitespace-nowrap px-2 py-2">{dimensions(p)}</td>
+              {locations && <td className="px-2 py-2">{locationLabel(p, locations)}</td>}
+              <td className="whitespace-nowrap px-2 py-2 text-right">{p.price != null ? money(p.price, p.currency) : 'On request'}</td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
   );
 }

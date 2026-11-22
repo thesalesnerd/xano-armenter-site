@@ -8,6 +8,9 @@ import { deletePieceImage, uploadPieceImage } from '../lib/images';
 import { STATUSES } from '../lib/format';
 import type { Piece, PieceEdition, PieceImage, PieceInsert, PieceStatus } from '../lib/types';
 import { ErrorNote, Spinner, StatusBadge } from '../components/ui';
+import { useLocations } from '../lib/parity';
+import PieceExtras from '../components/PieceExtras';
+import PieceQr from '../components/PieceQr';
 
 type Form = {
   title: string; slug: string; inventory_number: string; kind: 'original' | 'edition'; year: string; year_circa: boolean; creation_date: string;
@@ -15,7 +18,7 @@ type Form = {
   height: string; width: string; depth: string; dimension_unit: string;
   framed: boolean; framed_height: string; framed_width: string; framed_depth: string;
   price: string; currency: string; show_price: boolean; status: PieceStatus; is_public: boolean;
-  description: string; notes: string; signature: string; location: string; edition_size: string; tags: string;
+  description: string; notes: string; signature: string; location: string; location_id: string; edition_size: string; tags: string;
 };
 
 function toForm(p: Piece | null, defaults: { currency: string; unit: string }): Form {
@@ -27,7 +30,7 @@ function toForm(p: Piece | null, defaults: { currency: string; unit: string }): 
     framed: p?.framed ?? false, framed_height: s(p?.framed_height), framed_width: s(p?.framed_width), framed_depth: s(p?.framed_depth),
     price: s(p?.price), currency: p?.currency ?? defaults.currency, show_price: p?.show_price ?? true,
     status: p?.status ?? 'available', is_public: p?.is_public ?? false,
-    description: s(p?.description), notes: s(p?.notes), signature: s(p?.signature), location: s(p?.location),
+    description: s(p?.description), notes: s(p?.notes), signature: s(p?.signature), location: s(p?.location), location_id: s(p?.location_id),
     edition_size: s(p?.edition_size), tags: (p?.tags ?? []).join(', '),
   };
 }
@@ -44,7 +47,7 @@ function fromForm(f: Form): Omit<PieceInsert, 'artist_id'> {
     framed: f.framed, framed_height: f.framed ? num(f.framed_height) : null, framed_width: f.framed ? num(f.framed_width) : null,
     framed_depth: f.framed ? num(f.framed_depth) : null,
     price: num(f.price), currency: f.currency || null, show_price: f.show_price, status: f.status, is_public: f.is_public,
-    description: str(f.description), notes: str(f.notes), signature: str(f.signature), location: str(f.location),
+    description: str(f.description), notes: str(f.notes), signature: str(f.signature), location: str(f.location), location_id: str(f.location_id),
     edition_size: f.kind === 'edition' ? num(f.edition_size) : null,
     tags: f.tags.split(',').map((t) => t.trim()).filter(Boolean),
   };
@@ -73,6 +76,7 @@ export default function PieceEdit() {
     },
   });
   const { data: collections = [] } = useCollections(artist.id);
+  const { data: locations = [] } = useLocations(artist.id);
 
   const [form, setForm] = useState<Form>(() => toForm(null, { currency: artist.currency, unit: artist.dimension_unit }));
   const [colIds, setColIds] = useState<Set<string>>(new Set());
@@ -149,6 +153,7 @@ export default function PieceEdit() {
   if (loadError) return <ErrorNote error={loadError} />;
 
   return (
+    <>
     <form onSubmit={save} className="mx-auto max-w-6xl">
       <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
         <div>
@@ -200,6 +205,7 @@ export default function PieceEdit() {
               </div>
             )}
           </Section>
+          {!isNew && data && <PieceQr artist={artist} piece={data} />}
         </div>
 
         <div className="space-y-6">
@@ -267,7 +273,22 @@ export default function PieceEdit() {
               </Field>
               <Field label="Price" className="sm:col-span-2"><input className="input" inputMode="decimal" value={form.price} onChange={(e) => set('price', e.target.value)} /></Field>
               <Field label="Currency" className="sm:col-span-2"><input className="input uppercase" maxLength={3} value={form.currency} onChange={(e) => set('currency', e.target.value.toUpperCase())} /></Field>
-              <Field label="Location" className="sm:col-span-6"><input className="input" placeholder="Studio, Barcelona · Gallery X · Collector name" value={form.location} onChange={(e) => set('location', e.target.value)} /></Field>
+              <Field label="Storage location" className="sm:col-span-3">
+                <select
+                  className="input"
+                  value={form.location_id}
+                  onChange={(e) => {
+                    const prev = locations.find((l) => l.id === form.location_id)?.name ?? '';
+                    const next = locations.find((l) => l.id === e.target.value)?.name ?? '';
+                    setForm((f) => ({ ...f, location_id: e.target.value, location: !f.location.trim() || f.location === prev ? next : f.location }));
+                  }}
+                >
+                  <option value="">— none —</option>
+                  {locations.map((l) => <option key={l.id} value={l.id}>{l.name}</option>)}
+                </select>
+                <span className="mt-1 block text-xs font-normal text-stone-500"><Link className="underline" to="../locations">Manage locations</Link></span>
+              </Field>
+              <Field label="Location details" className="sm:col-span-3"><input className="input" placeholder="Rack B, shelf 2 · on loan to…" value={form.location} onChange={(e) => set('location', e.target.value)} /></Field>
             </div>
             <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm">
               <label className="flex items-center gap-2">
@@ -306,6 +327,8 @@ export default function PieceEdit() {
         </div>
       </fieldset>
     </form>
+    {!isNew && data && <PieceExtras piece={data} />}
+    </>
   );
 }
 
@@ -413,6 +436,30 @@ function ImageManager({ images, pieceId }: { images: PieceImage[]; pieceId: stri
     await refresh();
   }
 
+  async function move(img: PieceImage, dir: -1 | 1) {
+    const i = images.findIndex((x) => x.id === img.id);
+    const j = i + dir;
+    if (j < 0 || j >= images.length) return;
+    const ordered = [...images];
+    [ordered[i], ordered[j]] = [ordered[j], ordered[i]];
+    setBusy('Saving…');
+    for (const [position, x] of ordered.entries()) {
+      if (x.position !== position) await supabase.from('piece_images').update({ position }).eq('id', x.id);
+    }
+    setActive(j);
+    setBusy('');
+    await refresh();
+  }
+
+  async function patch(img: PieceImage, values: { is_public?: boolean; caption?: string | null }) {
+    // Show the change at once; the refetch below confirms it.
+    qc.setQueryData(['piece', pieceId], (d: { piece_images: PieceImage[] } | undefined) =>
+      d && { ...d, piece_images: d.piece_images.map((x) => (x.id === img.id ? { ...x, ...values } : x)) });
+    const { error } = await supabase.from('piece_images').update(values).eq('id', img.id);
+    if (error) setError(error);
+    await refresh();
+  }
+
   async function remove(img: PieceImage) {
     if (!confirm('Delete this image?')) return;
     setBusy('Deleting…');
@@ -443,14 +490,32 @@ function ImageManager({ images, pieceId }: { images: PieceImage[]; pieceId: stri
                 <img src={imageUrl(img.thumb_path ?? img.storage_path)} alt="" className="aspect-square w-full object-cover" />
               </button>
               {i === 0 && <span className="absolute bottom-1 left-1 rounded bg-stone-900/80 px-1 text-[10px] text-white">Main</span>}
+              {!img.is_public && <span className="absolute bottom-1 right-1 rounded bg-amber-500/90 px-1 text-[10px] text-white" title="Not shown publicly">Private</span>}
               {canEdit && (
                 <div className="absolute right-0.5 top-0.5 hidden gap-0.5 group-hover:flex">
+                  {i !== 0 && <button type="button" title="Move earlier" aria-label="Move earlier" className="rounded bg-white/90 px-1 text-xs" onClick={() => move(img, -1)}>←</button>}
+                  {i < images.length - 1 && <button type="button" title="Move later" aria-label="Move later" className="rounded bg-white/90 px-1 text-xs" onClick={() => move(img, 1)}>→</button>}
                   {i !== 0 && <button type="button" title="Make main image" className="rounded bg-white/90 px-1 text-xs" onClick={() => makePrimary(img)}>★</button>}
                   <button type="button" title="Delete image" className="rounded bg-white/90 px-1 text-xs text-rose-700" onClick={() => remove(img)}>✕</button>
                 </div>
               )}
             </div>
           ))}
+        </div>
+      )}
+      {main && canEdit && (
+        <div className="mt-3 grid grid-cols-[1fr_auto] items-center gap-3 text-sm" aria-label="Selected image">
+          <input
+            key={main.id}
+            className="input"
+            placeholder="Caption (e.g. Detail, Installation view)"
+            defaultValue={main.caption ?? ''}
+            onBlur={(e) => e.target.value !== (main.caption ?? '') && patch(main, { caption: e.target.value.trim() || null })}
+            aria-label="Image caption"
+          />
+          <label className="flex items-center gap-2 whitespace-nowrap">
+            <input type="checkbox" className="accent-stone-900" checked={main.is_public} onChange={(e) => patch(main, { is_public: e.target.checked })} /> Show publicly
+          </label>
         </div>
       )}
       {canEdit && <div className="mt-3"><DropZone onFiles={upload} label={busy || 'Add images'} /></div>}
