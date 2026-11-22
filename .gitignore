@@ -5,3 +5,4 @@ dist
 serve.py
 *.pyc
 __pycache__/
+.vercel
