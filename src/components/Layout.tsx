@@ -7,6 +7,7 @@ import { useAuth } from '../auth';
 
 const NAV = [
   { to: 'pieces', label: 'Pieces', icon: 'M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v5H4zM13 14h7v5h-7z' },
+  { to: 'capture', label: 'Photograph', icon: 'M4 8h3l2-3h6l2 3h3v11H4zM12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8z' },
   { to: 'collections', label: 'Collections', icon: 'M3 7h6l2 2h10v10H3z' },
   { to: 'reports', label: 'Reports', icon: 'M6 3h9l4 4v14H6zM9 12h7M9 16h7M9 8h3' },
   { to: 'import', label: 'Import', icon: 'M12 3v12m0 0-4-4m4 4 4-4M4 17v3h16v-3' },

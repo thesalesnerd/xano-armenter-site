@@ -49,5 +49,15 @@ export async function uploadPieceImage(artistId: string, pieceId: string, file: 
 export async function deletePieceImage(img: { id: string; storage_path: string; thumb_path: string | null }) {
   const { error } = await supabase.from('piece_images').delete().eq('id', img.id);
   if (error) throw error;
-  await supabase.storage.from(BUCKET).remove([img.storage_path, img.thumb_path].filter(Boolean) as string[]);
+  await supabase.storage.from(BUCKET).remove(imageFiles(img));
+}
+
+/** Every stored file of an image: master, thumbnail and (for photographed ones) the untouched original. */
+export function imageFiles(img: { storage_path: string; thumb_path: string | null }): string[] {
+  return [img.storage_path, img.thumb_path, originalPathFor(img.storage_path)].filter(Boolean) as string[];
+}
+
+/** Photographed images keep the phone original next to the master as <id>_original.jpg. */
+export function originalPathFor(storagePath: string): string {
+  return storagePath.replace(/\.jpg$/, '_original.jpg');
 }

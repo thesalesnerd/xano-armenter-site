@@ -1,0 +1,51 @@
+<!doctype html>
+<html><body>
+<script type="module">
+  // Test harness: runs the in-app pipeline on an image and returns the result.
+  import { loadOpenCV } from '/src/lib/capture/opencv.ts';
+  import { loadSource, detectInSource, detectInside, correct, canvasToJpeg } from '/src/lib/capture/process.ts';
+  window.run = async (url, opts = {}) => {
+    const cv = await loadOpenCV();
+    const blob = await (await fetch(url)).blob();
+    const src = await loadSource(blob);
+    const t0 = performance.now();
+    const det = detectInSource(cv, src);
+    const t1 = performance.now();
+    let quad = det.quad;
+    for (let i = 0; i < (opts.trims ?? 0); i++) quad = detectInside(cv, src, quad) ?? quad;
+    const res = correct(cv, src, { quad, wallQuad: det.quad, trustSurroundings: det.detected, ...opts });
+    det.quad = quad;
+    const t2 = performance.now();
+    const jpg = await canvasToJpeg(res.canvas);
+    const b64 = await new Promise((r) => { const f = new FileReader(); f.onload = () => r(f.result); f.readAsDataURL(jpg); });
+    return { quad: det.quad, detected: det.detected, ms: { detect: t1 - t0, correct: t2 - t1 }, src: [src.width, src.height],
+      out: [res.width, res.height], measuredAspect: res.measuredAspect, usedAspect: res.usedAspect, gains: res.gains,
+      exposureGain: res.exposureGain, lightingGradient: res.lightingGradient, checks: res.checks, jpg: b64 };
+  };
+  window.ready = true;
+</script>
+</body></html>
+<script type="module">
+  import { loadOpenCV } from '/src/lib/capture/opencv.ts';
+  import { loadSource, detectInSource, detectInside } from '/src/lib/capture/process.ts';
+  window.inner = async (url) => {
+    const cv = await loadOpenCV();
+    const src = await loadSource(await (await fetch(url)).blob());
+    const det = detectInSource(cv, src);
+    const inner = detectInside(cv, src, det.quad); return { outer: det.quad, inner };
+  };
+</script>
+<script type="module">
+  import { loadOpenCV } from '/src/lib/capture/opencv.ts';
+  import { loadSource, detectInSource, detectInside, correct } from '/src/lib/capture/process.ts';
+  // Detect, trim the frame `trims` times, correct with the wall sampled outside the frame.
+  window.trimmed = async (url, trims) => {
+    const cv = await loadOpenCV();
+    const src = await loadSource(await (await fetch(url)).blob());
+    const det = detectInSource(cv, src);
+    let q = det.quad;
+    for (let i = 0; i < trims; i++) q = detectInside(cv, src, q) ?? q;
+    const r = correct(cv, src, { quad: q, wallQuad: det.quad, maxSide: 1000 });
+    return { gains: r.gains, light: r.lightingGradient, checks: r.checks.map((c) => c.level + ' ' + c.text.slice(0, 60)) };
+  };
+</script>

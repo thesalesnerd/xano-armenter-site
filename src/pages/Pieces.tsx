@@ -6,6 +6,7 @@ import { useCollections, usePieces } from '../lib/queries';
 import { applyFilters, filtersFromParams, filtersToParams, type Filters } from '../lib/filters';
 import { dimensions, money, STATUSES } from '../lib/format';
 import { imageUrl, supabase, BUCKET } from '../lib/supabase';
+import { imageFiles } from '../lib/images';
 import type { PieceStatus, PieceWithImages } from '../lib/types';
 import FilterBar from '../components/FilterBar';
 import { Empty, ErrorNote, PageHeader, Spinner, StatusBadge, Thumb } from '../components/ui';
@@ -65,8 +66,7 @@ export default function Pieces() {
     if (!confirm(`Delete ${ids.length} piece${ids.length > 1 ? 's' : ''} and their images? This can't be undone.`)) return;
     const paths = (pieces ?? [])
       .filter((p) => selected.has(p.id))
-      .flatMap((p) => p.piece_images.flatMap((i) => [i.storage_path, i.thumb_path]))
-      .filter(Boolean) as string[];
+      .flatMap((p) => p.piece_images.flatMap(imageFiles));
     await bulk(async (ids) => {
       const res = await supabase.from('pieces').delete().in('id', ids);
       if (!res.error && paths.length) await supabase.storage.from(BUCKET).remove(paths);

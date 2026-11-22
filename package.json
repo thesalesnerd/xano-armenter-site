@@ -9,7 +9,9 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "typecheck": "tsc -b",
-    "test:rls": "node scripts/test-rls.mjs"
+    "test:rls": "node scripts/test-rls.mjs",
+    "predev": "node scripts/copy-opencv.mjs",
+    "prebuild": "node scripts/copy-opencv.mjs"
   },
   "keywords": [],
   "author": "",
@@ -30,6 +32,8 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.119.0",
     "@tanstack/react-query": "^5.107.1",
+    "@techstark/opencv-js": "^4.10.0-release.1",
+    "jsqr": "^1.4.0",
     "papaparse": "^5.7.1",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",

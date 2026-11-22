@@ -4,7 +4,7 @@ import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { useWorkspace } from '../workspace';
 import { supabase, imageUrl, BUCKET } from '../lib/supabase';
 import { useCollections } from '../lib/queries';
-import { deletePieceImage, uploadPieceImage } from '../lib/images';
+import { deletePieceImage, imageFiles, uploadPieceImage } from '../lib/images';
 import { STATUSES } from '../lib/format';
 import type { Piece, PieceEdition, PieceImage, PieceInsert, PieceStatus } from '../lib/types';
 import { ErrorNote, Spinner, StatusBadge } from '../components/ui';
@@ -137,7 +137,7 @@ export default function PieceEdit() {
 
   async function remove() {
     if (!data || !confirm(`Delete “${data.title}” and its images? This can't be undone.`)) return;
-    const paths = data.piece_images.flatMap((i) => [i.storage_path, i.thumb_path]).filter(Boolean) as string[];
+    const paths = data.piece_images.flatMap(imageFiles);
     const { error } = await supabase.from('pieces').delete().eq('id', data.id);
     if (error) return setError(error);
     if (paths.length) await supabase.storage.from(BUCKET).remove(paths);
@@ -453,7 +453,12 @@ function ImageManager({ images, pieceId }: { images: PieceImage[]; pieceId: stri
           ))}
         </div>
       )}
-      {canEdit && <div className="mt-3"><DropZone onFiles={upload} label={busy || 'Add images'} /></div>}
+      {canEdit && (
+        <div className="mt-3 space-y-2">
+          <Link to={`../capture?piece=${pieceId}`} className="btn-secondary w-full justify-center">📷 Photograph this work</Link>
+          <DropZone onFiles={upload} label={busy || 'Add images'} />
+        </div>
+      )}
       <div className="mt-2"><ErrorNote error={error} /></div>
     </Section>
   );
