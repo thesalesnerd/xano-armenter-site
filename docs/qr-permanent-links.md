@@ -21,7 +21,7 @@ All 94 public works have a page at `xanoarmenter.com/archive/<slug>` with the im
 
 What was missing, and is now fixed:
 - **Link previews.** The site is a single-page app, so every URL used to share the same generic title and no image. `scripts/prerender-works.mjs` runs after `vite build` and writes `dist/archive/<slug>/index.html` for each work, with its own `<title>`, description, canonical URL, Open Graph tags, Twitter card and schema.org `VisualArtwork` JSON-LD, plus a `<noscript>` copy of the work. Vercel serves these before the SPA rewrite.
-- **Availability** was only shown for sold or priced works. It is now always shown. ⚠ Artfolio marks all 95 works `available`, because AA's sold status was never exported (see the ledger, §2). Sold works need marking in Artfolio before launch.
+- **Availability** used to appear only for sold or priced works. It now always appears: "Sold" for works marked sold in Artfolio, and "Ask about availability" for everything else. Artfolio marks all 95 works `available` only because AA never exported sold status, so the site doesn't claim they are. Xano marks sold works in Artfolio as he confirms them, and the site follows.
 - **Tab title.** The browser tab now shows the work's title while it is open.
 
 Known limit: a work added in Artfolio after the last build gets the generic preview until the next build. The page itself works at once on the live-catalogue site.

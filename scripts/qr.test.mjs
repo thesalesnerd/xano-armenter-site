@@ -61,6 +61,7 @@ test("prerender puts the work's meta tags into the page", () => {
   assert.match(html, /<title>Wave &amp; Sea \(2018\) — Xano Armenter<\/title>/);
   assert.match(html, /property="og:image" content="https:\/\/img\/w.jpg"/);
   assert.match(html, /rel="canonical" href="https:\/\/xanoarmenter.com\/archive\/wave"/);
-  assert.match(html, /Available · \$5,000/);
+  assert.match(html, /Ask about availability · \$5,000/);
+  assert.doesNotMatch(html, /InStock/);
   assert.equal((html.match(/<title>/g) || []).length, 1);
 });

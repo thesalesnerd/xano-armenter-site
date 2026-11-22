@@ -27,13 +27,15 @@ const money = (w) => {
     return `${w.price} ${w.currency}`;
   }
 };
-export const availability = (w) => (w.sold ? "Sold" : "Available");
+// Sold status is still being checked work by work (AA never exported it), so an
+// unsold work is not claimed to be available: visitors are asked to enquire.
+export const availability = (w) => (w.sold ? "Sold" : "Ask about availability");
 
 export function head(w) {
   const url = `${SITE}/archive/${w.slug}`;
   const title = `${w.title}${w.year ? ` (${year(w)})` : ""} — ${ARTIST}`;
   const facts = [w.medium, w.dims, year(w)].filter(Boolean).join(", ");
-  const description = `${facts ? `${facts}. ` : ""}Painting by ${ARTIST}. ${availability(w)}${w.sold ? "" : " — enquire with the studio"}.`;
+  const description = `${facts ? `${facts}. ` : ""}Painting by ${ARTIST}. ${w.sold ? "Sold" : "Enquire with the studio about availability"}.`;
   const ld = {
     "@context": "https://schema.org",
     "@type": "VisualArtwork",
@@ -47,7 +49,7 @@ export function head(w) {
     ...(w.subject ? { genre: w.subject } : {}),
     offers: {
       "@type": "Offer",
-      availability: w.sold ? "https://schema.org/SoldOut" : "https://schema.org/InStock",
+      ...(w.sold ? { availability: "https://schema.org/SoldOut" } : {}),
       ...(w.price !== null && w.currency ? { price: w.price, priceCurrency: w.currency } : {}),
     },
   };
