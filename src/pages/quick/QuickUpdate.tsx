@@ -5,7 +5,7 @@ import { usePieces } from '../../lib/queries';
 import { Spinner, ErrorNote } from '../../components/ui';
 import { activity, deckById, deckPieces, DECKS, loadDeck, resetDeck } from '../../lib/quick/progress';
 import type { PieceWithImages } from '../../lib/types';
-import { LangProvider, LangSwitch, ProgressBar, useT } from './parts';
+import { LangProvider, LangSwitch, ProgressBar, QuickEnv, useQuickEnv, useT } from './parts';
 import QuickDeck from './QuickDeck';
 
 /** /a/:slug/play[/:deck|/done] — full screen, without the inventory's sidebar. */
@@ -23,9 +23,11 @@ export default function QuickUpdate() {
   };
   return (
     <WorkspaceContext.Provider value={ws}>
-      <LangProvider>
-        <QuickRoutes />
-      </LangProvider>
+      <QuickEnv.Provider value={{ base: `/a/${current.artist.slug}/play`, demo: false }}>
+        <LangProvider>
+          <QuickRoutes />
+        </LangProvider>
+      </QuickEnv.Provider>
     </WorkspaceContext.Provider>
   );
 }
@@ -40,9 +42,10 @@ function topValues(pieces: PieceWithImages[], key: 'location' | 'medium', max: n
   return [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).slice(0, max).map(([v]) => v);
 }
 
-function QuickRoutes() {
+export function QuickRoutes() {
   const { deckId } = useParams();
   const { artist } = useWorkspace();
+  const { base } = useQuickEnv();
   const { data: pieces, isLoading, error } = usePieces(artist.id);
   const places = useMemo(() => topValues(pieces ?? [], 'location', 12), [pieces]);
   const media = useMemo(() => topValues(pieces ?? [], 'medium', 40), [pieces]);
@@ -51,7 +54,7 @@ function QuickRoutes() {
   if (error) return <div className="p-6"><ErrorNote error={error} /></div>;
   if (deckId === 'done') return <DoneToday />;
   const deck = deckById(deckId);
-  if (deckId && !deck) return <Navigate to={`/a/${artist.slug}/play`} replace />;
+  if (deckId && !deck) return <Navigate to={base} replace />;
   if (deck) return <QuickDeck key={deck.id} deck={deck} pieces={pieces ?? []} places={places} media={media} />;
   return <DeckPicker pieces={pieces ?? []} />;
 }
@@ -59,6 +62,7 @@ function QuickRoutes() {
 function DeckPicker({ pieces }: { pieces: PieceWithImages[] }) {
   const { artist } = useWorkspace();
   const { t } = useT();
+  const { demo } = useQuickEnv();
   const [, force] = useState(0);
   const act = activity(artist.id);
 
@@ -66,11 +70,16 @@ function DeckPicker({ pieces }: { pieces: PieceWithImages[] }) {
     <div className="min-h-dvh bg-stone-50">
       <div className="mx-auto max-w-xl px-4 pt-[max(1rem,env(safe-area-inset-top))] pb-12">
         <div className="flex items-center justify-between gap-3">
-          <Link to={`/a/${artist.slug}/pieces`} className="-ml-2 rounded-full px-3 py-2 text-lg text-stone-600 active:bg-stone-200">
-            ‹ {t.backToInventory}
-          </Link>
+          {demo ? (
+            <span />
+          ) : (
+            <Link to={`/a/${artist.slug}/pieces`} className="-ml-2 rounded-full px-3 py-2 text-lg text-stone-600 active:bg-stone-200">
+              ‹ {t.backToInventory}
+            </Link>
+          )}
           <LangSwitch />
         </div>
+        {demo && <p className="mt-4 rounded-2xl bg-amber-100 p-4 text-lg text-amber-950">🎈 {t.demoBanner}</p>}
 
         <h1 className="mt-6 font-serif text-4xl leading-tight text-stone-900">{t.appTitle}</h1>
         <p className="mt-1 text-xl text-stone-500">{artist.name}</p>
@@ -145,6 +154,7 @@ function DeckPicker({ pieces }: { pieces: PieceWithImages[] }) {
 function DoneToday() {
   const { artist } = useWorkspace();
   const { t } = useT();
+  const { base, demo } = useQuickEnv();
   const act = activity(artist.id);
   return (
     <div className="flex min-h-dvh flex-col items-center justify-center gap-5 bg-stone-50 p-8 text-center">
@@ -155,8 +165,8 @@ function DoneToday() {
       {act.streak > 1 && <p className="rounded-full bg-amber-100 px-5 py-2 text-xl font-semibold text-amber-900">🔥 {t.streakDays(act.streak)}</p>}
       <p className="max-w-sm text-xl text-stone-600">{t.doneResume}</p>
       <p className="text-lg text-stone-500">{t.websiteDelay}</p>
-      <Link to={`/a/${artist.slug}/play`} className="mt-2 rounded-2xl bg-stone-900 px-6 py-4 text-xl font-semibold text-white">{t.backToDecks}</Link>
-      <Link to={`/a/${artist.slug}/pieces`} className="text-lg text-stone-500 underline">{t.backToInventory}</Link>
+      <Link to={base} className="mt-2 rounded-2xl bg-stone-900 px-6 py-4 text-xl font-semibold text-white">{t.backToDecks}</Link>
+      {!demo && <Link to={`/a/${artist.slug}/pieces`} className="text-lg text-stone-500 underline">{t.backToInventory}</Link>}
     </div>
   );
 }

@@ -105,6 +105,8 @@ const es = {
   doneResume: 'Cuando vuelvas, seguirás justo donde lo has dejado.',
   backToDecks: 'Volver a los montones',
   websiteDelay: 'La web se actualiza en un minuto, más o menos.',
+  demoBanner: 'Modo de prueba: son las obras de verdad, pero nada se guarda. Toca lo que quieras.',
+  demoShort: 'Prueba: no se guarda',
   keys: 'Teclas: ← → para moverte · A disponible · S vendida · N no a la venta · H ocultar · Z deshacer',
 };
 
@@ -209,6 +211,8 @@ const ca: Strings = {
   doneResume: 'Quan tornis, continuaràs just on ho has deixat.',
   backToDecks: 'Tornar a les piles',
   websiteDelay: 'La web s’actualitza en un minut, més o menys.',
+  demoBanner: 'Mode de prova: són les obres de veritat, però no es desa res. Toca el que vulguis.',
+  demoShort: 'Prova: no es desa',
   keys: 'Tecles: ← → per moure’t · A disponible · S venuda · N no a la venda · H amagar · Z desfer',
 };
 
@@ -311,6 +315,8 @@ const en: Strings = {
   doneResume: 'Next time you will carry on exactly where you left off.',
   backToDecks: 'Back to the piles',
   websiteDelay: 'The website updates in about a minute.',
+  demoBanner: 'Practice mode: these are the real works, but nothing is saved. Tap whatever you like.',
+  demoShort: 'Practice: not saved',
   keys: 'Keys: ← → to move · A available · S sold · N not for sale · H hide · Z undo',
 };
 

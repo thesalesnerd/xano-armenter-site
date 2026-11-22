@@ -3,6 +3,12 @@ import { STRINGS, defaultLang, LANGS, type Lang, type Strings } from '../../lib/
 import { loadLang, saveLang } from '../../lib/quick/progress';
 
 // ---------------------------------------------------------------------------
+// Where Quick update lives (/a/:slug/play, or /demo/:slug for the no-login practice mode)
+// ---------------------------------------------------------------------------
+export const QuickEnv = createContext<{ base: string; demo: boolean }>({ base: '', demo: false });
+export const useQuickEnv = () => useContext(QuickEnv);
+
+// ---------------------------------------------------------------------------
 // Language
 // ---------------------------------------------------------------------------
 const LangCtx = createContext<{ lang: Lang; t: Strings; setLang: (l: Lang) => void }>({

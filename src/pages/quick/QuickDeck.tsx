@@ -15,7 +15,7 @@ import {
   type Deck,
 } from '../../lib/quick/progress';
 import Confetti from '../../components/Confetti';
-import { BigButton, PlacePicker, ProgressBar, Sheet, Toast, parsePrice, useT, type ToastMsg } from './parts';
+import { BigButton, PlacePicker, ProgressBar, Sheet, Toast, parsePrice, useQuickEnv, useT, type ToastMsg } from './parts';
 
 type Patch = Partial<Pick<Piece, 'status' | 'is_public' | 'location' | 'price' | 'currency' | 'year' | 'height' | 'width' | 'medium'>>;
 type SheetKind = 'place' | 'price' | null;
@@ -25,7 +25,7 @@ export default function QuickDeck({ deck, pieces, places, media }: { deck: Deck;
   const { t } = useT();
   const qc = useQueryClient();
   const navigate = useNavigate();
-  const home = `/a/${artist.slug}/play`;
+  const { base: home, demo } = useQuickEnv();
 
   // Progress is restored from this browser. The order is frozen when the deck opens, so
   // works don't jump around (or drop out) while the artist is answering.
@@ -67,6 +67,7 @@ export default function QuickDeck({ deck, pieces, places, media }: { deck: Deck;
   }
 
   async function write(id: string, patch: Patch): Promise<boolean> {
+    if (demo) return true; // practice mode: nothing leaves the browser
     const body: Record<string, unknown> = { ...patch };
     if (hasCheckedAt) body.checked_at = new Date().toISOString();
     const { error } = await supabase.from('pieces').update(body as Patch).eq('id', id);
@@ -330,7 +331,11 @@ export default function QuickDeck({ deck, pieces, places, media }: { deck: Deck;
         )}
 
         <div className="mt-2 flex shrink-0 items-center justify-between">
-          <Link to={`/a/${artist.slug}/pieces/${piece.id}`} className="py-2 text-base whitespace-nowrap text-stone-500 underline">{t.openFull}</Link>
+          {demo ? (
+            <span className="py-2 text-base text-amber-800">{t.demoShort}</span>
+          ) : (
+            <Link to={`/a/${artist.slug}/pieces/${piece.id}`} className="py-2 text-base whitespace-nowrap text-stone-500 underline">{t.openFull}</Link>
+          )}
           <span className="hidden text-sm text-stone-400 lg:block">{t.keys}</span>
         </div>
       </main>
