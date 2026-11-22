@@ -3,9 +3,6 @@
 // added in Artfolio is listed for search engines without a redeploy.
 
 import { catalogueResponse } from './catalogue.mjs';
-import { createRequire } from 'node:module';
-
-const bundled = createRequire(import.meta.url)('../src/data/artworks.json');
 
 const PAGES = ['/', '/work', '/archive', '/about', '/contact'];
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -32,8 +29,12 @@ export default async function handler(req, res) {
   try {
     works = await catalogueResponse({ artistSlug: (process.env.ARTIST_SLUG ?? '').trim() || 'xano-armenter' });
   } catch (err) {
-    console.error(`sitemap: live catalogue unavailable (${err.message}), using the bundled copy`);
-    works = bundled;
+    // The CDN keeps serving the last good sitemap (stale-if-error) meanwhile.
+    console.error(`sitemap: live catalogue unavailable (${err.message})`);
+    res.statusCode = 503;
+    res.setHeader('Cache-Control', 'no-store');
+    res.end('Sitemap temporarily unavailable');
+    return;
   }
   res.setHeader('Content-Type', 'application/xml; charset=utf-8');
   res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');

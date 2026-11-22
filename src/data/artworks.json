@@ -588,8 +588,8 @@
     "w": 1600,
     "h": 1181,
     "selected": null,
-    "price": null,
-    "currency": null,
+    "price": 5000,
+    "currency": "USD",
     "sold": false,
     "series": []
   },
