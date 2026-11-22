@@ -7,7 +7,7 @@ All Supabase access in this audit was read-only. Nothing was written, deleted or
 ## Bottom line
 
 - **Every AA artwork is in Artfolio: 95 of 95.** Each one has its image, title, medium and dimensions (where AA had them), and the year, subject and price where AA had those. 94 of them are public on the site. The one that isn't is *Beach* (XA-0021), hidden on purpose because the image shows the work hanging in a room.
-- **Gaps in the data:** 55 storage locations and 1 price were not imported, and the import created 8 duplicate rows. The exact SQL to fix all three is in [`tools/aa-audit/proposed-fixes.sql`](../tools/aa-audit/proposed-fixes.sql). **It has not been run and needs Mike's OK.**
+- **Gaps in the data:** 55 storage locations and 1 price were not imported, and the import created 8 duplicate rows. **Fixed 2026-11-22 with Mike's OK**: the SQL in [`tools/aa-audit/proposed-fixes.sql`](../tools/aa-audit/proposed-fixes.sql) was applied. Artfolio now has 95 rows, 94 public, 55 with a location and 14 with a price.
 - **Data that never left AA:** anything private to the AA account was never exported. That covers notes, sales and invoices, contacts, exhibitions, provenance, documents, extra images and sold status. Only an AA data export, done by Mike while logged in, can bring these over. See [§2](#2-what-aa-holds-and-what-we-could-see).
 - **QR codes:** the labels point at artworkarchive.com, which we cannot redirect. **They stop working when the AA subscription ends**, because AA deactivates the Public Profile on cancellation. The recommendation is to reprint the labels pointing at xanoarmenter.com, keeping AA on its cheapest plan until that is done. A printable sheet of the 94 new labels is ready at [`docs/qr-labels.html`](qr-labels.html). See [§4](#4-qr-codes).
 
@@ -224,9 +224,9 @@ Optional hardening for later, not done here because it touches the live site: gi
 | Per-work AA → new-site QR map (`tools/aa-audit/aa-qr-map.csv`) | **Done** (repo only) |
 | Printable replacement QR labels (`docs/qr-labels.html` + generator script) | **Done** (repo only) |
 | Parsed AA Inventory Report (`tools/aa-audit/aa-inventory-report-2026-04-16.json`) | **Done** (repo only) |
-| Fill 55 locations from the Inventory Report | **Proposed SQL, awaiting OK** |
-| Set XA-0008 price to 5,000 USD | **Proposed SQL, awaiting OK** |
-| Delete the 8 duplicate rows | **Proposed SQL, awaiting OK** (guarded: each delete skips a row that has gained an image, collection or edition) |
+| Fill 55 locations from the Inventory Report | **Applied 2026-11-22** |
+| Set XA-0008 price to 5,000 USD | **Applied 2026-11-22** |
+| Delete the 8 duplicate rows | **Applied 2026-11-22** (verified: 95 total, 94 public) |
 | Rebuild the site snapshot after the SQL | Not needed for counts, because the site already shows 94. A rebuild would only matter if locations or prices are shown, and the price for XA-0008 is. |
 
 The SQL is in [`tools/aa-audit/proposed-fixes.sql`](../tools/aa-audit/proposed-fixes.sql). It runs in one transaction with a count check (expect 95 total, 94 public, 55 with location) before `commit`.
@@ -240,3 +240,11 @@ The SQL is in [`tools/aa-audit/proposed-fixes.sql`](../tools/aa-audit/proposed-f
 5. **Confirm the AA plan and price** that keeps the Public Profile live, and choose the cancellation date (after steps 2–4 and the relabelling).
 6. **Confirm *Beach* stays hidden.** It has no new QR target; it is a photo of a work in a room at Hospital Clinic.
 7. **Confirm the live AA count is still 95.** The Inventory Report dates from 2026-04-16, and AA can't be checked from this environment. Anything added in AA since then would not be here.
+
+### Mike's answers (2026-11-22)
+
+1. **Supabase fixes:** approved and applied. *Drops 1* keeps "Unknown" as its location, the same as in AA.
+2. **Label scan:** still open.
+3. **AA data export:** Mike asked for it to be run for him. It can't be done from a cloud session: it needs Mike's AA login in a real browser, and AA blocks automated access. It is still open and must happen before AA is cancelled.
+4. **Sold works:** Mike will mark them in Artfolio himself, so the app needs to make that easy. It already does: there is a Status field on each work, a bulk "Set status…" action in the Pieces list, and a status filter. A work marked Sold shows "Sold" on the public pages and loses its contact button.
+5. **AA plan and price:** no decision needed. AA will be cancelled eventually.
