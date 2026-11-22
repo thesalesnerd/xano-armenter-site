@@ -144,6 +144,15 @@ function iso(y: number, mo: number, d: number): string | null {
   return `${y}-${String(mo).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
 }
 
+/** Artwork Archive media typed in Spanish/Catalan, as Artfolio stores them in English. */
+export function normalizeMedium(v: string): string {
+  const s = v.trim().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const m = s.match(/^(acrilic|acrylic|oleo|oli|oil)\w*\s+(sobre|on|s\/)\s+(tela|tel|lienzo|canvas|paper|papel)\w*$/);
+  if (!m) return v.trim();
+  const what = /^(oleo|oli|oil)/.test(m[1]) ? 'Oil' : 'Acrylic';
+  return `${what} on ${/^(paper|papel)/.test(m[3]) ? 'paper' : 'canvas'}`;
+}
+
 const list = (v: string) => v.split(/\s*[;\n|]\s*/).map((x) => x.trim()).filter(Boolean);
 
 function contactKind(v: string): string | null {
@@ -365,7 +374,7 @@ export function buildPlan(inputs: SheetInput[], ex: Existing, opts: Partial<Opti
       year: yr.year,
       year_circa: yr.circa,
       creation_date: creationDate,
-      medium: get('medium') || null,
+      medium: get('medium') ? normalizeMedium(get('medium')) : null,
       subject: get('subject') || null,
       style: get('style') || null,
       height: num('height') ?? dims.height,
@@ -400,7 +409,12 @@ export function buildPlan(inputs: SheetInput[], ex: Existing, opts: Partial<Opti
     if (!p && !inv) {
       // Title-derived slugs only when the row has no inventory number of its own.
       const r = matchPiece('', titleSlugs);
-      if (r.p && norm(r.p.title) === norm(title) && (byTitle.get(norm(title)) ?? []).length === 1) ({ p, by } = { p: r.p, by: `${r.by} (from title)` });
+      // Accept when the titles agree, or when the matched slug is the one AA itself
+      // gave the work (its source_ref is the AA /artwork/<slug> link): the title
+      // may have been corrected in Artfolio since ("White Ligth" -> "White Light").
+      const aaSlug = r.p?.source_ref ? slugify(slugFromSourceRef(r.p.source_ref) ?? '') : '';
+      const sameTitle = r.p && norm(r.p.title) === norm(title) && (byTitle.get(norm(title)) ?? []).length === 1;
+      if (r.p && (sameTitle || (aaSlug && aaSlug === r.p.slug && titleSlugs.includes(aaSlug)))) ({ p, by } = { p: r.p, by: `${r.by} (from title)` });
     }
 
     const op: PieceOp = { ...blank(), action: 'create', ref: '', values: {}, location: locationName || undefined, collections, exhibitions, provenance };
@@ -437,7 +451,12 @@ export function buildPlan(inputs: SheetInput[], ex: Existing, opts: Partial<Opti
       if (op.changes.some((c) => c.field === 'year')) op.changes.push({ field: 'year_circa', from: false, to: yr.circa });
       if (op.changes.some((c) => ['height', 'width', 'depth'].includes(c.field)) && !p.height && !p.width) op.changes.push({ field: 'dimension_unit', from: null, to: unit });
       if (op.changes.some((c) => c.field === 'edition_size')) op.changes.push({ field: 'kind', from: 'original', to: 'edition' });
-      if (op.changes.some((c) => c.field === 'price') && !p.currency && values.currency) op.changes.push({ field: 'currency', from: null, to: values.currency });
+      // A price filled in from the file brings its currency: the old currency only
+      // ever applied to a price that wasn't there.
+      if (op.changes.some((c) => c.field === 'price') && values.currency && values.currency !== p.currency) {
+        op.conflicts = op.conflicts.filter((c) => c.field !== 'currency');
+        if (!op.changes.some((c) => c.field === 'currency')) op.changes.push({ field: 'currency', from: p.currency, to: values.currency });
+      }
       op.values = Object.fromEntries(op.changes.map((c) => [c.field, c.to]));
 
       // Images: skip ones already imported; a piece that already has images
