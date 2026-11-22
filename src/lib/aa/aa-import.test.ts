@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import writeXlsxFile from 'write-excel-file/node';
 import { autoMapFields, classifySheet, type Entity } from './fields';
 import { cellText, parseCsvText, readSpreadsheet, type Sheet } from './sheets';
-import { buildPlan, isNoop, parseDate, slugify, summarize, type ExPiece, type Existing, type SheetInput } from './plan';
+import { buildPlan, isNoop, normalizeMedium, parseDate, slugify, summarize, type ExPiece, type Existing, type SheetInput } from './plan';
 
 // ---------------------------------------------------------------------------
 // Fixtures shaped like Xano's real data
@@ -98,6 +98,13 @@ describe('parsers', () => {
     expect(parseDate('May 3, 2021')).toBe('2021-05-03');
     expect(parseDate('nonsense')).toBeNull();
   });
+  it('translates AA media the way Artfolio stores them', () => {
+    expect(['Acrilico sobre tela', 'Acrilico sobre telal', 'Acrilico sobre telaL', 'Acrílico sobre lienzo'].map(normalizeMedium)).toEqual(Array(4).fill('Acrylic on canvas'));
+    expect(normalizeMedium('Oleo sobre tela')).toBe('Oil on canvas');
+    expect(normalizeMedium('Acrylic On Paper')).toBe('Acrylic on paper');
+    expect(normalizeMedium('iPad print')).toBe('iPad print');
+  });
+
   it('slugs like AA', () => {
     expect(slugify('Luz blanca /White Ligth')).toBe('luz-blanca-white-ligth');
     expect(slugify("Jerry's Lab")).toBe('jerry-s-lab');
@@ -182,6 +189,21 @@ describe('dry-run plan for pieces', () => {
     ];
     const p = buildPlan([input(sheet('p.csv', rows), 'pieces')], ex);
     expect(p.pieces[0]).toMatchObject({ pieceId: 'p-wave', matchedBy: 'slug “wave-xano-armenter” (from title)' });
+  });
+
+  it('matches a title that was corrected in Artfolio through the slug AA gave it', () => {
+    const ex = existing();
+    ex.pieces.push(piece({ id: 'p-luz', inventory_number: 'XA-0042', slug: 'luz-blanca-white-ligth', title: 'Luz blanca / White Light', source_ref: 'https://www.artworkarchive.com/profile/xano-armenter/artwork/luz-blanca-white-ligth' }));
+    const p = buildPlan([input(sheet('p.csv', [{ 'Piece Name': 'Luz blanca /White Ligth', Medium: 'x' }]), 'pieces')], ex);
+    expect(p.pieces[0]).toMatchObject({ pieceId: 'p-luz' });
+  });
+
+  it('a filled-in price brings its currency', () => {
+    const ex = existing();
+    ex.pieces.find((x) => x.id === 'p-street')!.currency = 'EUR';
+    const p = buildPlan([input(sheet('p.csv', [{ 'Inventory Number': 'XA-0011', 'Piece Name': 'Street walkby', Price: '$1,000' }]), 'pieces')], ex);
+    expect(p.pieces[0].values).toMatchObject({ price: 1000, currency: 'USD' });
+    expect(p.pieces[0].conflicts).toEqual([]);
   });
 
   it('reports columns it did not import, with how many cells had data', () => {

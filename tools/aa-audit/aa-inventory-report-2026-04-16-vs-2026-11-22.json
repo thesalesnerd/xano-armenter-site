@@ -1,0 +1,1582 @@
+{
+ "old": [
+  {
+   "title": "A un poema de Rossend Bonas (serie de 4 piezas)",
+   "price": "$5,000",
+   "medium": "Acrylic On Paper",
+   "dims": "38 x 50 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "About the future",
+   "price": "$1,500",
+   "medium": "Acrylic On Canvas",
+   "dims": "46 x 38 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Abstraccio de paisatge",
+   "price": null,
+   "medium": "Acrilico sobre telal",
+   "dims": "54 x 65 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Abstraccio de paisatge 2",
+   "price": null,
+   "medium": "Oil on canvas",
+   "dims": "54 x 65 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Agora",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "54 x 65 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Beach",
+   "price": null,
+   "medium": "iPad print",
+   "dims": null,
+   "location": "Hospital Clinic",
+   "extra": []
+  },
+  {
+   "title": "Big Move",
+   "price": null,
+   "medium": "Oil on canvas",
+   "dims": "146 x 114 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Bodegon Amb Marge",
+   "price": null,
+   "medium": "Oil On Canvas",
+   "dims": null,
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Break More Walls",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "150 x 150 cm",
+   "location": "At My Studio",
+   "extra": []
+  },
+  {
+   "title": "Broken walls 2",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "150 x 150 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Burning Room",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "54 x 65 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Candy fallout",
+   "price": null,
+   "medium": "Oil on canvas",
+   "dims": "146 x 114 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Carrer ple de gent",
+   "price": null,
+   "medium": null,
+   "dims": "65 x 54 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Caterina",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "65 x 54 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Celebration",
+   "price": null,
+   "medium": "Oil on canvas",
+   "dims": "54 x 65 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Chanel sources",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "46 x 38 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "City 1 and City 2",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "56 x 84 cm",
+   "location": "At My Studio",
+   "extra": []
+  },
+  {
+   "title": "Ciutat oberta",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "50 x 65 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Close up unit",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "30 x 30 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Continium",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "81 x 65 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Dark hour",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "38 x 46 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Desnudo",
+   "price": null,
+   "medium": "Oil on canvas",
+   "dims": "81 x 100 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Dirty dishes.",
+   "price": null,
+   "medium": "Oil On Canvas",
+   "dims": "100 x 136 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Doce y diez",
+   "price": null,
+   "medium": "Oil on canvas",
+   "dims": "81 x 100 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Dos figuras",
+   "price": null,
+   "medium": "Acrylic On Paper",
+   "dims": "93 x 66 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Drops 1",
+   "price": null,
+   "medium": "Oil On Canvas",
+   "dims": "46 x 38 cm",
+   "location": "Unknown",
+   "extra": []
+  },
+  {
+   "title": "El Bostezo",
+   "price": "$10,000",
+   "medium": "Oil On Canvas",
+   "dims": "92 x 74 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "En el aire",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "54 x 65 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Estudi de estudi.",
+   "price": null,
+   "medium": "Oil on canvas",
+   "dims": "146 x 114 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Exoplaneta",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "30 x 90 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Explorer",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "46 x 38 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Finestra oberta",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "60 x 73 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Graffiti Town",
+   "price": "$16,000",
+   "medium": "Acrylic On Canvas",
+   "dims": null,
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Hot pipes.",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "100 x 81 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "House",
+   "price": null,
+   "medium": "Acrylic On Paper",
+   "dims": "66 x 93 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Ingeni I",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "130 x 180 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Ingeni II",
+   "price": "$16,000",
+   "medium": "Acrilico sobre tela",
+   "dims": "180 x 130 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Ingeni III",
+   "price": "$12,000",
+   "medium": "Acrilico sobre tela",
+   "dims": "180 x 130 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Ingeni petit.",
+   "price": null,
+   "medium": "Acrylic On Paper",
+   "dims": "40 x 33 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Interesting (Red & black)",
+   "price": null,
+   "medium": "Oil On Canvas",
+   "dims": "168 x 123 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Jerry's Lab",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "100 x 81 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Jo pintor",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "50 x 65 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "La cova dels colors (Retina 2)",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "150 x 150 cm",
+   "location": "At My Studio",
+   "extra": []
+  },
+  {
+   "title": "La mente tambien juega (Opening)",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "92 x 81 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "La Reserva",
+   "price": "$14,000",
+   "medium": "Acrylic On Paper",
+   "dims": null,
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "La riqueza / Content is waiting",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "38 x 46 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "La Siesta",
+   "price": null,
+   "medium": "Oil On Canvas",
+   "dims": null,
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "La Visita",
+   "price": "$30,000",
+   "medium": "Oil On Canvas",
+   "dims": "100 x 81 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Laberint",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "200 x 225 cm",
+   "location": "At My Studio",
+   "extra": []
+  },
+  {
+   "title": "Laboratori",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "93 x 103 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Las abuelas",
+   "price": null,
+   "medium": "Oil on canvas",
+   "dims": null,
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Les Ferreres",
+   "price": null,
+   "medium": "Oil on canvas",
+   "dims": "50 x 65 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Lets Dance",
+   "price": null,
+   "medium": "Acrylic On Paper",
+   "dims": "35 x 62 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Lo viejo y lo nuevo",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "8 x 60 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Loop",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "38 x 46 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Luz blanca /White Ligth",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "50 x 65 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Martini lady",
+   "price": null,
+   "medium": "Oil on canvas",
+   "dims": "100 x 81 cm",
+   "location": "At My Studio",
+   "extra": []
+  },
+  {
+   "title": "Mecanic",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "130 x 97 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Monotipo.",
+   "price": null,
+   "medium": "Ink On Paper",
+   "dims": "68 x 48 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Multiples realitats",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "60 x 60 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "No Se Conocen",
+   "price": "$25,000",
+   "medium": "Acrylic On Paper",
+   "dims": "114 x 146 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Not nothing",
+   "price": null,
+   "medium": "Oil on canvas",
+   "dims": "65 x 54 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Painting mix",
+   "price": null,
+   "medium": "Oil on canvas",
+   "dims": "100 x 80 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Paisatge pintat",
+   "price": null,
+   "medium": "Oil on canvas",
+   "dims": "8 x 100 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Pampagulles",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "107 x 91 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Pineda de Olle Pinell",
+   "price": null,
+   "medium": null,
+   "dims": null,
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Pintar la natura",
+   "price": null,
+   "medium": "Acrilico sobre telal",
+   "dims": "54 x 65 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Pintar la natura 2",
+   "price": null,
+   "medium": "Acrilico sobre telal",
+   "dims": "65 x 54 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Plantas",
+   "price": null,
+   "medium": "Oil on canvas",
+   "dims": "100 x 72 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Playa Negra",
+   "price": "$20,000",
+   "medium": "Oil On Canvas",
+   "dims": "114 x 146 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Public and private",
+   "price": null,
+   "medium": "Oil on aluminium",
+   "dims": "50 x 66 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Red Pipe",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "38 x 46 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Red table with yellow bird",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "114 x 146 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Secret formula",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "100 x 81 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Sense parets.",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "80 x 80 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Seres invisibles.",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "54 x 66 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Sink",
+   "price": null,
+   "medium": "Oil On Canvas",
+   "dims": "130 x 122 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Sota No",
+   "price": null,
+   "medium": null,
+   "dims": "99 x 128 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Street walkby",
+   "price": null,
+   "medium": "Oil on aluminium",
+   "dims": "42 x 59 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Studio corner",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "65 x 68 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Studio formula",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "60 x 60 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Taula de treball",
+   "price": null,
+   "medium": "Oil on canvas",
+   "dims": "81 x 81 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Taula de treball 2",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "55 x 65 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "The breakfast",
+   "price": null,
+   "medium": "Oil On Canvas",
+   "dims": "134 x 160 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "The club",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "178 x 122 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "The Fool (Retrat)",
+   "price": "$16,000",
+   "medium": "Acrilico sobre tela",
+   "dims": "96 x 138 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "The New Baby",
+   "price": "$30,000",
+   "medium": "Oil On Canvas",
+   "dims": "100 x 81 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "The Truck Driver",
+   "price": "$18,000",
+   "medium": "Acrilico sobre tela",
+   "dims": null,
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Tornar al origen",
+   "price": null,
+   "medium": "Acrilico sobre telaL",
+   "dims": "108 x 92 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Ultramar 1",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "166 x 128 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Ultramar 2 / Underwater 2",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "166 x 128 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Ultramar 3",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "166 x 128 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Ultramar 4 / Underwater 4",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "166 x 128 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Wallpaper city",
+   "price": null,
+   "medium": "Acrylic On Paper",
+   "dims": "25 x 46 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Wave",
+   "price": "$5,000",
+   "medium": "Acrylic On Canvas",
+   "dims": "162 x 180 cm",
+   "location": null,
+   "extra": []
+  }
+ ],
+ "new": [
+  {
+   "title": "A un poema de Rossend Bonas (serie de 4 piezas)",
+   "price": "$5,000",
+   "medium": "Acrylic On Paper",
+   "dims": "38 x 50 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "About the future",
+   "price": "$1,500",
+   "medium": "Acrylic On Canvas",
+   "dims": "46 x 38 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Abstraccio de paisatge",
+   "price": null,
+   "medium": "Acrilico sobre telal",
+   "dims": "54 x 65 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Abstraccio de paisatge 2",
+   "price": null,
+   "medium": "Oil on canvas",
+   "dims": "54 x 65 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Agora",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "54 x 65 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Algo pasa",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "50 x 65 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Beach",
+   "price": null,
+   "medium": "iPad print",
+   "dims": null,
+   "location": "Hospital Clinic",
+   "extra": []
+  },
+  {
+   "title": "Bedrock",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "84 x 84 cm",
+   "location": "At My Studio",
+   "extra": []
+  },
+  {
+   "title": "Big Move",
+   "price": null,
+   "medium": "Oil on canvas",
+   "dims": "146 x 114 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Bodegon Amb Marge",
+   "price": null,
+   "medium": "Oil On Canvas",
+   "dims": null,
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Break More Walls",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "150 x 150 cm",
+   "location": "Coleccion Marcelino Armenter & Emilia Jordi (Madrid)",
+   "extra": []
+  },
+  {
+   "title": "Broken walls 2",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "150 x 150 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Burning Room",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "54 x 65 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Candy fallout",
+   "price": null,
+   "medium": "Oil on canvas",
+   "dims": "146 x 114 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Carrer ple de gent",
+   "price": null,
+   "medium": null,
+   "dims": "65 x 54 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Caterina",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "65 x 54 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Celebration",
+   "price": null,
+   "medium": "Oil on canvas",
+   "dims": "54 x 65 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Chanel sources",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "46 x 38 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "City 1 and City 2",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "56 x 84 cm",
+   "location": "At My Studio",
+   "extra": []
+  },
+  {
+   "title": "Ciutat oberta",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "50 x 65 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Close up unit",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "30 x 30 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Continium",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "81 x 65 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Dark hour",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "38 x 46 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Desnudo",
+   "price": null,
+   "medium": "Oil on canvas",
+   "dims": "81 x 100 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Dirty dishes.",
+   "price": null,
+   "medium": "Oil On Canvas",
+   "dims": "100 x 136 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Doce y diez",
+   "price": null,
+   "medium": "Oil on canvas",
+   "dims": "81 x 100 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Dos figuras",
+   "price": null,
+   "medium": "Acrylic On Paper",
+   "dims": "93 x 66 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Drops 1",
+   "price": "$1,000",
+   "medium": "Oil On Canvas",
+   "dims": "46 x 38 cm",
+   "location": "Unknown",
+   "extra": []
+  },
+  {
+   "title": "El Bostezo",
+   "price": "$10,000",
+   "medium": "Oil On Canvas",
+   "dims": "92 x 74 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "En el aire",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "54 x 65 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Estudi de estudi.",
+   "price": null,
+   "medium": "Oil on canvas",
+   "dims": "146 x 114 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Exoplaneta",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "30 x 90 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Explorer",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "46 x 38 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Finestra oberta",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "60 x 73 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Goodbye New York",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": null,
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Graffiti Town",
+   "price": "$16,000",
+   "medium": "Acrylic On Canvas",
+   "dims": null,
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Ground",
+   "price": null,
+   "medium": "Acrilico sobre telaL",
+   "dims": "84 x 84 cm",
+   "location": "At My Studio",
+   "extra": []
+  },
+  {
+   "title": "Hot pipes.",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "100 x 81 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "House",
+   "price": null,
+   "medium": "Acrylic On Paper",
+   "dims": "66 x 93 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Ingeni I",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "130 x 180 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Ingeni II",
+   "price": "$16,000",
+   "medium": "Acrilico sobre tela",
+   "dims": "180 x 130 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Ingeni III",
+   "price": "$12,000",
+   "medium": "Acrilico sobre tela",
+   "dims": "180 x 130 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Ingeni petit.",
+   "price": null,
+   "medium": "Acrylic On Paper",
+   "dims": "40 x 33 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Interesting (Red & black)",
+   "price": null,
+   "medium": "Oil On Canvas",
+   "dims": "168 x 123 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Jerry's Lab",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "100 x 81 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Jo pintor",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "50 x 65 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "La cova dels colors (Retina 2)",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "150 x 150 cm",
+   "location": "At My Studio",
+   "extra": []
+  },
+  {
+   "title": "La mente tambien juega (Opening)",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "92 x 81 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "La Reserva",
+   "price": "$14,000",
+   "medium": "Acrylic On Paper",
+   "dims": null,
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "La riqueza / Content is waiting",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "38 x 46 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "La Siesta",
+   "price": null,
+   "medium": "Oil On Canvas",
+   "dims": null,
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "La Visita",
+   "price": "$30,000",
+   "medium": "Oil On Canvas",
+   "dims": "100 x 81 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Laberint",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "200 x 225 cm",
+   "location": "At My Studio",
+   "extra": []
+  },
+  {
+   "title": "Laboratori",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "93 x 103 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Las abuelas",
+   "price": null,
+   "medium": "Oil on canvas",
+   "dims": null,
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Les Ferreres",
+   "price": null,
+   "medium": "Oil on canvas",
+   "dims": "50 x 65 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Lets Dance",
+   "price": null,
+   "medium": "Acrylic On Paper",
+   "dims": "35 x 62 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Lo viejo y lo nuevo",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "8 x 60 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Loop",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "38 x 46 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Luz blanca /White Ligth",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "50 x 65 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Martini lady",
+   "price": null,
+   "medium": "Oil on canvas",
+   "dims": "100 x 81 cm",
+   "location": "At My Studio",
+   "extra": []
+  },
+  {
+   "title": "Mecanic",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "130 x 97 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Monotipo.",
+   "price": null,
+   "medium": "Ink On Paper",
+   "dims": "68 x 48 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Multiples realitats",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "60 x 60 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "No Se Conocen",
+   "price": "$25,000",
+   "medium": "Acrylic On Paper",
+   "dims": "114 x 146 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Not nothing",
+   "price": null,
+   "medium": "Oil on canvas",
+   "dims": "65 x 54 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Painting mix",
+   "price": null,
+   "medium": "Oil on canvas",
+   "dims": "100 x 80 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Paisatge pintat",
+   "price": null,
+   "medium": "Oil on canvas",
+   "dims": "8 x 100 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Pampagulles",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "107 x 91 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Pineda de Olle Pinell",
+   "price": null,
+   "medium": null,
+   "dims": null,
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Pintar la natura",
+   "price": null,
+   "medium": "Acrilico sobre telal",
+   "dims": "54 x 65 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Pintar la natura 2",
+   "price": null,
+   "medium": "Acrilico sobre telal",
+   "dims": "65 x 54 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Plantas",
+   "price": null,
+   "medium": "Oil on canvas",
+   "dims": "100 x 72 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Playa Negra",
+   "price": "$20,000",
+   "medium": "Oil On Canvas",
+   "dims": "114 x 146 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Pots i Xipres",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "84 x 84 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Public and private",
+   "price": null,
+   "medium": "Oil on aluminium",
+   "dims": "50 x 66 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Red Pipe",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "38 x 46 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Red table with yellow bird",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "114 x 146 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Secret formula",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "100 x 81 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Sense parets.",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "80 x 80 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Seres invisibles.",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "54 x 66 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Sink",
+   "price": null,
+   "medium": "Oil On Canvas",
+   "dims": "130 x 122 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Sota No",
+   "price": null,
+   "medium": null,
+   "dims": "99 x 128 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Street walkby",
+   "price": null,
+   "medium": "Oil on aluminium",
+   "dims": "42 x 59 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Studio corner",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "65 x 68 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Studio formula",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "60 x 60 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Taula de treball",
+   "price": null,
+   "medium": "Oil on canvas",
+   "dims": "81 x 81 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Taula de treball 2",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "55 x 65 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "The breakfast",
+   "price": null,
+   "medium": "Oil On Canvas",
+   "dims": "134 x 160 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "The club",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "178 x 122 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "The Fool (Retrat)",
+   "price": "$16,000",
+   "medium": "Acrilico sobre tela",
+   "dims": "96 x 138 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "The New Baby",
+   "price": "$30,000",
+   "medium": "Oil On Canvas",
+   "dims": "100 x 81 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "The Truck Driver",
+   "price": "$18,000",
+   "medium": "Acrilico sobre tela",
+   "dims": null,
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Tornar al origen",
+   "price": null,
+   "medium": "Acrilico sobre telaL",
+   "dims": "108 x 92 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Ultramar 1",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "166 x 128 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Ultramar 2 / Underwater 2",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "166 x 128 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Ultramar 3",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "166 x 128 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Ultramar 4 / Underwater 4",
+   "price": null,
+   "medium": "Acrylic On Canvas",
+   "dims": "166 x 128 cm",
+   "location": null,
+   "extra": []
+  },
+  {
+   "title": "Under Construction",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": null,
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Under Construction",
+   "price": null,
+   "medium": "Acrilico sobre tela",
+   "dims": "80 x 160 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Wallpaper city",
+   "price": null,
+   "medium": "Acrylic On Paper",
+   "dims": "25 x 46 cm",
+   "location": "Camp 3",
+   "extra": []
+  },
+  {
+   "title": "Wave",
+   "price": "$5,000",
+   "medium": "Acrylic On Canvas",
+   "dims": "162 x 180 cm",
+   "location": null,
+   "extra": []
+  }
+ ]
+}
