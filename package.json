@@ -4,13 +4,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run catalogue; npm run content; tsc --noEmit && vite build && cp dist/index.html dist/404.html",
+    "build": "npm run catalogue; npm run content; npm run qr-map; tsc --noEmit && vite build && cp dist/index.html dist/404.html && node scripts/prerender-works.mjs",
     "preview": "vite preview",
     "catalogue": "node scripts/snapshot-catalogue.mjs || echo 'Catalogue snapshot skipped: building with the committed src/data/artworks.json'",
     "test:catalogue": "node --test scripts/snapshot-catalogue.test.mjs",
     "data": "python3 scripts/build-data.py",
     "content": "node scripts/snapshot-site-content.mjs || echo 'Site content snapshot skipped: building with the committed src/data/site-content.json'",
-    "test:content": "node --test scripts/site-content.test.mjs"
+    "test:content": "node --test scripts/site-content.test.mjs",
+    "qr-map": "node scripts/qr-map.mjs || echo 'QR map refresh skipped: keeping the committed api/_qr-map.js'",
+    "test:qr": "node --test scripts/qr.test.mjs"
   },
   "dependencies": {
     "@fontsource/dm-sans": "^5.3.0",
