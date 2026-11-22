@@ -37,8 +37,8 @@ const CM_PER_INCH = 2.54;
 // Artfolio's project and its publishable key. Both are public (the browser app
 // uses the same key) and only allow what anon may do: read catalogue_v1.
 // SUPABASE_URL / SUPABASE_ANON_KEY override them.
-const DEFAULT_SUPABASE_URL = 'https://trcqmiemvyoxeetgfguo.supabase.co';
-const DEFAULT_ANON_KEY = 'sb_publishable_UG-NEwH8e6-YNrKIcOY1vw_dydhBKDg';
+export const DEFAULT_SUPABASE_URL = 'https://trcqmiemvyoxeetgfguo.supabase.co';
+export const DEFAULT_ANON_KEY = 'sb_publishable_UG-NEwH8e6-YNrKIcOY1vw_dydhBKDg';
 
 /** Errors that must stop the run and leave the existing file alone. */
 export class SnapshotError extends Error {}
@@ -251,7 +251,7 @@ export function diffWorks(before, after) {
 
 // ---------------------------------------------------------------- fetch
 
-export async function fetchCatalogue({ supabaseUrl, anonKey, artistSlug, fetchImpl = fetch, attempts = 3 }) {
+export async function fetchCatalogue({ supabaseUrl, anonKey, artistSlug, fetchImpl = fetch, attempts = 3, timeoutMs = 60_000 }) {
   const url = `${String(supabaseUrl).replace(/\/+$/, '')}/rest/v1/rpc/catalogue_v1`;
   let lastError;
   for (let attempt = 1; attempt <= attempts; attempt++) {
@@ -261,7 +261,7 @@ export async function fetchCatalogue({ supabaseUrl, anonKey, artistSlug, fetchIm
         method: 'POST',
         headers: { apikey: anonKey, 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({ p_artist_slug: artistSlug }),
-        signal: AbortSignal.timeout(60_000),
+        signal: AbortSignal.timeout(timeoutMs),
       });
     } catch (err) {
       lastError = new SnapshotError(`Could not reach the catalogue API: ${err.message}`);

@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, NavLink, Outlet, useLocation, useParams, useSearchParams } from "react-router";
-import { archive, bySlug, FEATURED, HERO, PRACTICE, selected, yearLabel, type Artwork } from "./data";
+import { useCatalogue, yearLabel, type Artwork } from "./data";
 import { commissions, soloShows } from "./cv";
 import { CONTACT_EMAIL, useI18n } from "./i18n";
 import { ArrowIcon } from "./components/ArrowIcon";
@@ -113,6 +113,7 @@ export function SiteLayout() {
 
 export function HomePage() {
   const { t, to } = useI18n();
+  const { HERO, FEATURED, PRACTICE } = useCatalogue();
   return (
     <>
       <section className="hero">
@@ -197,6 +198,7 @@ function useLightbox(works: Artwork[]) {
 
 export function WorkPage() {
   const { t, to } = useI18n();
+  const { selected } = useCatalogue();
   const active = useLightbox(selected);
   return (
     <>
@@ -238,12 +240,13 @@ export function WorkPage() {
 
 export function ArchivePage() {
   const { t, to } = useI18n();
+  const { archive } = useCatalogue();
   const [params, setParams] = useSearchParams();
   const decade = params.get("decade") ?? "";
-  const decades = useMemo(() => [...new Set(archive.filter((a) => a.year).map((a) => Math.floor(a.year! / 10) * 10))].sort((a, b) => b - a), []);
+  const decades = useMemo(() => [...new Set(archive.filter((a) => a.year).map((a) => Math.floor(a.year! / 10) * 10))].sort((a, b) => b - a), [archive]);
   const works = useMemo(
     () => (decade === "" ? archive : decade === "none" ? archive.filter((a) => !a.year) : archive.filter((a) => a.year && Math.floor(a.year / 10) * 10 === Number(decade))),
-    [decade],
+    [archive, decade],
   );
   const active = useLightbox(works);
   const base = to("/archive");
@@ -377,6 +380,7 @@ export function AboutPage() {
 
 export function ContactPage() {
   const { t, to, medium } = useI18n();
+  const { bySlug } = useCatalogue();
   const [params] = useSearchParams();
   const work = bySlug(params.get("work") ?? undefined);
   const label = work ? `${work.title}${work.year ? ` (${work.year})` : ""}` : "";

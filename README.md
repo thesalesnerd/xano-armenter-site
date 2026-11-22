@@ -36,3 +36,20 @@ that; the build also writes `dist/404.html` for GitHub Pages.
 - The room view uses the catalogued size in centimetres. Works without a
   catalogued size are shown at an approximate size and say so.
 - The Spanish copy and parts of the English copy are drafts for review.
+
+## Catalogue updates (Artfolio)
+
+The catalogue lives in Artfolio. The site shows edits made there (new work,
+price, sold, hidden) within about a minute, with no redeploy:
+
+- `api/catalogue.mjs` serves the public catalogue (`catalogue_v1`) in the
+  site's format, built by the same code as the build snapshot
+  (`scripts/snapshot-catalogue.mjs`). Vercel's CDN caches it for 60 s and
+  serves the last good copy while refreshing or if Supabase is down.
+- Pages render at once from the bundled `src/data/artworks.json` (refreshed
+  on every build) and swap in the live copy when it arrives (`src/data.ts`).
+  If the API fails, or returns no works, the bundled copy stays.
+- `/sitemap.xml` is generated from the live catalogue (`api/sitemap.mjs`).
+- `/admin` redirects to the Artfolio app (`vercel.json`).
+- On preview deployments, `/api/catalogue?artist=<slug>` reads another artist,
+  for testing.
