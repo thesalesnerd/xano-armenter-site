@@ -13,6 +13,7 @@ the back end. No server code to run: all access rules live in the database
 | Area | Features |
 | --- | --- |
 | **Pieces** | Grid, list and table views; search; filters (status, medium, subject, collection, visibility, year); sorting; bulk status/visibility/collection/delete. Full record per piece: inventory number (auto-assigned with your prefix), year, medium, subject, style, dimensions and framed dimensions, price and currency, 10 statuses, location, signature, tags, public description, private notes. Multiple images per piece, resized in the browser (2400px + thumbnail). Editions with per-print status, price and location. |
+| **Quick update** | `/a/<artist>/play`: a phone-first, one-work-at-a-time way for the artist to keep records right. Piles: *Is this still available?* (every work), *Missing info*, *Hidden from website*, *Sold*. Big buttons (Sold / Available / Not for sale / Hide from website), quick place picker, private price. Every tap saves at once with undo; progress, resume and a day streak are kept in the browser. Spanish, Catalan and English. Keys on desktop: ← → move, A/S/N/H answer, Z undo. |
 | **Collections** | Group pieces into series or shows; optionally public. |
 | **Reports** | Printable inventory report (choose columns, totals), price list, and one-work-per-page portfolio, all saved as PDF from the browser. Full CSV export. |
 | **Public profile** | `/p/<artist>`: bio, public works, public collections, a page per work with enquiry link. Private notes and hidden prices are never exposed. |

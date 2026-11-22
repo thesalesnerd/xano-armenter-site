@@ -36,6 +36,10 @@ body { @apply bg-stone-50 text-stone-900; }
   @apply inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset;
 }
 
+@keyframes toast-in {
+  from { transform: translateY(-12px); opacity: 0; }
+}
+
 @media print {
   .no-print { display: none !important; }
   body { background: white; }

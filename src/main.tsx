@@ -19,6 +19,7 @@ import Import from './pages/Import';
 import Settings from './pages/Settings';
 import PublicProfile from './pages/PublicProfile';
 import PublicPiece from './pages/PublicPiece';
+import QuickUpdate from './pages/quick/QuickUpdate';
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { staleTime: 30_000, refetchOnWindowFocus: false } },
@@ -45,6 +46,8 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/p/:slug/w/:pieceId" element={<PublicPiece />} />
             <Route path="/" element={<RequireAuth><Home /></RequireAuth>} />
             <Route path="/new" element={<RequireAuth><NewArtist /></RequireAuth>} />
+            <Route path="/a/:slug/play" element={<RequireAuth><QuickUpdate /></RequireAuth>} />
+            <Route path="/a/:slug/play/:deckId" element={<RequireAuth><QuickUpdate /></RequireAuth>} />
             <Route path="/a/:slug" element={<RequireAuth><Layout /></RequireAuth>}>
               <Route index element={<Navigate to="pieces" replace />} />
               <Route path="pieces" element={<Pieces />} />
