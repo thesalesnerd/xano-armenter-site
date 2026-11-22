@@ -26,7 +26,7 @@ export function missingFields(p: PieceWithImages) {
     year: p.year == null,
     size: p.height == null || p.width == null || Number(p.height) <= 0 || Number(p.width) <= 0,
     medium: blank(p.medium),
-    location: blank(p.location),
+    location: blank(p.location) && !p.location_id,
   };
 }
 

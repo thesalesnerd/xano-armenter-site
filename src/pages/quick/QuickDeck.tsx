@@ -15,12 +15,14 @@ import {
   type Deck,
 } from '../../lib/quick/progress';
 import Confetti from '../../components/Confetti';
-import { BigButton, PlacePicker, ProgressBar, Sheet, Toast, parsePrice, useQuickEnv, useT, type ToastMsg } from './parts';
+import type { Places } from '../../lib/quick/places';
+import type { Suggestions } from '../../lib/quick/suggest';
+import { BigButton, Chips, PlacePicker, ProgressBar, Sheet, Toast, parsePrice, useQuickEnv, useT, type ToastMsg } from './parts';
 
-type Patch = Partial<Pick<Piece, 'status' | 'is_public' | 'location' | 'price' | 'currency' | 'year' | 'height' | 'width' | 'medium'>>;
+type Patch = Partial<Pick<Piece, 'status' | 'is_public' | 'location' | 'location_id' | 'price' | 'currency' | 'year' | 'height' | 'width' | 'medium'>>;
 type SheetKind = 'place' | 'price' | null;
 
-export default function QuickDeck({ deck, pieces, places, media }: { deck: Deck; pieces: PieceWithImages[]; places: string[]; media: string[] }) {
+export default function QuickDeck({ deck, pieces, places, suggest }: { deck: Deck; pieces: PieceWithImages[]; places: Places; suggest: Suggestions }) {
   const { artist, canEdit } = useWorkspace();
   const { t } = useT();
   const qc = useQueryClient();
@@ -156,6 +158,21 @@ export default function QuickDeck({ deck, pieces, places, media }: { deck: Deck;
     } else {
       go(nxt);
     }
+  }
+
+  /** Answer with a place change too; a new place name may need creating first. */
+  async function withPlace(patch: Patch, place: string | null, label: string, advance = true, placeGiven = place != null) {
+    if (!piece) return;
+    let full = patch;
+    if (placeGiven) {
+      try {
+        full = { ...patch, ...(await places.patchFor(piece, place)) };
+      } catch {
+        say({ text: t.saveFailed, tone: 'error' });
+        return;
+      }
+    }
+    void answer(full, label, advance);
   }
 
   // Keyboard (desktop): ← → move, A/S/N/H answer, Z undo.
@@ -302,7 +319,7 @@ export default function QuickDeck({ deck, pieces, places, media }: { deck: Deck;
 
         {deck.id === 'missing' && (
           <div className="mt-4 shrink-0">
-            <MissingForm key={piece.id} piece={piece} places={places} media={media} disabled={!canEdit} onSave={(p) => answer(p, '')} />
+            <MissingForm key={piece.id} piece={piece} places={places} suggest={suggest} disabled={!canEdit} onSave={(p, place) => withPlace(p, place, '')} />
           </div>
         )}
 
@@ -317,7 +334,7 @@ export default function QuickDeck({ deck, pieces, places, media }: { deck: Deck;
               className="flex min-h-14 flex-col items-start justify-center rounded-2xl bg-white px-4 py-1.5 text-left ring-1 ring-stone-300 active:bg-stone-100 disabled:opacity-40"
             >
               <span className="text-sm text-stone-500">📍 {t.where}</span>
-              <span className="line-clamp-1 text-lg font-medium text-stone-900">{piece.location || t.noLocation}</span>
+              <span className="line-clamp-1 text-lg font-medium text-stone-900">{places.nameOf(piece) || t.noLocation}</span>
             </button>
             <button
               disabled={!canEdit}
@@ -392,11 +409,11 @@ export default function QuickDeck({ deck, pieces, places, media }: { deck: Deck;
       {sheet === 'place' && (
         <Sheet title={t.where} onClose={() => setSheet(null)}>
           <PlacePicker
-            places={places}
-            value={piece.location}
+            places={places.names}
+            value={places.nameOf(piece)}
             onPick={(place) => {
               setSheet(null);
-              void answer({ location: place }, place ?? t.noLocation, false);
+              void withPlace({}, place, place ?? t.noLocation, false, true);
             }}
           />
         </Sheet>
@@ -406,6 +423,7 @@ export default function QuickDeck({ deck, pieces, places, media }: { deck: Deck;
           <PriceForm
             piece={piece}
             currency={currency}
+            prices={suggest.prices}
             onSave={(price) => {
               setSheet(null);
               const patch: Patch = { price };
@@ -498,7 +516,7 @@ function StatusRow({ piece, disabled, onPick }: { piece: Piece; disabled: boolea
   );
 }
 
-function PriceForm({ piece, currency, onSave }: { piece: Piece; currency: string; onSave: (price: number | null) => void }) {
+function PriceForm({ piece, currency, prices, onSave }: { piece: Piece; currency: string; prices: number[]; onSave: (price: number | null) => void }) {
   const { t } = useT();
   const [v, setV] = useState(piece.price != null ? String(Number(piece.price)) : '');
   const parsed = parsePrice(v);
@@ -513,12 +531,20 @@ function PriceForm({ piece, currency, onSave }: { piece: Piece; currency: string
       <p className={`mb-4 rounded-2xl p-4 text-lg ${piece.show_price ? 'bg-amber-50 text-amber-900' : 'bg-stone-100 text-stone-700'}`}>
         🔒 {piece.show_price ? t.priceIsShown : t.priceIsPrivate}
       </p>
+      {prices.length > 0 && (
+        <Chips
+          className="mb-3"
+          options={prices.map((n) => ({ key: String(n), label: money(n, currency) }))}
+          selected={parsed != null && !bad ? String(parsed) : null}
+          onPick={(k) => onSave(Number(k))}
+        />
+      )}
       <div className="flex items-center gap-3">
         <input
-          autoFocus
-          inputMode="decimal"
+          inputMode="numeric"
           className="min-h-14 min-w-0 flex-1 rounded-xl border-0 px-4 text-2xl ring-1 ring-stone-300 focus:ring-2 focus:ring-stone-900 focus:outline-none"
           value={v}
+          placeholder={t.otherAmount}
           onChange={(e) => setV(e.target.value)}
           aria-invalid={bad}
           aria-label={t.privatePrice}
@@ -542,15 +568,15 @@ function PriceForm({ piece, currency, onSave }: { piece: Piece; currency: string
 function MissingForm({
   piece,
   places,
-  media,
+  suggest,
   disabled,
   onSave,
 }: {
   piece: PieceWithImages;
-  places: string[];
-  media: string[];
+  places: Places;
+  suggest: Suggestions;
   disabled: boolean;
-  onSave: (p: Patch) => void;
+  onSave: (p: Patch, place: string | null) => void;
 }) {
   const { t } = useT();
   // Which fields to ask for is decided when the card opens, so they don't vanish while typing.
@@ -559,9 +585,10 @@ function MissingForm({
   const [h, setH] = useState(piece.height != null ? String(Number(piece.height)) : '');
   const [w, setW] = useState(piece.width != null ? String(Number(piece.width)) : '');
   const [medium, setMedium] = useState(piece.medium ?? '');
-  const [place, setPlace] = useState<string | null>(piece.location);
+  const [place, setPlace] = useState<string | null>(places.nameOf(piece));
   const nothing = !Object.values(miss).some(Boolean);
-  const big = 'min-h-14 w-full rounded-xl border-0 px-4 text-2xl ring-1 ring-stone-300 focus:ring-2 focus:ring-stone-900 focus:outline-none';
+  const big = 'min-h-14 w-full min-w-0 rounded-xl border-0 px-4 text-2xl ring-1 ring-stone-300 focus:ring-2 focus:ring-stone-900 focus:outline-none';
+  const label = 'mb-2 block text-lg font-medium text-stone-700';
   const num = (s: string) => {
     const n = parsePrice(s);
     return n == null || Number.isNaN(n) ? null : n;
@@ -576,8 +603,7 @@ function MissingForm({
       if (num(w) != null) p.width = num(w);
     }
     if (miss.medium && medium.trim()) p.medium = medium.trim();
-    if (miss.location && place) p.location = place;
-    onSave(p);
+    onSave(p, miss.location ? place : null);
   }
 
   if (nothing) {
@@ -586,7 +612,7 @@ function MissingForm({
         id="missing-form"
         onSubmit={(e) => {
           e.preventDefault();
-          if (!disabled) onSave({});
+          if (!disabled) onSave({}, null);
         }}
       >
         <p className="rounded-2xl bg-emerald-50 p-4 text-center text-lg text-emerald-900">✓ {t.missingNothing}</p>
@@ -594,46 +620,56 @@ function MissingForm({
     );
   }
 
+  const sizeKey = `${num(h) ?? ''}x${num(w) ?? ''}`;
   return (
     <form
       id="missing-form"
-      className="flex flex-col gap-5"
+      className="flex flex-col gap-6"
       onSubmit={(e) => {
         e.preventDefault();
         submit();
       }}
     >
+      <p className="-mb-2 text-base text-stone-500">{t.tapOrType}</p>
       {miss.year && (
-        <label className="block">
-          <span className="mb-1 block text-lg font-medium text-stone-700">{t.year}</span>
-          <input className={big} inputMode="numeric" pattern="[0-9]*" maxLength={4} placeholder="1998" value={year} onChange={(e) => setYear(e.target.value.replace(/\D/g, ''))} />
-        </label>
+        <div>
+          <span className={label}>{t.year}</span>
+          <Chips options={suggest.years.map((y) => ({ key: String(y), label: String(y) }))} selected={year} onPick={setYear} />
+          <input className={`${big} mt-2`} inputMode="numeric" pattern="[0-9]*" maxLength={4} placeholder={t.otherYear} aria-label={t.year} value={year} onChange={(e) => setYear(e.target.value.replace(/\D/g, ''))} />
+        </div>
       )}
       {miss.size && (
-        <fieldset>
-          <legend className="mb-1 text-lg font-medium text-stone-700">{t.size} ({piece.dimension_unit})</legend>
-          <div className="flex items-center gap-2">
-            <input className={big} inputMode="decimal" placeholder={t.height} aria-label={t.height} value={h} onChange={(e) => setH(e.target.value)} />
+        <div>
+          <span className={label}>{t.size} ({piece.dimension_unit})</span>
+          <Chips
+            options={suggest.sizes.map(([sh, sw]) => ({ key: `${sh}x${sw}`, label: `${sh} × ${sw}` }))}
+            selected={sizeKey}
+            onPick={(k) => {
+              const [sh, sw] = k.split('x');
+              setH(sh);
+              setW(sw);
+            }}
+          />
+          <div className="mt-2 flex items-center gap-2">
+            <input className={big} inputMode="numeric" placeholder={t.height} aria-label={t.height} value={h} onChange={(e) => setH(e.target.value)} />
             <span className="text-2xl text-stone-500">×</span>
-            <input className={big} inputMode="decimal" placeholder={t.width} aria-label={t.width} value={w} onChange={(e) => setW(e.target.value)} />
+            <input className={big} inputMode="numeric" placeholder={t.width} aria-label={t.width} value={w} onChange={(e) => setW(e.target.value)} />
           </div>
-        </fieldset>
+        </div>
       )}
       {miss.medium && (
-        <label className="block">
-          <span className="mb-1 block text-lg font-medium text-stone-700">{t.medium}</span>
-          <input className={big} placeholder={t.mediumPlaceholder} value={medium} onChange={(e) => setMedium(e.target.value)} list="quick-media" />
-          <datalist id="quick-media">
-            {media.map((m) => <option key={m} value={m} />)}
-          </datalist>
-        </label>
+        <div>
+          <span className={label}>{t.medium}</span>
+          <Chips options={suggest.media.map((m) => ({ key: m, label: m }))} selected={medium} onPick={setMedium} />
+          <input className={`${big} mt-2`} placeholder={t.mediumPlaceholder} aria-label={t.medium} value={medium} onChange={(e) => setMedium(e.target.value)} />
+        </div>
       )}
       {miss.location && (
         <div>
-          <span className="mb-2 block text-lg font-medium text-stone-700">📍 {t.where}</span>
-          <PlacePicker places={places} value={place} onPick={setPlace} />
+          <span className={label}>📍 {t.where}</span>
+          <PlacePicker places={places.names} value={place} onPick={setPlace} />
         </div>
       )}
-</form>
+    </form>
   );
 }

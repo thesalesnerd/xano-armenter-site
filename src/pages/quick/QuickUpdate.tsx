@@ -7,6 +7,8 @@ import { activity, deckById, deckPieces, DECKS, loadDeck, resetDeck } from '../.
 import type { PieceWithImages } from '../../lib/types';
 import { LangProvider, LangSwitch, ProgressBar, QuickEnv, useQuickEnv, useT } from './parts';
 import QuickDeck from './QuickDeck';
+import { usePlaces } from '../../lib/quick/places';
+import { suggestions } from '../../lib/quick/suggest';
 
 /** /a/:slug/play[/:deck|/done] — full screen, without the inventory's sidebar. */
 export default function QuickUpdate() {
@@ -32,30 +34,20 @@ export default function QuickUpdate() {
   );
 }
 
-/** Places and media already used for this artist, most used first. */
-function topValues(pieces: PieceWithImages[], key: 'location' | 'medium', max: number): string[] {
-  const counts = new Map<string, number>();
-  for (const p of pieces) {
-    const v = p[key]?.trim();
-    if (v) counts.set(v, (counts.get(v) ?? 0) + 1);
-  }
-  return [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).slice(0, max).map(([v]) => v);
-}
-
 export function QuickRoutes() {
   const { deckId } = useParams();
   const { artist } = useWorkspace();
-  const { base } = useQuickEnv();
+  const { base, demo } = useQuickEnv();
   const { data: pieces, isLoading, error } = usePieces(artist.id);
-  const places = useMemo(() => topValues(pieces ?? [], 'location', 12), [pieces]);
-  const media = useMemo(() => topValues(pieces ?? [], 'medium', 40), [pieces]);
+  const places = usePlaces(artist.id, pieces ?? [], demo);
+  const suggest = useMemo(() => suggestions(pieces ?? []), [pieces]);
 
   if (isLoading) return <Spinner />;
   if (error) return <div className="p-6"><ErrorNote error={error} /></div>;
   if (deckId === 'done') return <DoneToday />;
   const deck = deckById(deckId);
   if (deckId && !deck) return <Navigate to={base} replace />;
-  if (deck) return <QuickDeck key={deck.id} deck={deck} pieces={pieces ?? []} places={places} media={media} />;
+  if (deck) return <QuickDeck key={deck.id} deck={deck} pieces={pieces ?? []} places={places} suggest={suggest} />;
   return <DeckPicker pieces={pieces ?? []} />;
 }
 

@@ -185,6 +185,38 @@ export function BigButton({
   );
 }
 
+/** A row of big tappable answers. */
+export function Chips({
+  options,
+  selected,
+  onPick,
+  className = '',
+}: {
+  options: { key: string; label: string }[];
+  selected: string | null;
+  onPick: (key: string) => void;
+  className?: string;
+}) {
+  if (!options.length) return null;
+  return (
+    <div className={`flex flex-wrap gap-2 ${className}`}>
+      {options.map((o) => (
+        <button
+          key={o.key}
+          type="button"
+          onClick={() => onPick(o.key)}
+          aria-pressed={selected === o.key}
+          className={`min-h-12 rounded-full px-4 py-2 text-lg ring-1 ${
+            selected === o.key ? 'bg-stone-900 text-white ring-stone-900' : 'bg-white text-stone-800 ring-stone-300 active:bg-stone-100'
+          }`}
+        >
+          {o.label}
+        </button>
+      ))}
+    </div>
+  );
+}
+
 /** Tappable list of places already used for this artist, plus a free-text "somewhere else". */
 export function PlacePicker({
   places,
