@@ -23,6 +23,7 @@ const pages: RouteObject[] = [
   { path: "archive/:slug", Component: ArchivePage },
   { path: "about", Component: AboutPage },
   { path: "contact", Component: ContactPage },
+  { path: "login", lazy: async () => ({ Component: (await import("./login")).default }) },
   { path: "*", Component: NotFoundPage },
 ];
 

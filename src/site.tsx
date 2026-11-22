@@ -95,6 +95,9 @@ export function SiteLayout() {
           <span>© {new Date().getFullYear()} Xano Armenter</span>
           <a href={`mailto:${contact.email}`}>{contact.email}</a>
           {t.footer.represented && <span>{t.footer.represented}</span>}
+          <Link className="footer-login" to={to("/login")} rel="nofollow">
+            {lang === "es" ? "Entrar" : "Log in"}
+          </Link>
         </div>
       </footer>
 

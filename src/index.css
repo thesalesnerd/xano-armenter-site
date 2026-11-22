@@ -1920,3 +1920,79 @@ main {
   box-shadow: 0 4px 16px rgb(0 0 0 / 0.15);
   pointer-events: none;
 }
+
+/* Studio login (/login) */
+.login-page {
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 160px 24px 120px;
+}
+.login-page h1 {
+  font-family: "Instrument Serif", serif;
+  font-weight: 400;
+  font-size: clamp(44px, 8vw, 72px);
+  line-height: 1;
+  margin: 12px 0 16px;
+}
+.login-intro {
+  color: var(--muted, #6b6b6b);
+  margin: 0 0 32px;
+}
+.login-form {
+  display: grid;
+  gap: 18px;
+  margin-bottom: 28px;
+}
+.login-form label {
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+.login-form input {
+  font: inherit;
+  font-size: 17px;
+  padding: 12px 14px;
+  border: 1px solid #c9c4bb;
+  border-radius: 2px;
+  background: #fff;
+}
+.login-form input:focus {
+  outline: 2px solid #111;
+  outline-offset: 1px;
+}
+.login-form button[type="submit"] {
+  font: inherit;
+  font-size: 16px;
+  padding: 14px;
+  border: 0;
+  background: #111;
+  color: #fff;
+  cursor: pointer;
+}
+.login-form button[type="submit"]:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.login-link {
+  font: inherit;
+  font-size: 14px;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.login-message {
+  margin: 0;
+  font-size: 14px;
+}
+.login-message.is-error {
+  color: #a3241b;
+}
+.footer-login {
+  opacity: 0.7;
+}

@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /admin
+Disallow: /login
+Disallow: /es/login
 
 Sitemap: https://xanoarmenter.com/sitemap.xml
