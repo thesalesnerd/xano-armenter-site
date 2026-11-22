@@ -75,6 +75,7 @@ export default function Reports() {
       <input className="input max-w-md" placeholder={REPORT_TYPES.find((r) => r.value === type)!.label} value={title} onChange={(e) => setTitle(e.target.value)} />
 
       <div className="mt-8 flex flex-wrap gap-2">
+        <Link to="labels" className="btn-secondary order-last">QR labels…</Link>
         <Link to={`print?${printParams}`} className={`btn-primary ${scoped.length ? '' : 'pointer-events-none opacity-50'}`}>Open printable report</Link>
         <button
           className="btn-secondary"

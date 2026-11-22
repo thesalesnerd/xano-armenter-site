@@ -15,6 +15,7 @@ import Collections from './pages/Collections';
 import CollectionDetail from './pages/CollectionDetail';
 import Reports from './pages/Reports';
 import ReportPrint from './pages/ReportPrint';
+import QrLabels from './pages/QrLabels';
 import Import from './pages/Import';
 import Settings from './pages/Settings';
 import PublicProfile from './pages/PublicProfile';
@@ -54,6 +55,7 @@ createRoot(document.getElementById('root')!).render(
               <Route path="collections/:collectionId" element={<CollectionDetail />} />
               <Route path="reports" element={<Reports />} />
               <Route path="reports/print" element={<ReportPrint />} />
+              <Route path="reports/labels" element={<QrLabels />} />
               <Route path="import" element={<Import />} />
               <Route path="settings" element={<Settings />} />
             </Route>
