@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import type { Artwork } from "../data";
-import { yearLabel } from "../data";
+import { priceLabel, yearLabel } from "../data";
 import { useI18n } from "../i18n";
 import { ArrowIcon } from "./ArrowIcon";
 import { RoomView } from "./RoomView";
 
 /** Full-screen view of one work. `base` is the list it was opened from, e.g. "/work". */
 export function Lightbox({ works, index, base }: { works: Artwork[]; index: number; base: string }) {
-  const { t, to, medium } = useI18n();
+  const { t, to, medium, lang } = useI18n();
   const navigate = useNavigate();
   const { search } = useLocation();
   const [room, setRoom] = useState(false);
@@ -51,6 +51,10 @@ export function Lightbox({ works, index, base }: { works: Artwork[]; index: numb
           <h2>{work.title}</h2>
           <p>{[medium(work.medium), yearLabel(work, t.lightbox.circa)].filter(Boolean).join(", ")}</p>
           {work.dims && <p>{work.dims}</p>}
+          {work.series.length > 0 && <p>{work.series.join(", ")}</p>}
+          {(work.sold || work.price !== null) && (
+            <p className="lightbox-price">{work.sold ? t.lightbox.sold : priceLabel(work, lang === "es" ? "es-ES" : "en-US")}</p>
+          )}
           <div className="lightbox-actions">
             <button type="button" className="text-link" onClick={() => setRoom(true)}>
               <span>{t.lightbox.room}</span>

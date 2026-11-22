@@ -59,6 +59,7 @@ const en = {
     room: "Imagine it in your home",
     enquire: "Enquire about this work",
     circa: "c.",
+    sold: "Sold",
   },
   room: {
     title: "Imagine it in your home",
@@ -182,6 +183,7 @@ const es: typeof en = {
     room: "Imagínala en tu casa",
     enquire: "Consultar por esta obra",
     circa: "h.",
+    sold: "Vendida",
   },
   room: {
     title: "Imagínala en tu casa",

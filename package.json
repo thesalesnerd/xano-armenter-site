@@ -4,8 +4,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit && vite build && cp dist/index.html dist/404.html",
+    "build": "npm run catalogue; tsc --noEmit && vite build && cp dist/index.html dist/404.html",
     "preview": "vite preview",
+    "catalogue": "node scripts/snapshot-catalogue.mjs || echo 'Catalogue snapshot skipped: building with the committed src/data/artworks.json'",
+    "test:catalogue": "node --test scripts/snapshot-catalogue.test.mjs",
     "data": "python3 scripts/build-data.py"
   },
   "dependencies": {
