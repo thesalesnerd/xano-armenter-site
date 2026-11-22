@@ -31,7 +31,7 @@ Known limit: a work added in Artfolio after the last build gets the generic prev
 `patches/artfolio-app/0001-qr-codes-and-labels.patch` applies to `artfolio-app` with `git am`. It needs `npm install`, because it adds the `qrcode` dependency.
 - **Piece page → "QR code" panel:** a preview, the permanent link, and **PNG** (1200 px) and **SVG** downloads, plus a "Print label" shortcut. It warns when the piece is private.
 - **Reports → QR labels** (`/a/<artist>/reports/labels`): choose works (search, select all or clear; public works are preselected), a label size (38×21, 50×30, 63.5×38 or 99×38 mm, or custom), A4 or Letter, the gap, cut lines, and what to print (title, inventory #, artist, year · medium · size, link text). It prints at real millimetres.
-- Codes use the artist's **Website** from Settings. **Mike: set Website to `https://xanoarmenter.com` in Artfolio → Settings.** Until then, the label page has a field to type it in, and the piece panel asks for it.
+- Codes use the artist's **Website** from Settings. It was set to `https://xanoarmenter.com` on 2026-11-22, with Mike's OK. It was the only field changed; no piece rows were touched.
 - No database change was needed: no migration, no RLS change, no catalogue rows touched.
 
 ## Tests
