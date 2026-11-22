@@ -360,7 +360,7 @@ works shown on your website are listed".
 
 ## Phase 3: what was built
 
-> **In progress.** This table is the plan; it is updated when the build and the end-to-end test are done.
+Built and tested end to end on 2026-11-22 (Playwright, against a preview deploy of the site and the live database). The admin part is a patch for the Artfolio parity session to apply; the site part merges with the backend session's next production deploy.
 
 See [`docs/xano-website-stories-merge.md`](xano-website-stories-merge.md) for
 the merge notes, the test run and what each session needs to do.
@@ -369,9 +369,17 @@ the merge notes, the test run and what each session needs to do.
 |---|---|
 | 3 Featured works | Picked and ordered in Website → Home page; site reads them; hidden works fall back. |
 | 4 Hero and practice pictures | Same. |
-| 5 Draft, preview, publish, history | Autosaved draft, live preview of the real site (postMessage to the site in a frame), Publish, Discard, Earlier versions → restore. |
+| 5 Draft, preview, publish, history | Autosaved draft, live preview of the real site (postMessage to the site in a frame), Publish, Discard, Earlier versions → restore. The restore and discard rules are covered by the database tests; the end-to-end run tested draft, preview, publish and the history list. |
 | 6 Statement and bio | All About-page texts, EN/ES, with "Spanish not updated" notes and fallbacks. |
 | 7 Contact | Enquiry email (used by every enquiry link, the footer and the contact page), gallery line, Instagram. |
 | 8 CV | Solo exhibitions and commissions lists. |
 | 9 Phone | The Website section is built phone first (tabs for Edit and Preview, sticky publish bar). |
 | 15 Home intro | Headline and paragraph, EN/ES. |
+
+### Not built yet, in priority order
+
+1. Sold dots and "Price on request" (story 2). Small site change plus one site-wide switch.
+2. Upcoming exhibition banner (story 8).
+3. Reorder the Selected collection in Artfolio (story 10). This belongs to the parity session.
+4. Series pages (story 11), News and press (12), Sharing and SEO (14).
+5. Portrait upload (13), Catalan (16), Pages and menu (17), Look (18).
