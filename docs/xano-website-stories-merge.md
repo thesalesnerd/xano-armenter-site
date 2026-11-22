@@ -131,3 +131,18 @@ SHOTS=<dir> node artfolio/e2e/website.e2e.mjs
 - Environment note: previews are protected and `vercel.com` isn't reachable from
   the test sandbox, so the test takes the preview's `_vercel_jwt` cookie
   (`SITE_JWT`) from a share link instead of following the share redirect.
+
+## 5. Deployed to production (2026-11-22, at Mike's request)
+
+- **Website** (`xanoarmenter.com`): deployed from this branch (`3260039`),
+  which is what was in production (`a0f0596`) plus this work. It does **not**
+  include `claude/artfolio-backend`'s later QR merge (`7481c3b`); the backend
+  session ships that as before and should merge this branch when it does.
+  Nothing is published yet, so visitors see the site unchanged.
+- **Artfolio** (`artfolio-sandy.vercel.app`): built from `claude/artfolio-parity`
+  at `e5ce02f` (exactly what was live) plus the Website patch, deployed as
+  static files like the parity session's deploys. The patch rebased onto
+  parity is `artfolio/patches/0001-website-section-on-parity.patch` (one
+  trivial conflict in `src/main.tsx`: both sides add imports and routes).
+  **Parity session: apply that patch before your next production deploy, or the
+  Website section disappears again.**
