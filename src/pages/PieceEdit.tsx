@@ -10,6 +10,7 @@ import type { Piece, PieceEdition, PieceImage, PieceInsert, PieceStatus } from '
 import { ErrorNote, Spinner, StatusBadge } from '../components/ui';
 import { useLocations } from '../lib/parity';
 import PieceExtras from '../components/PieceExtras';
+import PieceQr from '../components/PieceQr';
 
 type Form = {
   title: string; slug: string; inventory_number: string; kind: 'original' | 'edition'; year: string; year_circa: boolean; creation_date: string;
@@ -204,6 +205,7 @@ export default function PieceEdit() {
               </div>
             )}
           </Section>
+          {!isNew && data && <PieceQr artist={artist} piece={data} />}
         </div>
 
         <div className="space-y-6">
