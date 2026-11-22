@@ -5,6 +5,4 @@ dist
 serve.py
 *.pyc
 __pycache__/
-.vercel
 tests/out-*.png
-.vercel

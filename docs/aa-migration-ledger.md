@@ -240,3 +240,7 @@ The SQL is in [`tools/aa-audit/proposed-fixes.sql`](../tools/aa-audit/proposed-f
 5. **Confirm the AA plan and price** that keeps the Public Profile live, and choose the cancellation date (after steps 2–4 and the relabelling).
 6. **Confirm *Beach* stays hidden.** It has no new QR target; it is a photo of a work in a room at Hospital Clinic.
 7. **Confirm the live AA count is still 95.** The Inventory Report dates from 2026-04-16, and AA can't be checked from this environment. Anything added in AA since then would not be here.
+
+## 7. Update: permanent QR links (2026-11-22)
+
+The "optional hardening" in §4 is done: labels now encode `xanoarmenter.com/qr/<inventory #>`, which redirects server-side to the work's page. `docs/qr-labels.html` and `aa-qr-map.csv` (new `qr_url` column) use it. Details, the Artfolio label tools and the AA "moved" wording are in [`qr-permanent-links.md`](qr-permanent-links.md).
