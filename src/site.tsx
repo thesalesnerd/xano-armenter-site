@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, NavLink, Outlet, useLocation, useParams, useSearchParams } from "react-router";
-import { useCatalogue, yearLabel, type Artwork } from "./data";
-import { commissions, soloShows } from "./cv";
-import { CONTACT_EMAIL, useI18n } from "./i18n";
+import { DEFAULT_PICKS, useCatalogue, yearLabel, type Artwork } from "./data";
+import { useCv } from "./cv";
+import { isPreview, postToAdmin } from "./content";
+import { useContact, useI18n } from "./i18n";
 import { ArrowIcon } from "./components/ArrowIcon";
 import { Lightbox } from "./components/Lightbox";
 import { Mosaic } from "./components/Mosaic";
@@ -10,6 +11,7 @@ import { PortraitSplash } from "./components/PortraitSplash";
 
 export function SiteLayout() {
   const { t, to, lang, switchTo } = useI18n();
+  const contact = useContact();
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   const isHomePage = location.pathname === to("/");
@@ -24,6 +26,11 @@ export function SiteLayout() {
   useEffect(() => {
     document.documentElement.lang = lang;
   }, [lang]);
+
+  // In the Artfolio preview, tell the editor which page is showing.
+  useEffect(() => {
+    postToAdmin({ type: "navigated", path: location.pathname });
+  }, [location.pathname]);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -79,17 +86,23 @@ export function SiteLayout() {
                 {item.label}
               </Link>
             ))}
-            <a href="https://www.instagram.com/xano_armenter/" target="_blank" rel="noreferrer">
+            <a href={contact.instagram} target="_blank" rel="noreferrer">
               Instagram
             </a>
           </nav>
         </div>
         <div className="site-footer-bottom">
           <span>© {new Date().getFullYear()} Xano Armenter</span>
-          <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-          <span>{t.footer.represented}</span>
+          <a href={`mailto:${contact.email}`}>{contact.email}</a>
+          {t.footer.represented && <span>{t.footer.represented}</span>}
         </div>
       </footer>
+
+      {isPreview() && (
+        <div className="preview-ribbon" role="status">
+          {t.preview}
+        </div>
+      )}
 
       {menuOpen && (
         <div className="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation">
@@ -117,7 +130,7 @@ export function HomePage() {
   return (
     <>
       <section className="hero">
-        <img src={HERO.image} alt={t.home.heroAlt} />
+        <img src={HERO.image} alt={HERO.slug === DEFAULT_PICKS.hero ? t.home.heroAlt : `${HERO.title}, ${t.home.paintingBy}`} />
         <div className="hero-shade" />
         <div className="hero-copy">
           <h1>
@@ -292,6 +305,7 @@ export function ArchivePage() {
 
 export function AboutPage() {
   const { t, to } = useI18n();
+  const { soloShows, commissions } = useCv();
   return (
     <>
       <section className="interlude" aria-label={t.about.closingEyebrow}>
@@ -357,7 +371,9 @@ export function AboutPage() {
               [t.about.solo, soloShows],
               [t.about.commissions, commissions],
             ] as const
-          ).map(([title, rows]) => (
+          )
+            .filter(([, rows]) => rows.length > 0)
+            .map(([title, rows]) => (
             <div key={title}>
               <h3>{title}</h3>
               <ul>
@@ -369,7 +385,7 @@ export function AboutPage() {
                 ))}
               </ul>
             </div>
-          ))}
+            ))}
         </div>
       </section>
 
@@ -380,15 +396,16 @@ export function AboutPage() {
 
 export function ContactPage() {
   const { t, to, medium } = useI18n();
+  const { email } = useContact();
   const { bySlug } = useCatalogue();
   const [params] = useSearchParams();
   const work = bySlug(params.get("work") ?? undefined);
   const label = work ? `${work.title}${work.year ? ` (${work.year})` : ""}` : "";
   const mailto = work
-    ? `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(t.contact.subjectWork(label))}&body=${encodeURIComponent(
+    ? `mailto:${email}?subject=${encodeURIComponent(t.contact.subjectWork(label))}&body=${encodeURIComponent(
         t.contact.bodyWork(label, `${window.location.origin}${to("/archive")}/${work.slug}`),
       )}`
-    : `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(t.contact.subject)}`;
+    : `mailto:${email}?subject=${encodeURIComponent(t.contact.subject)}`;
 
   return (
     <>
@@ -406,7 +423,7 @@ export function ContactPage() {
           </div>
         )}
         <a className="contact-email" href={mailto}>
-          {work ? t.contact.writeAbout : CONTACT_EMAIL}
+          {work ? t.contact.writeAbout : email}
           <ArrowIcon />
         </a>
       </section>

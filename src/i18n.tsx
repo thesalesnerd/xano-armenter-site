@@ -1,9 +1,15 @@
+import { useMemo } from "react";
 import { useLocation } from "react-router";
+import { instagramUrl, pick, useSiteContent, type SiteContent } from "./content";
 
 export type Lang = "en" | "es";
 
-/** Where enquiries go. Temporary address until the studio address is confirmed. */
+/**
+ * Where enquiries go unless Xano sets an address in Artfolio → Website → Contact.
+ * Temporary address until the studio address is confirmed.
+ */
 export const CONTACT_EMAIL = "mike@thesalesnerd.com";
+export const INSTAGRAM_URL = "https://www.instagram.com/xano_armenter/";
 
 const en = {
   nav: { work: "Selected work", archive: "Archive", about: "About", contact: "Contact" },
@@ -11,6 +17,7 @@ const en = {
   footer: { independent: "Barcelona", represented: "Represented by KBH Fine Arts Gallery" },
   home: {
     heroAlt: "Wave, a painting of a breaking wave by Xano Armenter",
+    paintingBy: "a painting by Xano Armenter",
     explore: "Explore the work",
     eyebrow: "Painting since 1975",
     intro: "Five decades of painting between chaos and structure, spontaneity and precision.",
@@ -125,6 +132,7 @@ const en = {
       { h: "Studio visits", p: "Introduce yourself and suggest a few possible dates for a visit." },
     ],
   },
+  preview: "Preview: these changes are not published yet",
   notFound: { eyebrow: "404 — Page not found", title: "This canvas is empty.", home: "Return home" },
   medium: {} as Record<string, string>,
 };
@@ -135,6 +143,7 @@ const es: typeof en = {
   footer: { independent: "Barcelona", represented: "Representado por KBH Fine Arts Gallery" },
   home: {
     heroAlt: "Wave, pintura de una ola rompiendo, de Xano Armenter",
+    paintingBy: "pintura de Xano Armenter",
     explore: "Explorar la obra",
     eyebrow: "Pintura desde 1975",
     intro: "Cinco décadas de pintura entre el caos y la estructura, la espontaneidad y la precisión.",
@@ -249,6 +258,7 @@ const es: typeof en = {
       { h: "Visitas al estudio", p: "Preséntate y propón algunas fechas posibles para la visita." },
     ],
   },
+  preview: "Vista previa: estos cambios aún no están publicados",
   notFound: { eyebrow: "404 — Página no encontrada", title: "Este lienzo está vacío.", home: "Volver al inicio" },
   medium: {
     "Acrylic on canvas": "Acrílico sobre lienzo",
@@ -261,6 +271,58 @@ const es: typeof en = {
 };
 
 const strings = { en, es };
+type Strings = typeof en;
+
+/** The site's own text with what Xano set in Artfolio laid over it. Empty values keep the site's text. */
+function withContent(base: Strings, c: SiteContent, lang: Lang): Strings {
+  const p = (v: Parameters<typeof pick>[0], fallback: string) => pick(v, lang, fallback);
+  const represented = c.contact?.represented;
+  return {
+    ...base,
+    home: {
+      ...base.home,
+      intro: p(c.home?.intro, base.home.intro),
+      introDetail: p(c.home?.introDetail, base.home.introDetail),
+    },
+    about: {
+      ...base.about,
+      quote: p(c.about?.quote, base.about.quote),
+      title: p(c.about?.title, base.about.title),
+      p1: p(c.about?.p1, base.about.p1),
+      p2: p(c.about?.p2, base.about.p2),
+      today: p(c.about?.today, base.about.today),
+      closing: p(c.about?.statement, base.about.closing),
+    },
+    footer: {
+      ...base.footer,
+      // An emptied gallery line hides it; a missing one keeps the site's text.
+      represented: represented && typeof represented[lang] === "string" ? represented[lang]!.trim() : base.footer.represented,
+    },
+  };
+}
+
+/** The site's built-in text, sent to Artfolio so its editor starts from what the site says today. */
+export function builtInText() {
+  const both = <K extends keyof Strings, F extends keyof Strings[K]>(k: K, f: F) => ({ en: en[k][f] as string, es: es[k][f] as string });
+  return {
+    home: { intro: both("home", "intro"), introDetail: both("home", "introDetail") },
+    about: {
+      quote: both("about", "quote"),
+      title: both("about", "title"),
+      p1: both("about", "p1"),
+      p2: both("about", "p2"),
+      today: both("about", "today"),
+      statement: both("about", "closing"),
+    },
+    contact: { email: CONTACT_EMAIL, represented: both("footer", "represented"), instagram: INSTAGRAM_URL },
+  };
+}
+
+/** Where enquiries go and the social link, as set in Artfolio, or the site's defaults. */
+export function useContact() {
+  const c = useSiteContent().contact;
+  return { email: c?.email ?? CONTACT_EMAIL, instagram: instagramUrl(c?.instagram) ?? INSTAGRAM_URL };
+}
 
 export function langFromPath(pathname: string): Lang {
   return pathname === "/es" || pathname.startsWith("/es/") ? "es" : "en";
@@ -270,10 +332,12 @@ export function langFromPath(pathname: string): Lang {
 export function useI18n() {
   const { pathname, search } = useLocation();
   const lang = langFromPath(pathname);
+  const content = useSiteContent();
+  const t = useMemo(() => withContent(strings[lang], content, lang), [lang, content]);
   const bare = lang === "es" ? pathname.slice(3) || "/" : pathname;
   return {
     lang,
-    t: strings[lang],
+    t,
     /** Prefix an app path ("/work") for the current language. */
     to: (path: string) => (lang === "es" ? `/es${path === "/" ? "" : path}` : path),
     /** The current page in the other language. */

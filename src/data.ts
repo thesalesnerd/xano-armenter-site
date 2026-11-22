@@ -1,5 +1,6 @@
-import { useSyncExternalStore } from "react";
+import { useMemo, useSyncExternalStore } from "react";
 import raw from "./data/artworks.json";
+import { useSiteContent, type SiteContent } from "./content";
 
 export type Artwork = {
   slug: string;
@@ -25,33 +26,52 @@ export type Artwork = {
   series: string[];
 };
 
-export type Catalogue = {
+type Works = {
   /** Every public work, newest first. */
   archive: Artwork[];
   /** The "Selected" collection, in its order. */
   selected: Artwork[];
   bySlug: (slug: string | undefined) => Artwork | undefined;
+};
+
+export type Catalogue = Works & {
   HERO: Artwork;
   FEATURED: Artwork[];
   PRACTICE: Artwork;
 };
 
-function build(works: Artwork[]): Catalogue {
+/** The home-page works when Xano has not chosen any in Artfolio → Website. */
+export const DEFAULT_PICKS = {
+  hero: "wave-xano-armenter",
+  featured: ["ultramar-4-underwater-4", "agora-xano-armenter", "pampagulles"],
+  practice: "la-cova-dels-colors-retina-2",
+};
+
+function build(works: Artwork[]): Works {
   const archive = works.slice().sort((a, b) => (b.year ?? 0) - (a.year ?? 0) || a.title.localeCompare(b.title));
   const selected = archive.filter((a) => a.selected !== null).sort((a, b) => a.selected! - b.selected!);
   const bySlug = (slug: string | undefined) => archive.find((a) => a.slug === slug);
-  // Hand-picked works for the home page. If one is renamed or made private in
-  // Artfolio, fall back to the Selected order instead of breaking.
+  return { archive, selected, bySlug };
+}
+
+/**
+ * The home-page works: Xano's choice in Artfolio, else the built-in one. If a
+ * chosen work is renamed or made private, the slot falls back to the built-in
+ * work, then to the Selected order, and never repeats a work already shown.
+ */
+function withPicks({ archive, selected, bySlug }: Works, content: SiteContent): Catalogue {
   const pool = selected.length ? selected : archive;
-  const pick = (slug: string, i: number) => bySlug(slug) ?? pool[i % pool.length];
-  return {
-    archive,
-    selected,
-    bySlug,
-    HERO: pick("wave-xano-armenter", 0),
-    FEATURED: ["ultramar-4-underwater-4", "agora-xano-armenter", "pampagulles"].map((s, i) => pick(s, i + 1)),
-    PRACTICE: pick("la-cova-dels-colors-retina-2", 4),
+  const used = new Set<string>();
+  const take = (wanted: (string | undefined)[], i: number) => {
+    const w = wanted.map((s) => bySlug(s)).find((a) => a && !used.has(a.slug)) ?? pool.find((a, j) => j >= i && !used.has(a.slug)) ?? pool[i % pool.length];
+    used.add(w.slug);
+    return w;
   };
+  const home = content.home ?? {};
+  const HERO = take([home.hero, DEFAULT_PICKS.hero], 0);
+  const FEATURED = DEFAULT_PICKS.featured.map((s, i) => take([home.featured?.[i], s], i + 1));
+  const PRACTICE = take([home.practice, DEFAULT_PICKS.practice], 4);
+  return { archive, selected, bySlug, HERO, FEATURED, PRACTICE };
 }
 
 /** A response is used only if every work has what the pages need to draw it. */
@@ -105,7 +125,9 @@ const subscribe = (l: () => void) => {
 };
 
 export function useCatalogue(): Catalogue {
-  return useSyncExternalStore(subscribe, () => current);
+  const works = useSyncExternalStore(subscribe, () => current);
+  const content = useSiteContent();
+  return useMemo(() => withPicks(works, content), [works, content]);
 }
 
 export const yearLabel = (a: Artwork, circa: string) => (a.year ? `${a.circa ? circa + " " : ""}${a.year}` : "");

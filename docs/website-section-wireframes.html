@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Website section wireframes</title>
+<style>
+  :root { --ink:#1c1917; --mid:#78716c; --line:#d6d3d1; --soft:#f5f5f4; --bg:#fafaf9; --accent:#1c1917; --warn:#b45309; --ok:#15803d; }
+  * { box-sizing: border-box; }
+  body { margin:0; font:14px/1.45 system-ui, -apple-system, Segoe UI, sans-serif; color:var(--ink); background:var(--bg); }
+  .page { max-width:1200px; margin:0 auto; padding:32px 16px 80px; }
+  h1 { font-size:24px; margin:0 0 4px; } h2 { font-size:18px; margin:48px 0 4px; } .lede { color:var(--mid); margin:0 0 16px; max-width:70ch; }
+  .note { color:var(--mid); font-size:13px; max-width:70ch; }
+  .screens { display:flex; gap:24px; flex-wrap:wrap; align-items:flex-start; }
+  .desk { flex:1 1 720px; min-width:0; border:1px solid var(--line); border-radius:10px; background:#fff; overflow:hidden; }
+  .phone { flex:0 0 300px; width:300px; border:8px solid #292524; border-radius:28px; background:#fff; overflow:hidden; height:600px; display:flex; flex-direction:column; }
+  .bar { display:flex; gap:14px; padding:10px 14px; border-bottom:1px solid var(--line); font-size:13px; color:var(--mid); overflow:hidden; white-space:nowrap; }
+  .bar b { color:var(--ink); }
+  .head { display:flex; justify-content:space-between; align-items:center; padding:14px; gap:8px; flex-wrap:wrap; }
+  .head h3 { margin:0; font-size:17px; }
+  .status { font-size:12px; padding:3px 8px; border-radius:99px; background:#fef3c7; color:var(--warn); }
+  .status.ok { background:#dcfce7; color:var(--ok); }
+  .tabs { display:flex; gap:6px; padding:0 14px 10px; overflow:auto; }
+  .tab { padding:6px 12px; border-radius:99px; border:1px solid var(--line); font-size:13px; white-space:nowrap; }
+  .tab.on { background:var(--ink); color:#fff; border-color:var(--ink); }
+  .split { display:grid; grid-template-columns: 340px 1fr; border-top:1px solid var(--line); min-height:430px; }
+  .controls { padding:14px; border-right:1px solid var(--line); display:flex; flex-direction:column; gap:14px; }
+  .preview { background:var(--soft); padding:14px; display:flex; flex-direction:column; gap:8px; }
+  .ptools { display:flex; justify-content:space-between; font-size:12px; color:var(--mid); }
+  .seg { display:inline-flex; border:1px solid var(--line); border-radius:6px; overflow:hidden; } .seg span { padding:2px 8px; } .seg .on { background:var(--ink); color:#fff; }
+  .site { flex:1; background:#fff; border:1px solid var(--line); border-radius:6px; overflow:hidden; display:flex; flex-direction:column; }
+  .site .hero { height:150px; background:linear-gradient(135deg,#3b6e8f,#9cc3d5 60%,#e8d9b5); position:relative; }
+  .site .hero span { position:absolute; left:16px; bottom:12px; color:#fff; font:italic 28px Georgia, serif; }
+  .site .row { display:flex; gap:8px; padding:12px; } .site .row div { flex:1; height:70px; background:#e7e5e4; border-radius:2px; }
+  .site p { margin:0 12px 12px; height:8px; background:#e7e5e4; border-radius:4px; } .site p.short { width:60%; }
+  .ribbon { background:#fde68a; color:#78350f; font-size:11px; text-align:center; padding:3px; }
+  .label { font-size:12px; font-weight:600; color:var(--ink); margin-bottom:6px; display:block; }
+  .hint { font-size:12px; color:var(--mid); }
+  .slot { display:flex; gap:10px; align-items:center; padding:8px; border:1px solid var(--line); border-radius:8px; }
+  .thumb { width:52px; height:52px; border-radius:4px; background:linear-gradient(135deg,#a8a29e,#e7e5e4); flex:none; }
+  .thumb.big { width:96px; height:64px; }
+  .slot .t { flex:1; min-width:0; } .slot .t small { color:var(--mid); display:block; }
+  .btn { display:inline-block; padding:6px 10px; border-radius:6px; border:1px solid var(--line); font-size:12px; background:#fff; white-space:nowrap; }
+  .btn.primary { background:var(--ink); color:#fff; border-color:var(--ink); }
+  .btn.ghost { border-color:transparent; color:var(--mid); }
+  .field { border:1px solid var(--line); border-radius:6px; padding:8px; min-height:34px; color:#57534e; font-size:13px; background:#fff; }
+  .field.tall { min-height:72px; }
+  .langs { display:grid; grid-template-columns:1fr 1fr; gap:8px; } .langs .k { font-size:11px; color:var(--mid); margin-bottom:3px; }
+  .warn { font-size:12px; color:var(--warn); }
+  .foot { display:flex; justify-content:space-between; align-items:center; gap:8px; padding:12px 14px; border-top:1px solid var(--line); background:#fff; font-size:12px; color:var(--mid); flex-wrap:wrap; }
+  .foot .btns { display:flex; gap:8px; }
+  .phone .body { flex:1; overflow:hidden; padding:12px; display:flex; flex-direction:column; gap:12px; }
+  .phone .foot { padding:10px 12px; } .phone .foot .btn { padding:10px 14px; font-size:13px; }
+  .phone .seg { width:100%; } .phone .seg span { flex:1; text-align:center; padding:6px; }
+  .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; } .grid3 .thumb { width:auto; height:80px; position:relative; }
+  .grid3 .thumb.on { outline:3px solid var(--ink); outline-offset:-3px; }
+  .cv { display:grid; grid-template-columns:62px 1fr auto; gap:6px; align-items:center; }
+  .hist { display:flex; justify-content:space-between; align-items:center; padding:10px; border:1px solid var(--line); border-radius:8px; gap:8px; }
+  .hist small { color:var(--mid); display:block; }
+  @media (max-width: 800px) { .split { grid-template-columns:1fr; } .controls { border-right:0; border-bottom:1px solid var(--line); } }
+</style>
+</head>
+<body>
+<div class="page">
+  <h1>Artfolio → Website</h1>
+  <p class="lede">Wireframes for the Website section of Artfolio. Each tab answers one question Xano asks himself and maps onto stories in <code>xano-website-user-stories.md</code>. The preview on the right is the real website in a frame, showing the draft.</p>
+
+  <h2>1. Home page (stories 3, 4, 15)</h2>
+  <p class="note">The three slots show pictures, not names. "Change" opens the work picker (screen 6). Move up and down instead of drag, so it works the same on a phone.</p>
+  <div class="screens">
+    <div class="desk">
+      <div class="bar"><span>Pieces</span><span>Collections</span><span>Reports</span><span>Import</span><b>Website</b><span>Settings</span></div>
+      <div class="head"><h3>Your website</h3><span class="status">● Changes not published yet</span></div>
+      <div class="tabs"><span class="tab on">Home page</span><span class="tab">About</span><span class="tab">CV</span><span class="tab">Contact</span><span class="tab">Earlier versions</span></div>
+      <div class="split">
+        <div class="controls">
+          <div><span class="label">Big picture at the top</span>
+            <div class="slot"><div class="thumb big"></div><div class="t">Wave<small>2019 · Acrylic on canvas</small></div><span class="btn">Change</span></div>
+            <div class="hint" style="margin-top:4px">Fills the whole screen, so the edges may be cut. Check the Phone view.</div></div>
+          <div><span class="label">Three works under it</span>
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <div class="slot"><b>1</b><div class="thumb"></div><div class="t">Ultramar 4<small>2021</small></div><span class="btn ghost">↑</span><span class="btn ghost">↓</span><span class="btn">Change</span></div>
+              <div class="slot"><b>2</b><div class="thumb"></div><div class="t">Àgora<small>2018</small></div><span class="btn ghost">↑</span><span class="btn ghost">↓</span><span class="btn">Change</span></div>
+              <div class="slot"><b>3</b><div class="thumb"></div><div class="t">Pampagulles<small>2016</small></div><span class="btn ghost">↑</span><span class="btn ghost">↓</span><span class="btn">Change</span></div>
+            </div></div>
+          <div><span class="label">Introduction</span>
+            <div class="langs"><div><div class="k">English</div><div class="field tall">Five decades of painting between chaos and structure…</div></div><div><div class="k">Español</div><div class="field tall">Cinco décadas de pintura entre el caos…</div></div></div></div>
+        </div>
+        <div class="preview">
+          <div class="ptools"><span>Preview, only you can see it</span><span><span class="seg"><span class="on">Computer</span><span>Phone</span></span> <span class="seg"><span class="on">EN</span><span>ES</span></span></span></div>
+          <div class="site"><div class="ribbon">Preview of your unpublished changes</div><div class="hero"><span>Xano Armenter</span></div><p></p><p class="short"></p><div class="row"><div></div><div></div><div></div></div><p class="short"></p></div>
+        </div>
+      </div>
+      <div class="foot"><span>Saved as a draft · only you can see it</span><span class="btns"><span class="btn">Discard changes</span><span class="btn primary">Publish</span></span></div>
+    </div>
+    <div class="phone">
+      <div class="head" style="padding:12px 12px 0"><h3>Your website</h3><span class="status">● Not published</span></div>
+      <div class="body">
+        <div class="seg"><span class="on">Edit</span><span>Preview</span></div>
+        <div class="tabs" style="padding:0"><span class="tab on">Home page</span><span class="tab">About</span><span class="tab">CV</span><span class="tab">Contact</span></div>
+        <div><span class="label">Big picture at the top</span><div class="slot"><div class="thumb big"></div><div class="t">Wave<small>2019</small></div><span class="btn">Change</span></div></div>
+        <div><span class="label">Three works under it</span>
+          <div class="slot" style="margin-bottom:6px"><b>1</b><div class="thumb"></div><div class="t">Ultramar 4</div><span class="btn">Change</span></div>
+          <div class="slot"><b>2</b><div class="thumb"></div><div class="t">Àgora</div><span class="btn">Change</span></div></div>
+      </div>
+      <div class="foot"><span>Draft saved</span><span class="btns"><span class="btn primary">Publish</span></span></div>
+    </div>
+  </div>
+
+  <h2>2. About (story 6)</h2>
+  <p class="note">Every text starts from what the site says today. English and Spanish side by side, stacked on a phone. If one language changes and the other doesn't, a note says so; an empty box keeps today's text.</p>
+  <div class="screens">
+    <div class="desk">
+      <div class="head"><h3>Your website</h3><span class="status">● Changes not published yet</span></div>
+      <div class="tabs"><span class="tab">Home page</span><span class="tab on">About</span><span class="tab">CV</span><span class="tab">Contact</span><span class="tab">Earlier versions</span></div>
+      <div class="split">
+        <div class="controls">
+          <div><span class="label">Quote at the top</span><div class="langs"><div><div class="k">English</div><div class="field">“To me, painting is like a joyous visual chess problem.”</div></div><div><div class="k">Español</div><div class="field">«Para mí, pintar es como un alegre problema…»</div></div></div></div>
+          <div><span class="label">Bio, first paragraph</span><div class="langs"><div><div class="k">English</div><div class="field tall">My drive to capture and reinterpret visual impressions… (edited)</div></div><div><div class="k">Español</div><div class="field tall">Mi impulso por captar y reinterpretar…</div></div></div><div class="warn">Spanish not updated yet. The Spanish site keeps its current text.</div></div>
+          <div><span class="label">Artist statement</span><div class="langs"><div><div class="k">English</div><div class="field">“My work navigates between chaos and structure…”</div></div><div><div class="k">Español</div><div class="field">«Mi obra navega entre el caos y la estructura…»</div></div></div></div>
+        </div>
+        <div class="preview"><div class="ptools"><span>Preview · About page</span><span class="seg"><span class="on">EN</span><span>ES</span></span></div><div class="site"><div class="ribbon">Preview of your unpublished changes</div><p style="margin-top:30px;height:14px;width:80%"></p><p class="short" style="height:14px"></p><p></p><p></p><p class="short"></p></div></div>
+      </div>
+      <div class="foot"><span>Saved as a draft</span><span class="btns"><span class="btn">Discard changes</span><span class="btn primary">Publish</span></span></div>
+    </div>
+  </div>
+
+  <h2>3. CV (story 8)</h2>
+  <div class="screens">
+    <div class="desk">
+      <div class="head"><h3>Your website</h3><span class="status ok">● Everything is published</span></div>
+      <div class="tabs"><span class="tab">Home page</span><span class="tab">About</span><span class="tab on">CV</span><span class="tab">Contact</span><span class="tab">Earlier versions</span></div>
+      <div style="padding:14px;display:grid;grid-template-columns:1fr 1fr;gap:24px">
+        <div><span class="label">Solo exhibitions</span><div class="hint" style="margin-bottom:8px">Names stay in their original language on both sites.</div>
+          <div class="cv"><div class="field">2020</div><div class="field">American Paintings New York + Los Angeles · Centre Cultural Terrassa</div><span class="btn ghost">↑ ↓ ✕</span>
+          <div class="field">2019</div><div class="field">Seeing beneath the walls · Castell de Benedormiens, Girona</div><span class="btn ghost">↑ ↓ ✕</span></div>
+          <div style="margin-top:8px"><span class="btn">+ Add a line</span></div></div>
+        <div><span class="label">Commissions</span><div class="hint" style="margin-bottom:8px">&nbsp;</div>
+          <div class="cv"><div class="field">2022</div><div class="field">Suite of 60 paintings for Álvaro Palacios · Corullón</div><span class="btn ghost">↑ ↓ ✕</span></div>
+          <div style="margin-top:8px"><span class="btn">+ Add a line</span></div></div>
+      </div>
+      <div class="foot"><span>Everything is published</span><span class="btns"><span class="btn" style="opacity:.4">Discard changes</span><span class="btn primary" style="opacity:.4">Publish</span></span></div>
+    </div>
+  </div>
+
+  <h2>4. Contact (story 7)</h2>
+  <div class="screens">
+    <div class="phone">
+      <div class="head" style="padding:12px 12px 0"><h3>Your website</h3><span class="status">● Not published</span></div>
+      <div class="body">
+        <div class="seg"><span class="on">Edit</span><span>Preview</span></div>
+        <div class="tabs" style="padding:0"><span class="tab">About</span><span class="tab">CV</span><span class="tab on">Contact</span></div>
+        <div><span class="label">Email for enquiries</span><div class="field">studio@xanoarmenter.com</div><div class="hint">Every "Enquire" button on your site writes to this address.</div></div>
+        <div><span class="label">Gallery that represents you</span><div class="k hint">English</div><div class="field">Represented by KBH Fine Arts Gallery</div><div class="k hint" style="margin-top:4px">Español</div><div class="field">Representado por KBH Fine Arts Gallery</div><div class="hint">Leave empty to hide the line.</div></div>
+        <div><span class="label">Instagram</span><div class="field">@xano_armenter</div></div>
+      </div>
+      <div class="foot"><span>Draft saved</span><span class="btns"><span class="btn primary">Publish</span></span></div>
+    </div>
+    <div class="phone">
+      <div class="head" style="padding:12px 12px 0"><h3>Your website</h3><span class="status">● Not published</span></div>
+      <div class="body" style="padding:0 0 0 0">
+        <div style="padding:12px 12px 0"><div class="seg"><span>Edit</span><span class="on">Preview</span></div></div>
+        <div class="site" style="margin:0 12px;border-radius:6px"><div class="ribbon">Preview of your unpublished changes</div><p style="margin-top:20px;height:16px;width:70%"></p><p class="short"></p><p></p><div class="row"><div></div></div><p class="short"></p></div>
+      </div>
+      <div class="foot"><span>Draft saved</span><span class="btns"><span class="btn primary">Publish</span></span></div>
+    </div>
+    <div style="flex:1 1 260px" class="note"><p><b>Phone:</b> Edit and Preview are a switch, not side by side. Tabs scroll sideways. The publish bar stays at the bottom.</p><p>The email is checked before Publish is allowed. An Instagram handle or a full link both work.</p></div>
+  </div>
+
+  <h2>5. Earlier versions (story 5)</h2>
+  <div class="screens">
+    <div class="desk">
+      <div class="head"><h3>Your website</h3><span class="status ok">● Everything is published</span></div>
+      <div class="tabs"><span class="tab">Home page</span><span class="tab">About</span><span class="tab">CV</span><span class="tab">Contact</span><span class="tab on">Earlier versions</span></div>
+      <div style="padding:14px;display:flex;flex-direction:column;gap:8px;max-width:640px">
+        <div class="hint">Every time you publish, a copy is kept here. "Look at this version" puts it in the preview; publish it to bring it back.</div>
+        <div class="hist"><div>Today, 14:02 <b>· live now</b><small>Published by Xano</small></div><span class="btn" style="opacity:.4">Look at this version</span></div>
+        <div class="hist"><div>12 Nov, 09:40<small>Published by Xano</small></div><span class="btn">Look at this version</span></div>
+        <div class="hist"><div>3 Nov, 18:15<small>Published by Xano</small></div><span class="btn">Look at this version</span></div>
+      </div>
+    </div>
+  </div>
+
+  <h2>6. Work picker (stories 3, 4)</h2>
+  <div class="screens">
+    <div class="phone">
+      <div class="head" style="padding:12px"><h3>Choose a work</h3><span class="btn ghost">Close</span></div>
+      <div class="body" style="padding-top:0">
+        <div class="field">Search by title or year</div>
+        <div class="hint">Only works shown on your website are listed.</div>
+        <div class="grid3"><div class="thumb on"></div><div class="thumb"></div><div class="thumb"></div><div class="thumb"></div><div class="thumb"></div><div class="thumb"></div><div class="thumb"></div><div class="thumb"></div><div class="thumb"></div></div>
+      </div>
+    </div>
+    <div style="flex:1 1 260px" class="note"><p>Big thumbnails, the title under each (left out here), the current choice ticked. Tap once to choose and close.</p><p>If a chosen work is later hidden, its slot shows "Hidden from your website. The site shows the next Selected work instead." and a Change button.</p></div>
+  </div>
+</div>
+</body>
+</html>

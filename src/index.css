@@ -1902,3 +1902,21 @@ main {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Shown only inside the Artfolio preview frame. */
+.preview-ribbon {
+  position: fixed;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  z-index: 1000;
+  max-width: calc(100% - 32px);
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: #fde68a;
+  color: #78350f;
+  font: 500 13px/1.3 "DM Sans", system-ui, sans-serif;
+  text-align: center;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 0.15);
+  pointer-events: none;
+}
