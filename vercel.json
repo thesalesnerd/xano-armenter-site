@@ -2,11 +2,29 @@
   "framework": "vite",
   "outputDirectory": "dist",
   "redirects": [
-    { "source": "/admin", "destination": "https://artfolio-sandy.vercel.app/a/xano-armenter/pieces", "permanent": false },
-    { "source": "/admin/:path*", "destination": "https://artfolio-sandy.vercel.app/a/xano-armenter/:path*", "permanent": false }
+    {
+      "source": "/admin",
+      "destination": "https://artfolio-sandy.vercel.app/a/xano-armenter/pieces",
+      "permanent": false
+    },
+    {
+      "source": "/admin/:path*",
+      "destination": "https://artfolio-sandy.vercel.app/a/xano-armenter/:path*",
+      "permanent": false
+    }
   ],
   "rewrites": [
-    { "source": "/sitemap.xml", "destination": "/api/sitemap" },
-    { "source": "/((?!api/).*)", "destination": "/index.html" }
+    {
+      "source": "/sitemap.xml",
+      "destination": "/api/sitemap"
+    },
+    {
+      "source": "/qr/:id",
+      "destination": "/api/qr?id=:id"
+    },
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/index.html"
+    }
   ]
 }
